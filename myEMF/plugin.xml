@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated HearthStone -->
+      <package
+            uri="http://hearthstone/1.0"
+            class="erik.mcmaster.ca.hearthstone.hearthstone.HearthstonePackage"
+            genModel="model/HearthStone.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated HearthStone -->
+      <parser
+            type="hearthstone"
+            class="erik.mcmaster.ca.hearthstone.hearthstone.util.HearthstoneResourceFactoryImpl"/>
+   </extension>
+</plugin>

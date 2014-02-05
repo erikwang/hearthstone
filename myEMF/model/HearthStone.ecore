@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hearthstone" nsURI="http://hearthstone/1.0" nsPrefix="hearthstone">
+  <eClassifiers xsi:type="ecore:EClass" name="Card">
+    <eOperations name="PlayCard"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardName" upperBound="16"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardCost" upperBound="20"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardLife" upperBound="256"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardPower" upperBound="256"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardAbility" eType="#//Abilities"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardQuality" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Quality means:&#xD;&#xA;1 - normal&#xD;&#xA;2 - rare&#xD;&#xA;3 - epic&#xD;&#xA;4 - legedary"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardNumberLimit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="wildcards" value=""/>
+        <details key="name" value=""/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardRace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Race means:&#xD;&#xA;1 - Normal minion&#xD;&#xA;2 - Beast&#xD;&#xA;3 - Pirate&#xD;&#xA;4 - Spell&#xD;&#xA;5 - Weapon"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardStates" upperBound="5"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="States means the card is:&#xD;&#xA;In deck - 1&#xD;&#xA;In hand - 2&#xD;&#xA;Sleep -10&#xD;&#xA;Active - 11&#xD;&#xA;Destory - 99"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Deck">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeckID" upperBound="65535"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeckName" upperBound="16"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DeckHasCards" upperBound="9"
+        eType="#//Card" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeckCards" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Ability">
+    <eOperations name="Charge"/>
+    <eOperations name="IncreaseAttribute"/>
+    <eOperations name="ReturnToHand"/>
+    <eOperations name="GiveShield"/>
+    <eOperations name="Summon"/>
+    <eOperations name="DealDamage"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AbilityID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AbilityType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AbilityAffect" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CardHasAbility" upperBound="5"
+        eType="#//Card"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="Abilities" instanceClassName="erik.mcmaster.ca.hearthstone.Abilities"/>
+</ecore:EPackage>
