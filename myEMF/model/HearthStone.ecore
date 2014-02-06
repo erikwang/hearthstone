@@ -11,7 +11,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardPower" upperBound="256"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardAbility" eType="#//Abilities"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardQuality" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Quality means:&#xD;&#xA;1 - normal&#xD;&#xA;2 - rare&#xD;&#xA;3 - epic&#xD;&#xA;4 - legedary"/>
@@ -42,7 +41,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DeckHasCards" upperBound="9"
         eType="#//Card" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeckCards" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ability">
     <eOperations name="Charge"/>
@@ -58,4 +56,17 @@
         eType="#//Card"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Abilities" instanceClassName="erik.mcmaster.ca.hearthstone.Abilities"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="CardQuality">
+    <eLiterals name="Normal"/>
+    <eLiterals name="Rare" value="1"/>
+    <eLiterals name="Epic" value="2"/>
+    <eLiterals name="Legedary" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CardRace">
+    <eLiterals name="Normal"/>
+    <eLiterals name="Beast" value="1"/>
+    <eLiterals name="Pirate" value="2"/>
+    <eLiterals name="Skill" value="3"/>
+    <eLiterals name="Spell" value="4"/>
+  </eClassifiers>
 </ecore:EPackage>

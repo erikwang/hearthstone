@@ -4,15 +4,27 @@
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="7.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>HearthStone.ecore</foreignModel>
-  <genPackages prefix="Hearthstone" basePackage="erik.mcmaster.ca.hearthstone" resource="XML"
-      disposableProviderFactory="true" ecorePackage="HearthStone.ecore#/">
+  <genPackages prefix="Hearthstone" resource="XML" disposableProviderFactory="true"
+      ecorePackage="HearthStone.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="HearthStone.ecore#//CardQuality">
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardQuality/Normal"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardQuality/Rare"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardQuality/Epic"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardQuality/Legedary"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="HearthStone.ecore#//CardRace">
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardRace/Normal"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardRace/Beast"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardRace/Pirate"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardRace/Skill"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardRace/Spell"/>
+    </genEnums>
     <genDataTypes ecoreDataType="HearthStone.ecore#//Abilities"/>
     <genClasses ecoreClass="HearthStone.ecore#//Card">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardCost"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardLife"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardPower"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardAbility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardQuality"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardNumberLimit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardRace"/>

@@ -10,7 +10,7 @@
       <!-- @generated HearthStone -->
       <package
             uri="http://hearthstone/1.0"
-            class="erik.mcmaster.ca.hearthstone.hearthstone.HearthstonePackage"
+            class="hearthstone.HearthstonePackage"
             genModel="model/HearthStone.genmodel"/>
    </extension>
 
@@ -18,6 +18,6 @@
       <!-- @generated HearthStone -->
       <parser
             type="hearthstone"
-            class="erik.mcmaster.ca.hearthstone.hearthstone.util.HearthstoneResourceFactoryImpl"/>
+            class="hearthstone.util.HearthstoneResourceFactoryImpl"/>
    </extension>
 </plugin>
