@@ -3,7 +3,6 @@
 package hearthstone;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,6 +21,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hearthstone.Card#getCardNumberLimit <em>Card Number Limit</em>}</li>
  *   <li>{@link hearthstone.Card#getCardRace <em>Card Race</em>}</li>
  *   <li>{@link hearthstone.Card#getCardStates <em>Card States</em>}</li>
+ *   <li>{@link hearthstone.Card#getCardAbility <em>Card Ability</em>}</li>
+ *   <li>{@link hearthstone.Card#getCardAbilityList <em>Card Ability List</em>}</li>
+ *   <li>{@link hearthstone.Card#getCardClass <em>Card Class</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,68 +33,108 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Card extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Card Name</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Returns the value of the '<em><b>Card Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Card Name</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Card Name</em>' attribute list.
+	 * @return the value of the '<em>Card Name</em>' attribute.
+	 * @see #setCardName(String)
 	 * @see hearthstone.HearthstonePackage#getCard_CardName()
-	 * @model upper="16"
+	 * @model
 	 * @generated
 	 */
-	EList<String> getCardName();
+	String getCardName();
 
 	/**
-	 * Returns the value of the '<em><b>Card Cost</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Sets the value of the '{@link hearthstone.Card#getCardName <em>Card Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card Name</em>' attribute.
+	 * @see #getCardName()
+	 * @generated
+	 */
+	void setCardName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Card Cost</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Card Cost</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Card Cost</em>' attribute list.
+	 * @return the value of the '<em>Card Cost</em>' attribute.
+	 * @see #setCardCost(String)
 	 * @see hearthstone.HearthstonePackage#getCard_CardCost()
-	 * @model upper="20"
+	 * @model
 	 * @generated
 	 */
-	EList<String> getCardCost();
+	String getCardCost();
 
 	/**
-	 * Returns the value of the '<em><b>Card Life</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
+	 * Sets the value of the '{@link hearthstone.Card#getCardCost <em>Card Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card Cost</em>' attribute.
+	 * @see #getCardCost()
+	 * @generated
+	 */
+	void setCardCost(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Card Life</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Card Life</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Card Life</em>' attribute list.
+	 * @return the value of the '<em>Card Life</em>' attribute.
+	 * @see #setCardLife(int)
 	 * @see hearthstone.HearthstonePackage#getCard_CardLife()
-	 * @model upper="256"
+	 * @model
 	 * @generated
 	 */
-	EList<Integer> getCardLife();
+	int getCardLife();
 
 	/**
-	 * Returns the value of the '<em><b>Card Power</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
+	 * Sets the value of the '{@link hearthstone.Card#getCardLife <em>Card Life</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card Life</em>' attribute.
+	 * @see #getCardLife()
+	 * @generated
+	 */
+	void setCardLife(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Card Power</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Card Power</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Card Power</em>' attribute list.
+	 * @return the value of the '<em>Card Power</em>' attribute.
+	 * @see #setCardPower(int)
 	 * @see hearthstone.HearthstonePackage#getCard_CardPower()
-	 * @model upper="256"
+	 * @model
 	 * @generated
 	 */
-	EList<Integer> getCardPower();
+	int getCardPower();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Card#getCardPower <em>Card Power</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card Power</em>' attribute.
+	 * @see #getCardPower()
+	 * @generated
+	 */
+	void setCardPower(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Card Quality</b></em>' attribute.
@@ -106,12 +148,12 @@ public interface Card extends EObject {
 	 * 4 - legedary
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Card Quality</em>' attribute.
-	 * @see #setCardQuality(int)
+	 * @see #setCardQuality(String)
 	 * @see hearthstone.HearthstonePackage#getCard_CardQuality()
 	 * @model
 	 * @generated
 	 */
-	int getCardQuality();
+	String getCardQuality();
 
 	/**
 	 * Sets the value of the '{@link hearthstone.Card#getCardQuality <em>Card Quality</em>}' attribute.
@@ -121,7 +163,7 @@ public interface Card extends EObject {
 	 * @see #getCardQuality()
 	 * @generated
 	 */
-	void setCardQuality(int value);
+	void setCardQuality(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Card Number Limit</b></em>' attribute.
@@ -180,8 +222,7 @@ public interface Card extends EObject {
 	void setCardRace(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Card States</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
+	 * Returns the value of the '<em><b>Card States</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -192,12 +233,91 @@ public interface Card extends EObject {
 	 * Active - 11
 	 * Destory - 99
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Card States</em>' attribute list.
+	 * @return the value of the '<em>Card States</em>' attribute.
+	 * @see #setCardStates(int)
 	 * @see hearthstone.HearthstonePackage#getCard_CardStates()
-	 * @model upper="5"
+	 * @model
 	 * @generated
 	 */
-	EList<Integer> getCardStates();
+	int getCardStates();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Card#getCardStates <em>Card States</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card States</em>' attribute.
+	 * @see #getCardStates()
+	 * @generated
+	 */
+	void setCardStates(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Card Ability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Card Ability</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Card Ability</em>' attribute.
+	 * @see #setCardAbility(String)
+	 * @see hearthstone.HearthstonePackage#getCard_CardAbility()
+	 * @model
+	 * @generated
+	 */
+	String getCardAbility();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Card#getCardAbility <em>Card Ability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card Ability</em>' attribute.
+	 * @see #getCardAbility()
+	 * @generated
+	 */
+	void setCardAbility(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Card Ability List</b></em>' attribute list.
+	 * The list contents are of type {@link hearthstone.Ability}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Card Ability List</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Card Ability List</em>' attribute list.
+	 * @see hearthstone.HearthstonePackage#getCard_CardAbilityList()
+	 * @model dataType="hearthstone.Abilities" upper="3"
+	 * @generated
+	 */
+	EList<Ability> getCardAbilityList();
+
+	/**
+	 * Returns the value of the '<em><b>Card Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Card Class</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Card Class</em>' attribute.
+	 * @see #setCardClass(String)
+	 * @see hearthstone.HearthstonePackage#getCard_CardClass()
+	 * @model
+	 * @generated
+	 */
+	String getCardClass();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Card#getCardClass <em>Card Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card Class</em>' attribute.
+	 * @see #getCardClass()
+	 * @generated
+	 */
+	void setCardClass(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

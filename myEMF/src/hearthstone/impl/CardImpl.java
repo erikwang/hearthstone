@@ -2,22 +2,16 @@
  */
 package hearthstone.impl;
 
+import hearthstone.Ability;
 import hearthstone.Card;
 import hearthstone.HearthstonePackage;
-
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -35,6 +29,9 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link hearthstone.impl.CardImpl#getCardNumberLimit <em>Card Number Limit</em>}</li>
  *   <li>{@link hearthstone.impl.CardImpl#getCardRace <em>Card Race</em>}</li>
  *   <li>{@link hearthstone.impl.CardImpl#getCardStates <em>Card States</em>}</li>
+ *   <li>{@link hearthstone.impl.CardImpl#getCardAbility <em>Card Ability</em>}</li>
+ *   <li>{@link hearthstone.impl.CardImpl#getCardAbilityList <em>Card Ability List</em>}</li>
+ *   <li>{@link hearthstone.impl.CardImpl#getCardClass <em>Card Class</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,44 +39,84 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  */
 public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	/**
-	 * The cached value of the '{@link #getCardName() <em>Card Name</em>}' attribute list.
+	 * The default value of the '{@link #getCardName() <em>Card Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCardName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> cardName;
+	protected static final String CARD_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCardCost() <em>Card Cost</em>}' attribute list.
+	 * The cached value of the '{@link #getCardName() <em>Card Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cardName = CARD_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCardCost() <em>Card Cost</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCardCost()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> cardCost;
+	protected static final String CARD_COST_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getCardLife() <em>Card Life</em>}' attribute list.
+	 * The cached value of the '{@link #getCardCost() <em>Card Cost</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardCost()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cardCost = CARD_COST_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCardLife() <em>Card Life</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCardLife()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> cardLife;
+	protected static final int CARD_LIFE_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getCardPower() <em>Card Power</em>}' attribute list.
+	 * The cached value of the '{@link #getCardLife() <em>Card Life</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardLife()
+	 * @generated
+	 * @ordered
+	 */
+	protected int cardLife = CARD_LIFE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCardPower() <em>Card Power</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCardPower()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> cardPower;
+	protected static final int CARD_POWER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCardPower() <em>Card Power</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardPower()
+	 * @generated
+	 * @ordered
+	 */
+	protected int cardPower = CARD_POWER_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCardQuality() <em>Card Quality</em>}' attribute.
@@ -89,7 +126,7 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int CARD_QUALITY_EDEFAULT = 0;
+	protected static final String CARD_QUALITY_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getCardQuality() <em>Card Quality</em>}' attribute.
@@ -99,7 +136,7 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * @generated
 	 * @ordered
 	 */
-	protected int cardQuality = CARD_QUALITY_EDEFAULT;
+	protected String cardQuality = CARD_QUALITY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCardNumberLimit() <em>Card Number Limit</em>}' attribute.
@@ -142,14 +179,74 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	protected String cardRace = CARD_RACE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCardStates() <em>Card States</em>}' attribute list.
+	 * The default value of the '{@link #getCardStates() <em>Card States</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCardStates()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> cardStates;
+	protected static final int CARD_STATES_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCardStates() <em>Card States</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardStates()
+	 * @generated
+	 * @ordered
+	 */
+	protected int cardStates = CARD_STATES_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCardAbility() <em>Card Ability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardAbility()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CARD_ABILITY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCardAbility() <em>Card Ability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardAbility()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cardAbility = CARD_ABILITY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCardAbilityList() <em>Card Ability List</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardAbilityList()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Ability> cardAbilityList;
+
+	/**
+	 * The default value of the '{@link #getCardClass() <em>Card Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CARD_CLASS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCardClass() <em>Card Class</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCardClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cardClass = CARD_CLASS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,10 +272,7 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getCardName() {
-		if (cardName == null) {
-			cardName = new EDataTypeUniqueEList<String>(String.class, this, HearthstonePackage.CARD__CARD_NAME);
-		}
+	public String getCardName() {
 		return cardName;
 	}
 
@@ -187,10 +281,19 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getCardCost() {
-		if (cardCost == null) {
-			cardCost = new EDataTypeUniqueEList<String>(String.class, this, HearthstonePackage.CARD__CARD_COST);
-		}
+	public void setCardName(String newCardName) {
+		String oldCardName = cardName;
+		cardName = newCardName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.CARD__CARD_NAME, oldCardName, cardName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCardCost() {
 		return cardCost;
 	}
 
@@ -199,10 +302,19 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Integer> getCardLife() {
-		if (cardLife == null) {
-			cardLife = new EDataTypeUniqueEList<Integer>(Integer.class, this, HearthstonePackage.CARD__CARD_LIFE);
-		}
+	public void setCardCost(String newCardCost) {
+		String oldCardCost = cardCost;
+		cardCost = newCardCost;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.CARD__CARD_COST, oldCardCost, cardCost));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getCardLife() {
 		return cardLife;
 	}
 
@@ -211,10 +323,19 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Integer> getCardPower() {
-		if (cardPower == null) {
-			cardPower = new EDataTypeUniqueEList<Integer>(Integer.class, this, HearthstonePackage.CARD__CARD_POWER);
-		}
+	public void setCardLife(int newCardLife) {
+		int oldCardLife = cardLife;
+		cardLife = newCardLife;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.CARD__CARD_LIFE, oldCardLife, cardLife));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getCardPower() {
 		return cardPower;
 	}
 
@@ -223,7 +344,19 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getCardQuality() {
+	public void setCardPower(int newCardPower) {
+		int oldCardPower = cardPower;
+		cardPower = newCardPower;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.CARD__CARD_POWER, oldCardPower, cardPower));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCardQuality() {
 		return cardQuality;
 	}
 
@@ -232,8 +365,8 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCardQuality(int newCardQuality) {
-		int oldCardQuality = cardQuality;
+	public void setCardQuality(String newCardQuality) {
+		String oldCardQuality = cardQuality;
 		cardQuality = newCardQuality;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.CARD__CARD_QUALITY, oldCardQuality, cardQuality));
@@ -286,11 +419,74 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Integer> getCardStates() {
-		if (cardStates == null) {
-			cardStates = new EDataTypeUniqueEList<Integer>(Integer.class, this, HearthstonePackage.CARD__CARD_STATES);
-		}
+	public int getCardStates() {
 		return cardStates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCardStates(int newCardStates) {
+		int oldCardStates = cardStates;
+		cardStates = newCardStates;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.CARD__CARD_STATES, oldCardStates, cardStates));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCardAbility() {
+		return cardAbility;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCardAbility(String newCardAbility) {
+		String oldCardAbility = cardAbility;
+		cardAbility = newCardAbility;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.CARD__CARD_ABILITY, oldCardAbility, cardAbility));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Ability> getCardAbilityList() {
+		if (cardAbilityList == null) {
+			cardAbilityList = new EDataTypeUniqueEList<Ability>(Ability.class, this, HearthstonePackage.CARD__CARD_ABILITY_LIST);
+		}
+		return cardAbilityList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCardClass() {
+		return cardClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCardClass(String newCardClass) {
+		String oldCardClass = cardClass;
+		cardClass = newCardClass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.CARD__CARD_CLASS, oldCardClass, cardClass));
 	}
 
 	/**
@@ -328,6 +524,12 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 				return getCardRace();
 			case HearthstonePackage.CARD__CARD_STATES:
 				return getCardStates();
+			case HearthstonePackage.CARD__CARD_ABILITY:
+				return getCardAbility();
+			case HearthstonePackage.CARD__CARD_ABILITY_LIST:
+				return getCardAbilityList();
+			case HearthstonePackage.CARD__CARD_CLASS:
+				return getCardClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -342,23 +544,19 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case HearthstonePackage.CARD__CARD_NAME:
-				getCardName().clear();
-				getCardName().addAll((Collection<? extends String>)newValue);
+				setCardName((String)newValue);
 				return;
 			case HearthstonePackage.CARD__CARD_COST:
-				getCardCost().clear();
-				getCardCost().addAll((Collection<? extends String>)newValue);
+				setCardCost((String)newValue);
 				return;
 			case HearthstonePackage.CARD__CARD_LIFE:
-				getCardLife().clear();
-				getCardLife().addAll((Collection<? extends Integer>)newValue);
+				setCardLife((Integer)newValue);
 				return;
 			case HearthstonePackage.CARD__CARD_POWER:
-				getCardPower().clear();
-				getCardPower().addAll((Collection<? extends Integer>)newValue);
+				setCardPower((Integer)newValue);
 				return;
 			case HearthstonePackage.CARD__CARD_QUALITY:
-				setCardQuality((Integer)newValue);
+				setCardQuality((String)newValue);
 				return;
 			case HearthstonePackage.CARD__CARD_NUMBER_LIMIT:
 				setCardNumberLimit((Integer)newValue);
@@ -367,8 +565,17 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 				setCardRace((String)newValue);
 				return;
 			case HearthstonePackage.CARD__CARD_STATES:
-				getCardStates().clear();
-				getCardStates().addAll((Collection<? extends Integer>)newValue);
+				setCardStates((Integer)newValue);
+				return;
+			case HearthstonePackage.CARD__CARD_ABILITY:
+				setCardAbility((String)newValue);
+				return;
+			case HearthstonePackage.CARD__CARD_ABILITY_LIST:
+				getCardAbilityList().clear();
+				getCardAbilityList().addAll((Collection<? extends Ability>)newValue);
+				return;
+			case HearthstonePackage.CARD__CARD_CLASS:
+				setCardClass((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -383,16 +590,16 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case HearthstonePackage.CARD__CARD_NAME:
-				getCardName().clear();
+				setCardName(CARD_NAME_EDEFAULT);
 				return;
 			case HearthstonePackage.CARD__CARD_COST:
-				getCardCost().clear();
+				setCardCost(CARD_COST_EDEFAULT);
 				return;
 			case HearthstonePackage.CARD__CARD_LIFE:
-				getCardLife().clear();
+				setCardLife(CARD_LIFE_EDEFAULT);
 				return;
 			case HearthstonePackage.CARD__CARD_POWER:
-				getCardPower().clear();
+				setCardPower(CARD_POWER_EDEFAULT);
 				return;
 			case HearthstonePackage.CARD__CARD_QUALITY:
 				setCardQuality(CARD_QUALITY_EDEFAULT);
@@ -404,7 +611,16 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 				setCardRace(CARD_RACE_EDEFAULT);
 				return;
 			case HearthstonePackage.CARD__CARD_STATES:
-				getCardStates().clear();
+				setCardStates(CARD_STATES_EDEFAULT);
+				return;
+			case HearthstonePackage.CARD__CARD_ABILITY:
+				setCardAbility(CARD_ABILITY_EDEFAULT);
+				return;
+			case HearthstonePackage.CARD__CARD_ABILITY_LIST:
+				getCardAbilityList().clear();
+				return;
+			case HearthstonePackage.CARD__CARD_CLASS:
+				setCardClass(CARD_CLASS_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -419,21 +635,27 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case HearthstonePackage.CARD__CARD_NAME:
-				return cardName != null && !cardName.isEmpty();
+				return CARD_NAME_EDEFAULT == null ? cardName != null : !CARD_NAME_EDEFAULT.equals(cardName);
 			case HearthstonePackage.CARD__CARD_COST:
-				return cardCost != null && !cardCost.isEmpty();
+				return CARD_COST_EDEFAULT == null ? cardCost != null : !CARD_COST_EDEFAULT.equals(cardCost);
 			case HearthstonePackage.CARD__CARD_LIFE:
-				return cardLife != null && !cardLife.isEmpty();
+				return cardLife != CARD_LIFE_EDEFAULT;
 			case HearthstonePackage.CARD__CARD_POWER:
-				return cardPower != null && !cardPower.isEmpty();
+				return cardPower != CARD_POWER_EDEFAULT;
 			case HearthstonePackage.CARD__CARD_QUALITY:
-				return cardQuality != CARD_QUALITY_EDEFAULT;
+				return CARD_QUALITY_EDEFAULT == null ? cardQuality != null : !CARD_QUALITY_EDEFAULT.equals(cardQuality);
 			case HearthstonePackage.CARD__CARD_NUMBER_LIMIT:
 				return cardNumberLimit != CARD_NUMBER_LIMIT_EDEFAULT;
 			case HearthstonePackage.CARD__CARD_RACE:
 				return CARD_RACE_EDEFAULT == null ? cardRace != null : !CARD_RACE_EDEFAULT.equals(cardRace);
 			case HearthstonePackage.CARD__CARD_STATES:
-				return cardStates != null && !cardStates.isEmpty();
+				return cardStates != CARD_STATES_EDEFAULT;
+			case HearthstonePackage.CARD__CARD_ABILITY:
+				return CARD_ABILITY_EDEFAULT == null ? cardAbility != null : !CARD_ABILITY_EDEFAULT.equals(cardAbility);
+			case HearthstonePackage.CARD__CARD_ABILITY_LIST:
+				return cardAbilityList != null && !cardAbilityList.isEmpty();
+			case HearthstonePackage.CARD__CARD_CLASS:
+				return CARD_CLASS_EDEFAULT == null ? cardClass != null : !CARD_CLASS_EDEFAULT.equals(cardClass);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -479,6 +701,12 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 		result.append(cardRace);
 		result.append(", CardStates: ");
 		result.append(cardStates);
+		result.append(", CardAbility: ");
+		result.append(cardAbility);
+		result.append(", CardAbilityList: ");
+		result.append(cardAbilityList);
+		result.append(", CardClass: ");
+		result.append(cardClass);
 		result.append(')');
 		return result.toString();
 	}

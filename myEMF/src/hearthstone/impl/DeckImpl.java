@@ -5,19 +5,15 @@ package hearthstone.impl;
 import hearthstone.Card;
 import hearthstone.Deck;
 import hearthstone.HearthstonePackage;
-
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,24 +34,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	/**
-	 * The cached value of the '{@link #getDeckID() <em>Deck ID</em>}' attribute list.
+	 * The default value of the '{@link #getDeckID() <em>Deck ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDeckID()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Integer> deckID;
+	protected static final int DECK_ID_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getDeckName() <em>Deck Name</em>}' attribute list.
+	 * The cached value of the '{@link #getDeckID() <em>Deck ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeckID()
+	 * @generated
+	 * @ordered
+	 */
+	protected int deckID = DECK_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDeckName() <em>Deck Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDeckName()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> deckName;
+	protected static final String DECK_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDeckName() <em>Deck Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeckName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String deckName = DECK_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDeckHasCards() <em>Deck Has Cards</em>}' containment reference list.
@@ -91,10 +107,7 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Integer> getDeckID() {
-		if (deckID == null) {
-			deckID = new EDataTypeUniqueEList<Integer>(Integer.class, this, HearthstonePackage.DECK__DECK_ID);
-		}
+	public int getDeckID() {
 		return deckID;
 	}
 
@@ -103,11 +116,32 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<String> getDeckName() {
-		if (deckName == null) {
-			deckName = new EDataTypeUniqueEList<String>(String.class, this, HearthstonePackage.DECK__DECK_NAME);
-		}
+	public void setDeckID(int newDeckID) {
+		int oldDeckID = deckID;
+		deckID = newDeckID;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.DECK__DECK_ID, oldDeckID, deckID));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDeckName() {
 		return deckName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeckName(String newDeckName) {
+		String oldDeckName = deckName;
+		deckName = newDeckName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.DECK__DECK_NAME, oldDeckName, deckName));
 	}
 
 	/**
@@ -120,6 +154,17 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 			deckHasCards = new EObjectContainmentEList<Card>(Card.class, this, HearthstonePackage.DECK__DECK_HAS_CARDS);
 		}
 		return deckHasCards;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void Hello() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		//throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -164,12 +209,10 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case HearthstonePackage.DECK__DECK_ID:
-				getDeckID().clear();
-				getDeckID().addAll((Collection<? extends Integer>)newValue);
+				setDeckID((Integer)newValue);
 				return;
 			case HearthstonePackage.DECK__DECK_NAME:
-				getDeckName().clear();
-				getDeckName().addAll((Collection<? extends String>)newValue);
+				setDeckName((String)newValue);
 				return;
 			case HearthstonePackage.DECK__DECK_HAS_CARDS:
 				getDeckHasCards().clear();
@@ -188,10 +231,10 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case HearthstonePackage.DECK__DECK_ID:
-				getDeckID().clear();
+				setDeckID(DECK_ID_EDEFAULT);
 				return;
 			case HearthstonePackage.DECK__DECK_NAME:
-				getDeckName().clear();
+				setDeckName(DECK_NAME_EDEFAULT);
 				return;
 			case HearthstonePackage.DECK__DECK_HAS_CARDS:
 				getDeckHasCards().clear();
@@ -209,13 +252,28 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case HearthstonePackage.DECK__DECK_ID:
-				return deckID != null && !deckID.isEmpty();
+				return deckID != DECK_ID_EDEFAULT;
 			case HearthstonePackage.DECK__DECK_NAME:
-				return deckName != null && !deckName.isEmpty();
+				return DECK_NAME_EDEFAULT == null ? deckName != null : !DECK_NAME_EDEFAULT.equals(deckName);
 			case HearthstonePackage.DECK__DECK_HAS_CARDS:
 				return deckHasCards != null && !deckHasCards.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case HearthstonePackage.DECK___HELLO:
+				Hello();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

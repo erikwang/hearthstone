@@ -29,12 +29,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardNumberLimit"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardRace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardStates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardAbility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardAbilityList"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Card/PlayCard"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//Deck">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Deck/DeckID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Deck/DeckName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Deck/DeckHasCards"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//Deck/Hello"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//Ability">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Ability/AbilityID"/>

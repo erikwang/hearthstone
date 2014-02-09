@@ -20,4 +20,5 @@
             type="hearthstone"
             class="hearthstone.util.HearthstoneResourceFactoryImpl"/>
    </extension>
+
 </plugin>

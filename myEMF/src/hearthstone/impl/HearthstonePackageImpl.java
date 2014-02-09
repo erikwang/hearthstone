@@ -2,7 +2,7 @@
  */
 package hearthstone.impl;
 
-import erik.mcmaster.ca.hearthstone.Abilities;
+
 
 import hearthstone.Ability;
 import hearthstone.Card;
@@ -11,7 +11,6 @@ import hearthstone.CardRace;
 import hearthstone.Deck;
 import hearthstone.HearthstoneFactory;
 import hearthstone.HearthstonePackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -19,7 +18,6 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -63,6 +61,13 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * @generated
 	 */
 	private EEnum cardRaceEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum classEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,6 +223,33 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCard_CardAbility() {
+		return (EAttribute)cardEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCard_CardAbilityList() {
+		return (EAttribute)cardEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCard_CardClass() {
+		return (EAttribute)cardEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getCard__PlayCard() {
 		return cardEClass.getEOperations().get(0);
 	}
@@ -256,6 +288,15 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 */
 	public EReference getDeck_DeckHasCards() {
 		return (EReference)deckEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getDeck__Hello() {
+		return deckEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -380,6 +421,15 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getClass_() {
+		return classEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getAbilities() {
 		return abilitiesEDataType;
 	}
@@ -421,12 +471,16 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		createEAttribute(cardEClass, CARD__CARD_NUMBER_LIMIT);
 		createEAttribute(cardEClass, CARD__CARD_RACE);
 		createEAttribute(cardEClass, CARD__CARD_STATES);
+		createEAttribute(cardEClass, CARD__CARD_ABILITY);
+		createEAttribute(cardEClass, CARD__CARD_ABILITY_LIST);
+		createEAttribute(cardEClass, CARD__CARD_CLASS);
 		createEOperation(cardEClass, CARD___PLAY_CARD);
 
 		deckEClass = createEClass(DECK);
 		createEAttribute(deckEClass, DECK__DECK_ID);
 		createEAttribute(deckEClass, DECK__DECK_NAME);
 		createEReference(deckEClass, DECK__DECK_HAS_CARDS);
+		createEOperation(deckEClass, DECK___HELLO);
 
 		abilityEClass = createEClass(ABILITY);
 		createEAttribute(abilityEClass, ABILITY__ABILITY_ID);
@@ -443,6 +497,7 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		// Create enums
 		cardQualityEEnum = createEEnum(CARD_QUALITY);
 		cardRaceEEnum = createEEnum(CARD_RACE);
+		classEEnum = createEEnum(CLASS);
 
 		// Create data types
 		abilitiesEDataType = createEDataType(ABILITIES);
@@ -479,21 +534,26 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(cardEClass, Card.class, "Card", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCard_CardName(), ecorePackage.getEString(), "CardName", null, 0, 16, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCard_CardCost(), ecorePackage.getEString(), "CardCost", null, 0, 20, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCard_CardLife(), ecorePackage.getEInt(), "CardLife", null, 0, 256, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCard_CardPower(), ecorePackage.getEInt(), "CardPower", null, 0, 256, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCard_CardQuality(), ecorePackage.getEInt(), "CardQuality", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCard_CardName(), ecorePackage.getEString(), "CardName", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCard_CardCost(), ecorePackage.getEString(), "CardCost", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCard_CardLife(), ecorePackage.getEInt(), "CardLife", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCard_CardPower(), ecorePackage.getEInt(), "CardPower", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCard_CardQuality(), ecorePackage.getEString(), "CardQuality", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCard_CardNumberLimit(), ecorePackage.getEInt(), "CardNumberLimit", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCard_CardRace(), ecorePackage.getEString(), "CardRace", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCard_CardStates(), ecorePackage.getEInt(), "CardStates", null, 0, 5, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCard_CardStates(), ecorePackage.getEInt(), "CardStates", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCard_CardAbility(), ecorePackage.getEString(), "CardAbility", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCard_CardAbilityList(), this.getAbilities(), "CardAbilityList", null, 0, 3, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCard_CardClass(), ecorePackage.getEString(), "CardClass", null, 0, 1, Card.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getCard__PlayCard(), null, "PlayCard", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(deckEClass, Deck.class, "Deck", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDeck_DeckID(), ecorePackage.getEInt(), "DeckID", null, 0, 65535, Deck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDeck_DeckName(), ecorePackage.getEString(), "DeckName", null, 0, 16, Deck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeck_DeckID(), ecorePackage.getEInt(), "DeckID", null, 0, 1, Deck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeck_DeckName(), ecorePackage.getEString(), "DeckName", null, 0, 1, Deck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeck_DeckHasCards(), this.getCard(), null, "DeckHasCards", null, 0, 9, Deck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getDeck__Hello(), null, "Hello", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(abilityEClass, Ability.class, "Ability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbility_AbilityID(), ecorePackage.getEInt(), "AbilityID", null, 0, 1, Ability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -527,8 +587,19 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		addEEnumLiteral(cardRaceEEnum, CardRace.SKILL);
 		addEEnumLiteral(cardRaceEEnum, CardRace.SPELL);
 
+		initEEnum(classEEnum, hearthstone.Class.class, "Class");
+		addEEnumLiteral(classEEnum, hearthstone.Class.MAGE);
+		addEEnumLiteral(classEEnum, hearthstone.Class.PRIEST);
+		addEEnumLiteral(classEEnum, hearthstone.Class.PALADIN);
+		addEEnumLiteral(classEEnum, hearthstone.Class.WARLOCK);
+		addEEnumLiteral(classEEnum, hearthstone.Class.HUNTER);
+		addEEnumLiteral(classEEnum, hearthstone.Class.ROGUE);
+		addEEnumLiteral(classEEnum, hearthstone.Class.DRUID);
+		addEEnumLiteral(classEEnum, hearthstone.Class.WARRIOR);
+		addEEnumLiteral(classEEnum, hearthstone.Class.SHAMAN);
+
 		// Initialize data types
-		initEDataType(abilitiesEDataType, Abilities.class, "Abilities", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(abilitiesEDataType, Ability.class, "Abilities", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

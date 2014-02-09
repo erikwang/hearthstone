@@ -3,7 +3,6 @@
 package hearthstone;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,36 +25,56 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Deck extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Deck ID</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Integer}.
+	 * Returns the value of the '<em><b>Deck ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Deck ID</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Deck ID</em>' attribute list.
+	 * @return the value of the '<em>Deck ID</em>' attribute.
+	 * @see #setDeckID(int)
 	 * @see hearthstone.HearthstonePackage#getDeck_DeckID()
-	 * @model upper="65535"
+	 * @model
 	 * @generated
 	 */
-	EList<Integer> getDeckID();
+	int getDeckID();
 
 	/**
-	 * Returns the value of the '<em><b>Deck Name</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
+	 * Sets the value of the '{@link hearthstone.Deck#getDeckID <em>Deck ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deck ID</em>' attribute.
+	 * @see #getDeckID()
+	 * @generated
+	 */
+	void setDeckID(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Deck Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Deck Name</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Deck Name</em>' attribute list.
+	 * @return the value of the '<em>Deck Name</em>' attribute.
+	 * @see #setDeckName(String)
 	 * @see hearthstone.HearthstonePackage#getDeck_DeckName()
-	 * @model upper="16"
+	 * @model
 	 * @generated
 	 */
-	EList<String> getDeckName();
+	String getDeckName();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Deck#getDeckName <em>Deck Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deck Name</em>' attribute.
+	 * @see #getDeckName()
+	 * @generated
+	 */
+	void setDeckName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Deck Has Cards</b></em>' containment reference list.
@@ -72,5 +91,13 @@ public interface Deck extends EObject {
 	 * @generated
 	 */
 	EList<Card> getDeckHasCards();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void Hello();
 
 } // Deck

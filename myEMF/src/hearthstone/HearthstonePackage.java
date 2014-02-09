@@ -70,7 +70,7 @@ public interface HearthstonePackage extends EPackage {
 	int CARD = 0;
 
 	/**
-	 * The feature id for the '<em><b>Card Name</b></em>' attribute list.
+	 * The feature id for the '<em><b>Card Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -79,7 +79,7 @@ public interface HearthstonePackage extends EPackage {
 	int CARD__CARD_NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Card Cost</b></em>' attribute list.
+	 * The feature id for the '<em><b>Card Cost</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -88,7 +88,7 @@ public interface HearthstonePackage extends EPackage {
 	int CARD__CARD_COST = 1;
 
 	/**
-	 * The feature id for the '<em><b>Card Life</b></em>' attribute list.
+	 * The feature id for the '<em><b>Card Life</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -97,7 +97,7 @@ public interface HearthstonePackage extends EPackage {
 	int CARD__CARD_LIFE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Card Power</b></em>' attribute list.
+	 * The feature id for the '<em><b>Card Power</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -133,7 +133,7 @@ public interface HearthstonePackage extends EPackage {
 	int CARD__CARD_RACE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Card States</b></em>' attribute list.
+	 * The feature id for the '<em><b>Card States</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -142,13 +142,40 @@ public interface HearthstonePackage extends EPackage {
 	int CARD__CARD_STATES = 7;
 
 	/**
+	 * The feature id for the '<em><b>Card Ability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__CARD_ABILITY = 8;
+
+	/**
+	 * The feature id for the '<em><b>Card Ability List</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__CARD_ABILITY_LIST = 9;
+
+	/**
+	 * The feature id for the '<em><b>Card Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__CARD_CLASS = 10;
+
+	/**
 	 * The number of structural features of the '<em>Card</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CARD_FEATURE_COUNT = 8;
+	int CARD_FEATURE_COUNT = 11;
 
 	/**
 	 * The operation id for the '<em>Play Card</em>' operation.
@@ -179,7 +206,7 @@ public interface HearthstonePackage extends EPackage {
 	int DECK = 1;
 
 	/**
-	 * The feature id for the '<em><b>Deck ID</b></em>' attribute list.
+	 * The feature id for the '<em><b>Deck ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -188,7 +215,7 @@ public interface HearthstonePackage extends EPackage {
 	int DECK__DECK_ID = 0;
 
 	/**
-	 * The feature id for the '<em><b>Deck Name</b></em>' attribute list.
+	 * The feature id for the '<em><b>Deck Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -215,13 +242,22 @@ public interface HearthstonePackage extends EPackage {
 	int DECK_FEATURE_COUNT = 3;
 
 	/**
+	 * The operation id for the '<em>Hello</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECK___HELLO = 0;
+
+	/**
 	 * The number of operations of the '<em>Deck</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECK_OPERATION_COUNT = 0;
+	int DECK_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link hearthstone.impl.AbilityImpl <em>Ability</em>}' class.
@@ -362,15 +398,24 @@ public interface HearthstonePackage extends EPackage {
 	int CARD_RACE = 4;
 
 	/**
+	 * The meta object id for the '{@link hearthstone.Class <em>Class</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.Class
+	 * @see hearthstone.impl.HearthstonePackageImpl#getClass_()
+	 * @generated
+	 */
+	int CLASS = 5;
+
+	/**
 	 * The meta object id for the '<em>Abilities</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see erik.mcmaster.ca.hearthstone.Abilities
+	 * @see hearthstone.Ability
 	 * @see hearthstone.impl.HearthstonePackageImpl#getAbilities()
 	 * @generated
 	 */
-	int ABILITIES = 5;
-
+	int ABILITIES = 6;
 
 	/**
 	 * Returns the meta object for class '{@link hearthstone.Card <em>Card</em>}'.
@@ -383,10 +428,10 @@ public interface HearthstonePackage extends EPackage {
 	EClass getCard();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link hearthstone.Card#getCardName <em>Card Name</em>}'.
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardName <em>Card Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Card Name</em>'.
+	 * @return the meta object for the attribute '<em>Card Name</em>'.
 	 * @see hearthstone.Card#getCardName()
 	 * @see #getCard()
 	 * @generated
@@ -394,10 +439,10 @@ public interface HearthstonePackage extends EPackage {
 	EAttribute getCard_CardName();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link hearthstone.Card#getCardCost <em>Card Cost</em>}'.
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardCost <em>Card Cost</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Card Cost</em>'.
+	 * @return the meta object for the attribute '<em>Card Cost</em>'.
 	 * @see hearthstone.Card#getCardCost()
 	 * @see #getCard()
 	 * @generated
@@ -405,10 +450,10 @@ public interface HearthstonePackage extends EPackage {
 	EAttribute getCard_CardCost();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link hearthstone.Card#getCardLife <em>Card Life</em>}'.
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardLife <em>Card Life</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Card Life</em>'.
+	 * @return the meta object for the attribute '<em>Card Life</em>'.
 	 * @see hearthstone.Card#getCardLife()
 	 * @see #getCard()
 	 * @generated
@@ -416,10 +461,10 @@ public interface HearthstonePackage extends EPackage {
 	EAttribute getCard_CardLife();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link hearthstone.Card#getCardPower <em>Card Power</em>}'.
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardPower <em>Card Power</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Card Power</em>'.
+	 * @return the meta object for the attribute '<em>Card Power</em>'.
 	 * @see hearthstone.Card#getCardPower()
 	 * @see #getCard()
 	 * @generated
@@ -460,15 +505,48 @@ public interface HearthstonePackage extends EPackage {
 	EAttribute getCard_CardRace();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link hearthstone.Card#getCardStates <em>Card States</em>}'.
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardStates <em>Card States</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Card States</em>'.
+	 * @return the meta object for the attribute '<em>Card States</em>'.
 	 * @see hearthstone.Card#getCardStates()
 	 * @see #getCard()
 	 * @generated
 	 */
 	EAttribute getCard_CardStates();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardAbility <em>Card Ability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Card Ability</em>'.
+	 * @see hearthstone.Card#getCardAbility()
+	 * @see #getCard()
+	 * @generated
+	 */
+	EAttribute getCard_CardAbility();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link hearthstone.Card#getCardAbilityList <em>Card Ability List</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Card Ability List</em>'.
+	 * @see hearthstone.Card#getCardAbilityList()
+	 * @see #getCard()
+	 * @generated
+	 */
+	EAttribute getCard_CardAbilityList();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardClass <em>Card Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Card Class</em>'.
+	 * @see hearthstone.Card#getCardClass()
+	 * @see #getCard()
+	 * @generated
+	 */
+	EAttribute getCard_CardClass();
 
 	/**
 	 * Returns the meta object for the '{@link hearthstone.Card#PlayCard() <em>Play Card</em>}' operation.
@@ -491,10 +569,10 @@ public interface HearthstonePackage extends EPackage {
 	EClass getDeck();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link hearthstone.Deck#getDeckID <em>Deck ID</em>}'.
+	 * Returns the meta object for the attribute '{@link hearthstone.Deck#getDeckID <em>Deck ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Deck ID</em>'.
+	 * @return the meta object for the attribute '<em>Deck ID</em>'.
 	 * @see hearthstone.Deck#getDeckID()
 	 * @see #getDeck()
 	 * @generated
@@ -502,10 +580,10 @@ public interface HearthstonePackage extends EPackage {
 	EAttribute getDeck_DeckID();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link hearthstone.Deck#getDeckName <em>Deck Name</em>}'.
+	 * Returns the meta object for the attribute '{@link hearthstone.Deck#getDeckName <em>Deck Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Deck Name</em>'.
+	 * @return the meta object for the attribute '<em>Deck Name</em>'.
 	 * @see hearthstone.Deck#getDeckName()
 	 * @see #getDeck()
 	 * @generated
@@ -522,6 +600,16 @@ public interface HearthstonePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDeck_DeckHasCards();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.Deck#Hello() <em>Hello</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Hello</em>' operation.
+	 * @see hearthstone.Deck#Hello()
+	 * @generated
+	 */
+	EOperation getDeck__Hello();
 
 	/**
 	 * Returns the meta object for class '{@link hearthstone.Ability <em>Ability</em>}'.
@@ -658,12 +746,22 @@ public interface HearthstonePackage extends EPackage {
 	EEnum getCardRace();
 
 	/**
-	 * Returns the meta object for data type '{@link erik.mcmaster.ca.hearthstone.Abilities <em>Abilities</em>}'.
+	 * Returns the meta object for enum '{@link hearthstone.Class <em>Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Class</em>'.
+	 * @see hearthstone.Class
+	 * @generated
+	 */
+	EEnum getClass_();
+
+	/**
+	 * Returns the meta object for data type '{@link hearthstone.Ability <em>Abilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for data type '<em>Abilities</em>'.
-	 * @see erik.mcmaster.ca.hearthstone.Abilities
-	 * @model instanceClass="erik.mcmaster.ca.hearthstone.Abilities"
+	 * @see hearthstone.Ability
+	 * @model instanceClass="hearthstone.Ability"
 	 * @generated
 	 */
 	EDataType getAbilities();
@@ -702,7 +800,7 @@ public interface HearthstonePackage extends EPackage {
 		EClass CARD = eINSTANCE.getCard();
 
 		/**
-		 * The meta object literal for the '<em><b>Card Name</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Card Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -710,7 +808,7 @@ public interface HearthstonePackage extends EPackage {
 		EAttribute CARD__CARD_NAME = eINSTANCE.getCard_CardName();
 
 		/**
-		 * The meta object literal for the '<em><b>Card Cost</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Card Cost</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -718,7 +816,7 @@ public interface HearthstonePackage extends EPackage {
 		EAttribute CARD__CARD_COST = eINSTANCE.getCard_CardCost();
 
 		/**
-		 * The meta object literal for the '<em><b>Card Life</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Card Life</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -726,7 +824,7 @@ public interface HearthstonePackage extends EPackage {
 		EAttribute CARD__CARD_LIFE = eINSTANCE.getCard_CardLife();
 
 		/**
-		 * The meta object literal for the '<em><b>Card Power</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Card Power</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -758,12 +856,36 @@ public interface HearthstonePackage extends EPackage {
 		EAttribute CARD__CARD_RACE = eINSTANCE.getCard_CardRace();
 
 		/**
-		 * The meta object literal for the '<em><b>Card States</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Card States</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CARD__CARD_STATES = eINSTANCE.getCard_CardStates();
+
+		/**
+		 * The meta object literal for the '<em><b>Card Ability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CARD__CARD_ABILITY = eINSTANCE.getCard_CardAbility();
+
+		/**
+		 * The meta object literal for the '<em><b>Card Ability List</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CARD__CARD_ABILITY_LIST = eINSTANCE.getCard_CardAbilityList();
+
+		/**
+		 * The meta object literal for the '<em><b>Card Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CARD__CARD_CLASS = eINSTANCE.getCard_CardClass();
 
 		/**
 		 * The meta object literal for the '<em><b>Play Card</b></em>' operation.
@@ -784,7 +906,7 @@ public interface HearthstonePackage extends EPackage {
 		EClass DECK = eINSTANCE.getDeck();
 
 		/**
-		 * The meta object literal for the '<em><b>Deck ID</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Deck ID</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -792,7 +914,7 @@ public interface HearthstonePackage extends EPackage {
 		EAttribute DECK__DECK_ID = eINSTANCE.getDeck_DeckID();
 
 		/**
-		 * The meta object literal for the '<em><b>Deck Name</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Deck Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -806,6 +928,14 @@ public interface HearthstonePackage extends EPackage {
 		 * @generated
 		 */
 		EReference DECK__DECK_HAS_CARDS = eINSTANCE.getDeck_DeckHasCards();
+
+		/**
+		 * The meta object literal for the '<em><b>Hello</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DECK___HELLO = eINSTANCE.getDeck__Hello();
 
 		/**
 		 * The meta object literal for the '{@link hearthstone.impl.AbilityImpl <em>Ability</em>}' class.
@@ -918,10 +1048,20 @@ public interface HearthstonePackage extends EPackage {
 		EEnum CARD_RACE = eINSTANCE.getCardRace();
 
 		/**
+		 * The meta object literal for the '{@link hearthstone.Class <em>Class</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.Class
+		 * @see hearthstone.impl.HearthstonePackageImpl#getClass_()
+		 * @generated
+		 */
+		EEnum CLASS = eINSTANCE.getClass_();
+
+		/**
 		 * The meta object literal for the '<em>Abilities</em>' data type.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see erik.mcmaster.ca.hearthstone.Abilities
+		 * @see hearthstone.Ability
 		 * @see hearthstone.impl.HearthstonePackageImpl#getAbilities()
 		 * @generated
 		 */

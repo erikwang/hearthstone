@@ -2,17 +2,16 @@
  */
 package hearthstone.impl;
 
-import erik.mcmaster.ca.hearthstone.Abilities;
+//import erik.mcmaster.ca.hearthstone.Abilities;
 
 import hearthstone.*;
+import hearthstone.Class;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
@@ -79,12 +78,28 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 				return createCardQualityFromString(eDataType, initialValue);
 			case HearthstonePackage.CARD_RACE:
 				return createCardRaceFromString(eDataType, initialValue);
+			case HearthstonePackage.CLASS:
+				return createClassFromString(eDataType, initialValue);
 			case HearthstonePackage.ABILITIES:
 				return createAbilitiesFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,6 +113,8 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 				return convertCardQualityToString(eDataType, instanceValue);
 			case HearthstonePackage.CARD_RACE:
 				return convertCardRaceToString(eDataType, instanceValue);
+			case HearthstonePackage.CLASS:
+				return convertClassToString(eDataType, instanceValue);
 			case HearthstonePackage.ABILITIES:
 				return convertAbilitiesToString(eDataType, instanceValue);
 			default:
@@ -180,8 +197,28 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Abilities createAbilitiesFromString(EDataType eDataType, String initialValue) {
-		return (Abilities)super.createFromString(eDataType, initialValue);
+	public Class createClassFromString(EDataType eDataType, String initialValue) {
+		Class result = Class.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertClassToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Ability createAbilitiesFromString(EDataType eDataType, String initialValue) {
+		return (Ability)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
@@ -192,6 +229,20 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	public String convertAbilitiesToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+
 
 	/**
 	 * <!-- begin-user-doc -->
