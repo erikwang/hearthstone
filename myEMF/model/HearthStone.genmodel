@@ -19,6 +19,17 @@
       <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardRace/Skill"/>
       <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//CardRace/Spell"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="HearthStone.ecore#//Class">
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//Class/Mage"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//Class/Priest"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//Class/Paladin"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//Class/Warlock"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//Class/Hunter"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//Class/Rogue"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//Class/Druid"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//Class/Warrior"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//Class/Shaman"/>
+    </genEnums>
     <genDataTypes ecoreDataType="HearthStone.ecore#//Abilities"/>
     <genClasses ecoreClass="HearthStone.ecore#//Card">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardName"/>
@@ -31,6 +42,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardStates"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardAbility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardAbilityList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Card/CardClass"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Card/PlayCard"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//Deck">
