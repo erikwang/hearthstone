@@ -49,40 +49,40 @@ public interface HearthstoneFactory extends EFactory {
 	Ability createAbility();
 
 	/**
-	 * Returns a new object of class '<em>EGame Player Hand</em>'.
+	 * Returns a new object of class '<em>Game Player Hand</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EGame Player Hand</em>'.
+	 * @return a new object of class '<em>Game Player Hand</em>'.
 	 * @generated
 	 */
-	EGamePlayerHand createEGamePlayerHand();
+	GamePlayerHand createGamePlayerHand();
 
 	/**
-	 * Returns a new object of class '<em>EGame Board</em>'.
+	 * Returns a new object of class '<em>Game Board</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EGame Board</em>'.
+	 * @return a new object of class '<em>Game Board</em>'.
 	 * @generated
 	 */
-	EGameBoard createEGameBoard();
+	GameBoard createGameBoard();
 
 	/**
-	 * Returns a new object of class '<em>EGame Deck</em>'.
+	 * Returns a new object of class '<em>Game Deck</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EGame Deck</em>'.
+	 * @return a new object of class '<em>Game Deck</em>'.
 	 * @generated
 	 */
-	EGameDeck createEGameDeck();
+	GameDeck createGameDeck();
 
 	/**
-	 * Returns a new object of class '<em>EGame</em>'.
+	 * Returns a new object of class '<em>Game</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EGame</em>'.
+	 * @return a new object of class '<em>Game</em>'.
 	 * @generated
 	 */
-	EGame createEGame();
+	Game createGame();
 
 	/**
 	 * Returns a new object of class '<em>Player</em>'.

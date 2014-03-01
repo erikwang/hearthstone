@@ -3,16 +3,6 @@
 package hearthstone.util;
 
 import hearthstone.*;
-import hearthstone.Ability;
-import hearthstone.Card;
-import hearthstone.Deck;
-import hearthstone.EGame;
-import hearthstone.EGameBoard;
-import hearthstone.EGameDeck;
-import hearthstone.EGamePlayerHand;
-import hearthstone.HearthstonePackage;
-import hearthstone.Player;
-import hearthstone.PlayerBoard;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -87,20 +77,20 @@ public class HearthstoneAdapterFactory extends AdapterFactoryImpl {
 				return createAbilityAdapter();
 			}
 			@Override
-			public Adapter caseEGamePlayerHand(EGamePlayerHand object) {
-				return createEGamePlayerHandAdapter();
+			public Adapter caseGamePlayerHand(GamePlayerHand object) {
+				return createGamePlayerHandAdapter();
 			}
 			@Override
-			public Adapter caseEGameBoard(EGameBoard object) {
-				return createEGameBoardAdapter();
+			public Adapter caseGameBoard(GameBoard object) {
+				return createGameBoardAdapter();
 			}
 			@Override
-			public Adapter caseEGameDeck(EGameDeck object) {
-				return createEGameDeckAdapter();
+			public Adapter caseGameDeck(GameDeck object) {
+				return createGameDeckAdapter();
 			}
 			@Override
-			public Adapter caseEGame(EGame object) {
-				return createEGameAdapter();
+			public Adapter caseGame(Game object) {
+				return createGameAdapter();
 			}
 			@Override
 			public Adapter casePlayer(Player object) {
@@ -177,58 +167,58 @@ public class HearthstoneAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hearthstone.EGamePlayerHand <em>EGame Player Hand</em>}'.
+	 * Creates a new adapter for an object of class '{@link hearthstone.GamePlayerHand <em>Game Player Hand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see hearthstone.EGamePlayerHand
+	 * @see hearthstone.GamePlayerHand
 	 * @generated
 	 */
-	public Adapter createEGamePlayerHandAdapter() {
+	public Adapter createGamePlayerHandAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hearthstone.EGameBoard <em>EGame Board</em>}'.
+	 * Creates a new adapter for an object of class '{@link hearthstone.GameBoard <em>Game Board</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see hearthstone.EGameBoard
+	 * @see hearthstone.GameBoard
 	 * @generated
 	 */
-	public Adapter createEGameBoardAdapter() {
+	public Adapter createGameBoardAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hearthstone.EGameDeck <em>EGame Deck</em>}'.
+	 * Creates a new adapter for an object of class '{@link hearthstone.GameDeck <em>Game Deck</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see hearthstone.EGameDeck
+	 * @see hearthstone.GameDeck
 	 * @generated
 	 */
-	public Adapter createEGameDeckAdapter() {
+	public Adapter createGameDeckAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link hearthstone.EGame <em>EGame</em>}'.
+	 * Creates a new adapter for an object of class '{@link hearthstone.Game <em>Game</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see hearthstone.EGame
+	 * @see hearthstone.Game
 	 * @generated
 	 */
-	public Adapter createEGameAdapter() {
+	public Adapter createGameAdapter() {
 		return null;
 	}
 

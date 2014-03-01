@@ -3,6 +3,7 @@
 package hearthstone;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -29,7 +30,7 @@ public interface Deck extends EObject {
 	 * Returns the value of the '<em><b>Deck ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Deck ID</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Deck ID</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -55,7 +56,7 @@ public interface Deck extends EObject {
 	 * Returns the value of the '<em><b>Deck Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Deck Name</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Deck Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -88,7 +89,7 @@ public interface Deck extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deck Has Cards</em>' containment reference list.
 	 * @see hearthstone.HearthstonePackage#getDeck_DeckHasCards()
-	 * @model containment="true" lower="30" upper="30"
+	 * @model containment="true" keys="CardDeckSN" lower="30" upper="30" ordered="false"
 	 * @generated
 	 */
 	EList<Card> getDeckHasCards();

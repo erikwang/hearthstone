@@ -3,6 +3,7 @@
 package hearthstone;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -38,7 +39,7 @@ public interface Card extends EObject {
 	 * Returns the value of the '<em><b>Card Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Card Name</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Card Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -64,7 +65,7 @@ public interface Card extends EObject {
 	 * Returns the value of the '<em><b>Card Cost</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Card Cost</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Card Cost</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -90,7 +91,7 @@ public interface Card extends EObject {
 	 * Returns the value of the '<em><b>Card Life</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Card Life</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Card Life</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -116,7 +117,7 @@ public interface Card extends EObject {
 	 * Returns the value of the '<em><b>Card Power</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Card Power</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Card Power</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

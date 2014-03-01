@@ -80,41 +80,47 @@
       <genOperations ecoreOperation="HearthStone.ecore#//Ability/Charge"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Ability/IncreaseAttribute"/>
     </genClasses>
-    <genClasses ecoreClass="HearthStone.ecore#//EGamePlayerHand">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HearthStone.ecore#//EGamePlayerHand/EReference0"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//EGamePlayerHand/CardsInHand"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//EGamePlayerHand/HandIOwner"/>
-      <genOperations ecoreOperation="HearthStone.ecore#//EGamePlayerHand/RemoveCard"/>
-      <genOperations ecoreOperation="HearthStone.ecore#//EGamePlayerHand/DrawCard"/>
+    <genClasses ecoreClass="HearthStone.ecore#//GamePlayerHand">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GamePlayerHand/EReference0"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GamePlayerHand/CardsInHand"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//GamePlayerHand/HandIOwner"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//GamePlayerHand/RemoveCard"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//GamePlayerHand/DrawCard"/>
     </genClasses>
-    <genClasses ecoreClass="HearthStone.ecore#//EGameBoard">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//EGameBoard/EReference0"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//EGameBoard/GameBoardHasTwoPlayerBoard"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//EGameBoard/BoardSN"/>
+    <genClasses ecoreClass="HearthStone.ecore#//GameBoard">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GameBoard/EReference0"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GameBoard/GameBoardHasTwoPlayerBoard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//GameBoard/BoardSN"/>
     </genClasses>
-    <genClasses ecoreClass="HearthStone.ecore#//EGameDeck">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//EGameDeck/EReference0"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//EGameDeck/EReference1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//EGameDeck/DeckOwner"/>
-      <genOperations ecoreOperation="HearthStone.ecore#//EGameDeck/RemoveCard">
-        <genParameters ecoreParameter="HearthStone.ecore#//EGameDeck/RemoveCard/removeCardSN"/>
+    <genClasses ecoreClass="HearthStone.ecore#//GameDeck">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GameDeck/EReference0"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GameDeck/EReference1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//GameDeck/DeckOwner"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//GameDeck/RemoveCard">
+        <genParameters ecoreParameter="HearthStone.ecore#//GameDeck/RemoveCard/removeCardSN"/>
       </genOperations>
-      <genOperations ecoreOperation="HearthStone.ecore#//EGameDeck/ReturnCard">
-        <genParameters ecoreParameter="HearthStone.ecore#//EGameDeck/ReturnCard/returnCardSN"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//GameDeck/ReturnCard">
+        <genParameters ecoreParameter="HearthStone.ecore#//GameDeck/ReturnCard/returnCardSN"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="HearthStone.ecore#//EGame">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//EGame/GameHasBoard"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//EGame/GameSN"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HearthStone.ecore#//EGame/GameHasTwoPlayers"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//EGame/GameStates"/>
+    <genClasses ecoreClass="HearthStone.ecore#//Game">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Game/GameHasBoard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Game/GameSN"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Game/GameHasTwoPlayers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Game/GameStates"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//Game/ShowGame">
+        <genParameters ecoreParameter="HearthStone.ecore#//Game/ShowGame/GameSN"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//Player">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Player/Name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Player/Score"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Player/TotalWins"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Player/PlayerHasDeck"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Player/CardsInHand"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Player/PlayerHasOwnBoard"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Player/SN"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Player/LastLogin"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Player/PlayerLevel"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Player/PlayCard">
         <genParameters ecoreParameter="HearthStone.ecore#//Player/PlayCard/cardSN"/>
       </genOperations>

@@ -2,27 +2,15 @@
  */
 package hearthstone.impl;
 
-//import erik.mcmaster.ca.hearthstone.Abilities;
-
 import hearthstone.*;
-import hearthstone.Ability;
-import hearthstone.Card;
-import hearthstone.CardQuality;
-import hearthstone.CardRace;
-import hearthstone.Deck;
-import hearthstone.EGame;
-import hearthstone.EGameBoard;
-import hearthstone.EGameDeck;
-import hearthstone.EGamePlayerHand;
-import hearthstone.HearthstoneFactory;
-import hearthstone.HearthstonePackage;
-import hearthstone.Player;
-import hearthstone.PlayerBoard;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
@@ -72,10 +60,10 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 			case HearthstonePackage.CARD: return createCard();
 			case HearthstonePackage.DECK: return createDeck();
 			case HearthstonePackage.ABILITY: return createAbility();
-			case HearthstonePackage.EGAME_PLAYER_HAND: return createEGamePlayerHand();
-			case HearthstonePackage.EGAME_BOARD: return createEGameBoard();
-			case HearthstonePackage.EGAME_DECK: return createEGameDeck();
-			case HearthstonePackage.EGAME: return createEGame();
+			case HearthstonePackage.GAME_PLAYER_HAND: return createGamePlayerHand();
+			case HearthstonePackage.GAME_BOARD: return createGameBoard();
+			case HearthstonePackage.GAME_DECK: return createGameDeck();
+			case HearthstonePackage.GAME: return createGame();
 			case HearthstonePackage.PLAYER: return createPlayer();
 			case HearthstonePackage.PLAYER_BOARD: return createPlayerBoard();
 			case HearthstonePackage.HERO: return createHero();
@@ -108,20 +96,6 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -183,9 +157,9 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EGamePlayerHand createEGamePlayerHand() {
-		EGamePlayerHandImpl eGamePlayerHand = new EGamePlayerHandImpl();
-		return eGamePlayerHand;
+	public GamePlayerHand createGamePlayerHand() {
+		GamePlayerHandImpl gamePlayerHand = new GamePlayerHandImpl();
+		return gamePlayerHand;
 	}
 
 	/**
@@ -193,9 +167,9 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EGameBoard createEGameBoard() {
-		EGameBoardImpl eGameBoard = new EGameBoardImpl();
-		return eGameBoard;
+	public GameBoard createGameBoard() {
+		GameBoardImpl gameBoard = new GameBoardImpl();
+		return gameBoard;
 	}
 
 	/**
@@ -203,9 +177,9 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EGameDeck createEGameDeck() {
-		EGameDeckImpl eGameDeck = new EGameDeckImpl();
-		return eGameDeck;
+	public GameDeck createGameDeck() {
+		GameDeckImpl gameDeck = new GameDeckImpl();
+		return gameDeck;
 	}
 
 	/**
@@ -213,9 +187,9 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EGame createEGame() {
-		EGameImpl eGame = new EGameImpl();
-		return eGame;
+	public Game createGame() {
+		GameImpl game = new GameImpl();
+		return game;
 	}
 
 	/**
@@ -365,20 +339,6 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	public String convertAbilitiesToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-
 
 	/**
 	 * <!-- begin-user-doc -->

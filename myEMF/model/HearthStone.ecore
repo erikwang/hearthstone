@@ -44,8 +44,8 @@
     <eOperations name="Hello" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeckID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeckName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DeckHasCards" lowerBound="30"
-        upperBound="30" eType="#//Card" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DeckHasCards" ordered="false"
+        lowerBound="30" upperBound="30" eType="#//Card" containment="true" eKeys="#//Card/CardDeckSN"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DeckHasHero" lowerBound="1"
         eType="#//Hero" containment="true"/>
   </eClassifiers>
@@ -83,37 +83,40 @@
     <eLiterals name="Warrior" value="7"/>
     <eLiterals name="Shaman" value="8"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EGamePlayerHand">
+  <eClassifiers xsi:type="ecore:EClass" name="GamePlayerHand">
     <eOperations name="RemoveCard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="DrawCard" lowerBound="1" upperBound="5" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//EGame"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Game"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CardsInHand" upperBound="10"
         eType="#//Card" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HandIOwner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EGameBoard">
+  <eClassifiers xsi:type="ecore:EClass" name="GameBoard">
     <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" lowerBound="1"
-        eType="#//EGame" containment="true"/>
+        eType="#//Game" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GameBoardHasTwoPlayerBoard"
         lowerBound="2" upperBound="2" eType="#//PlayerBoard" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="BoardSN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EGameDeck" eSuperTypes="#//Deck">
+  <eClassifiers xsi:type="ecore:EClass" name="GameDeck" eSuperTypes="#//Deck">
     <eOperations name="RemoveCard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="removeCardSN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="ReturnCard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="returnCardSN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//EGame"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Game"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference1" eType="#//EGame"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference1" eType="#//Game"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeckOwner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EGame">
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eOperations name="ShowGame">
+      <eParameters name="GameSN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GameHasBoard" lowerBound="1"
-        eType="#//EGameBoard" containment="true"/>
+        eType="#//GameBoard" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameSN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GameHasTwoPlayers" lowerBound="2"
         upperBound="2" eType="#//Player" containment="true"/>
@@ -126,16 +129,19 @@
     <eOperations name="OperateCard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="ClickNextTurnBtn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Score" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TotalWins" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlayerHasDeck" lowerBound="1"
-        eType="#//EGameDeck" containment="true"/>
+        eType="#//GameDeck" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="CardsInHand" lowerBound="1"
-        eType="#//EGamePlayerHand" containment="true"/>
+        eType="#//GamePlayerHand" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlayerHasOwnBoard" lowerBound="1"
         eType="#//PlayerBoard" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastLogin" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PlayerLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PlayerBoard">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//EGameBoard"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//GameBoard"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="BoardOwner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CardStates">

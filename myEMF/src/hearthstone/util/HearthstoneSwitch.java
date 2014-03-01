@@ -3,16 +3,6 @@
 package hearthstone.util;
 
 import hearthstone.*;
-import hearthstone.Ability;
-import hearthstone.Card;
-import hearthstone.Deck;
-import hearthstone.EGame;
-import hearthstone.EGameBoard;
-import hearthstone.EGameDeck;
-import hearthstone.EGamePlayerHand;
-import hearthstone.HearthstonePackage;
-import hearthstone.Player;
-import hearthstone.PlayerBoard;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -92,28 +82,28 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case HearthstonePackage.EGAME_PLAYER_HAND: {
-				EGamePlayerHand eGamePlayerHand = (EGamePlayerHand)theEObject;
-				T result = caseEGamePlayerHand(eGamePlayerHand);
+			case HearthstonePackage.GAME_PLAYER_HAND: {
+				GamePlayerHand gamePlayerHand = (GamePlayerHand)theEObject;
+				T result = caseGamePlayerHand(gamePlayerHand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case HearthstonePackage.EGAME_BOARD: {
-				EGameBoard eGameBoard = (EGameBoard)theEObject;
-				T result = caseEGameBoard(eGameBoard);
+			case HearthstonePackage.GAME_BOARD: {
+				GameBoard gameBoard = (GameBoard)theEObject;
+				T result = caseGameBoard(gameBoard);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case HearthstonePackage.EGAME_DECK: {
-				EGameDeck eGameDeck = (EGameDeck)theEObject;
-				T result = caseEGameDeck(eGameDeck);
-				if (result == null) result = caseDeck(eGameDeck);
+			case HearthstonePackage.GAME_DECK: {
+				GameDeck gameDeck = (GameDeck)theEObject;
+				T result = caseGameDeck(gameDeck);
+				if (result == null) result = caseDeck(gameDeck);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case HearthstonePackage.EGAME: {
-				EGame eGame = (EGame)theEObject;
-				T result = caseEGame(eGame);
+			case HearthstonePackage.GAME: {
+				Game game = (Game)theEObject;
+				T result = caseGame(game);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -185,62 +175,62 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EGame Player Hand</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Game Player Hand</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EGame Player Hand</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Game Player Hand</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEGamePlayerHand(EGamePlayerHand object) {
+	public T caseGamePlayerHand(GamePlayerHand object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EGame Board</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Game Board</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EGame Board</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Game Board</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEGameBoard(EGameBoard object) {
+	public T caseGameBoard(GameBoard object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EGame Deck</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Game Deck</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EGame Deck</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Game Deck</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEGameDeck(EGameDeck object) {
+	public T caseGameDeck(GameDeck object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EGame</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Game</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EGame</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Game</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEGame(EGame object) {
+	public T caseGame(Game object) {
 		return null;
 	}
 
