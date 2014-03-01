@@ -49,6 +49,69 @@ public interface HearthstoneFactory extends EFactory {
 	Ability createAbility();
 
 	/**
+	 * Returns a new object of class '<em>EGame Player Hand</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>EGame Player Hand</em>'.
+	 * @generated
+	 */
+	EGamePlayerHand createEGamePlayerHand();
+
+	/**
+	 * Returns a new object of class '<em>EGame Board</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>EGame Board</em>'.
+	 * @generated
+	 */
+	EGameBoard createEGameBoard();
+
+	/**
+	 * Returns a new object of class '<em>EGame Deck</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>EGame Deck</em>'.
+	 * @generated
+	 */
+	EGameDeck createEGameDeck();
+
+	/**
+	 * Returns a new object of class '<em>EGame</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>EGame</em>'.
+	 * @generated
+	 */
+	EGame createEGame();
+
+	/**
+	 * Returns a new object of class '<em>Player</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Player</em>'.
+	 * @generated
+	 */
+	Player createPlayer();
+
+	/**
+	 * Returns a new object of class '<em>Player Board</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Player Board</em>'.
+	 * @generated
+	 */
+	PlayerBoard createPlayerBoard();
+
+	/**
+	 * Returns a new object of class '<em>Hero</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Hero</em>'.
+	 * @generated
+	 */
+	Hero createHero();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

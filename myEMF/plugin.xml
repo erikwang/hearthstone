@@ -2,12 +2,15 @@
 <?eclipse version="3.0"?>
 
 <!--
+ <copyright>
+ </copyright>
+
+ $Id$
 -->
 
 <plugin>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated HearthStone -->
       <package
             uri="http://hearthstone/1.0"
             class="hearthstone.HearthstonePackage"
@@ -15,7 +18,6 @@
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated HearthStone -->
       <parser
             type="hearthstone"
             class="hearthstone.util.HearthstoneResourceFactoryImpl"/>

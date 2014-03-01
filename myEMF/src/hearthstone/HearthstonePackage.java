@@ -142,31 +142,49 @@ public interface HearthstonePackage extends EPackage {
 	int CARD__CARD_STATES = 7;
 
 	/**
-	 * The feature id for the '<em><b>Card Ability</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CARD__CARD_ABILITY = 8;
-
-	/**
-	 * The feature id for the '<em><b>Card Ability List</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CARD__CARD_ABILITY_LIST = 9;
-
-	/**
 	 * The feature id for the '<em><b>Card Class</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CARD__CARD_CLASS = 10;
+	int CARD__CARD_CLASS = 8;
+
+	/**
+	 * The feature id for the '<em><b>Card Has Abilities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__CARD_HAS_ABILITIES = 9;
+
+	/**
+	 * The feature id for the '<em><b>Card SN</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__CARD_SN = 10;
+
+	/**
+	 * The feature id for the '<em><b>Card Ability Desc</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__CARD_ABILITY_DESC = 11;
+
+	/**
+	 * The feature id for the '<em><b>Card Deck SN</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD__CARD_DECK_SN = 12;
 
 	/**
 	 * The number of structural features of the '<em>Card</em>' class.
@@ -175,16 +193,25 @@ public interface HearthstonePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD_FEATURE_COUNT = 11;
+	int CARD_FEATURE_COUNT = 13;
 
 	/**
-	 * The operation id for the '<em>Play Card</em>' operation.
+	 * The operation id for the '<em>Operate Card</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CARD___PLAY_CARD = 0;
+	int CARD___OPERATE_CARD__INT = 0;
+
+	/**
+	 * The operation id for the '<em>Update Card States</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARD___UPDATE_CARD_STATES__INT = 1;
 
 	/**
 	 * The number of operations of the '<em>Card</em>' class.
@@ -193,7 +220,7 @@ public interface HearthstonePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARD_OPERATION_COUNT = 1;
+	int CARD_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link hearthstone.impl.DeckImpl <em>Deck</em>}' class.
@@ -233,13 +260,22 @@ public interface HearthstonePackage extends EPackage {
 	int DECK__DECK_HAS_CARDS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Deck Has Hero</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECK__DECK_HAS_HERO = 3;
+
+	/**
 	 * The number of structural features of the '<em>Deck</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECK_FEATURE_COUNT = 3;
+	int DECK_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Hello</em>' operation.
@@ -297,7 +333,7 @@ public interface HearthstonePackage extends EPackage {
 	int ABILITY__ABILITY_AFFECT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Card Has Ability</b></em>' reference list.
+	 * The feature id for the '<em><b>Card Has Ability</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -333,49 +369,533 @@ public interface HearthstonePackage extends EPackage {
 	int ABILITY___INCREASE_ATTRIBUTE = 1;
 
 	/**
-	 * The operation id for the '<em>Return To Hand</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABILITY___RETURN_TO_HAND = 2;
-
-	/**
-	 * The operation id for the '<em>Give Shield</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABILITY___GIVE_SHIELD = 3;
-
-	/**
-	 * The operation id for the '<em>Summon</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABILITY___SUMMON = 4;
-
-	/**
-	 * The operation id for the '<em>Deal Damage</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABILITY___DEAL_DAMAGE = 5;
-
-	/**
 	 * The number of operations of the '<em>Ability</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABILITY_OPERATION_COUNT = 6;
+	int ABILITY_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link hearthstone.impl.EGamePlayerHandImpl <em>EGame Player Hand</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.impl.EGamePlayerHandImpl
+	 * @see hearthstone.impl.HearthstonePackageImpl#getEGamePlayerHand()
+	 * @generated
+	 */
+	int EGAME_PLAYER_HAND = 3;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_PLAYER_HAND__EREFERENCE0 = 0;
+
+	/**
+	 * The feature id for the '<em><b>Cards In Hand</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_PLAYER_HAND__CARDS_IN_HAND = 1;
+
+	/**
+	 * The feature id for the '<em><b>Hand IOwner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_PLAYER_HAND__HAND_IOWNER = 2;
+
+	/**
+	 * The number of structural features of the '<em>EGame Player Hand</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_PLAYER_HAND_FEATURE_COUNT = 3;
+
+	/**
+	 * The operation id for the '<em>Remove Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_PLAYER_HAND___REMOVE_CARD = 0;
+
+	/**
+	 * The operation id for the '<em>Draw Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_PLAYER_HAND___DRAW_CARD = 1;
+
+	/**
+	 * The number of operations of the '<em>EGame Player Hand</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_PLAYER_HAND_OPERATION_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link hearthstone.impl.EGameBoardImpl <em>EGame Board</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.impl.EGameBoardImpl
+	 * @see hearthstone.impl.HearthstonePackageImpl#getEGameBoard()
+	 * @generated
+	 */
+	int EGAME_BOARD = 4;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_BOARD__EREFERENCE0 = 0;
+
+	/**
+	 * The feature id for the '<em><b>Game Board Has Two Player Board</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_BOARD__GAME_BOARD_HAS_TWO_PLAYER_BOARD = 1;
+
+	/**
+	 * The feature id for the '<em><b>Board SN</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_BOARD__BOARD_SN = 2;
+
+	/**
+	 * The number of structural features of the '<em>EGame Board</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_BOARD_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>EGame Board</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_BOARD_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link hearthstone.impl.EGameDeckImpl <em>EGame Deck</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.impl.EGameDeckImpl
+	 * @see hearthstone.impl.HearthstonePackageImpl#getEGameDeck()
+	 * @generated
+	 */
+	int EGAME_DECK = 5;
+
+	/**
+	 * The feature id for the '<em><b>Deck ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK__DECK_ID = DECK__DECK_ID;
+
+	/**
+	 * The feature id for the '<em><b>Deck Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK__DECK_NAME = DECK__DECK_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Deck Has Cards</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK__DECK_HAS_CARDS = DECK__DECK_HAS_CARDS;
+
+	/**
+	 * The feature id for the '<em><b>Deck Has Hero</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK__DECK_HAS_HERO = DECK__DECK_HAS_HERO;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK__EREFERENCE0 = DECK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>EReference1</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK__EREFERENCE1 = DECK_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Deck Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK__DECK_OWNER = DECK_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>EGame Deck</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK_FEATURE_COUNT = DECK_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Hello</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK___HELLO = DECK___HELLO;
+
+	/**
+	 * The operation id for the '<em>Remove Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK___REMOVE_CARD__INT = DECK_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Return Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK___RETURN_CARD__INT = DECK_OPERATION_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>EGame Deck</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_DECK_OPERATION_COUNT = DECK_OPERATION_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link hearthstone.impl.EGameImpl <em>EGame</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.impl.EGameImpl
+	 * @see hearthstone.impl.HearthstonePackageImpl#getEGame()
+	 * @generated
+	 */
+	int EGAME = 6;
+
+	/**
+	 * The feature id for the '<em><b>Game Has Board</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME__GAME_HAS_BOARD = 0;
+
+	/**
+	 * The feature id for the '<em><b>Game SN</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME__GAME_SN = 1;
+
+	/**
+	 * The feature id for the '<em><b>Game Has Two Players</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME__GAME_HAS_TWO_PLAYERS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Game States</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME__GAME_STATES = 3;
+
+	/**
+	 * The number of structural features of the '<em>EGame</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>EGame</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EGAME_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link hearthstone.impl.PlayerImpl <em>Player</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.impl.PlayerImpl
+	 * @see hearthstone.impl.HearthstonePackageImpl#getPlayer()
+	 * @generated
+	 */
+	int PLAYER = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__SCORE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Player Has Deck</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__PLAYER_HAS_DECK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Cards In Hand</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__CARDS_IN_HAND = 3;
+
+	/**
+	 * The feature id for the '<em><b>Player Has Own Board</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER__PLAYER_HAS_OWN_BOARD = 4;
+
+	/**
+	 * The number of structural features of the '<em>Player</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_FEATURE_COUNT = 5;
+
+	/**
+	 * The operation id for the '<em>Play Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER___PLAY_CARD__INT = 0;
+
+	/**
+	 * The operation id for the '<em>Operate Card</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER___OPERATE_CARD = 1;
+
+	/**
+	 * The operation id for the '<em>Click Next Turn Btn</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER___CLICK_NEXT_TURN_BTN = 2;
+
+	/**
+	 * The number of operations of the '<em>Player</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_OPERATION_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link hearthstone.impl.PlayerBoardImpl <em>Player Board</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.impl.PlayerBoardImpl
+	 * @see hearthstone.impl.HearthstonePackageImpl#getPlayerBoard()
+	 * @generated
+	 */
+	int PLAYER_BOARD = 8;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_BOARD__EREFERENCE0 = 0;
+
+	/**
+	 * The feature id for the '<em><b>Board Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_BOARD__BOARD_OWNER = 1;
+
+	/**
+	 * The number of structural features of the '<em>Player Board</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_BOARD_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Player Board</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_BOARD_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link hearthstone.impl.HeroImpl <em>Hero</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.impl.HeroImpl
+	 * @see hearthstone.impl.HearthstonePackageImpl#getHero()
+	 * @generated
+	 */
+	int HERO = 9;
+
+	/**
+	 * The feature id for the '<em><b>Hero Class</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HERO__HERO_CLASS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Hero Health</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HERO__HERO_HEALTH = 1;
+
+	/**
+	 * The feature id for the '<em><b>Hero States</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HERO__HERO_STATES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Hero Ability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HERO__HERO_ABILITY = 3;
+
+	/**
+	 * The number of structural features of the '<em>Hero</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HERO_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Hero</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HERO_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link hearthstone.CardQuality <em>Card Quality</em>}' enum.
@@ -385,7 +905,7 @@ public interface HearthstonePackage extends EPackage {
 	 * @see hearthstone.impl.HearthstonePackageImpl#getCardQuality()
 	 * @generated
 	 */
-	int CARD_QUALITY = 3;
+	int CARD_QUALITY = 10;
 
 	/**
 	 * The meta object id for the '{@link hearthstone.CardRace <em>Card Race</em>}' enum.
@@ -395,17 +915,37 @@ public interface HearthstonePackage extends EPackage {
 	 * @see hearthstone.impl.HearthstonePackageImpl#getCardRace()
 	 * @generated
 	 */
-	int CARD_RACE = 4;
+	int CARD_RACE = 11;
 
 	/**
-	 * The meta object id for the '{@link hearthstone.Class <em>Class</em>}' enum.
+	 * The meta object id for the '{@link hearthstone.HeroClass <em>Hero Class</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see hearthstone.Class
-	 * @see hearthstone.impl.HearthstonePackageImpl#getClass_()
+	 * @see hearthstone.HeroClass
+	 * @see hearthstone.impl.HearthstonePackageImpl#getHeroClass()
 	 * @generated
 	 */
-	int CLASS = 5;
+	int HERO_CLASS = 12;
+
+	/**
+	 * The meta object id for the '{@link hearthstone.CardStates <em>Card States</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.CardStates
+	 * @see hearthstone.impl.HearthstonePackageImpl#getCardStates()
+	 * @generated
+	 */
+	int CARD_STATES = 13;
+
+	/**
+	 * The meta object id for the '{@link hearthstone.HeroStates <em>Hero States</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.HeroStates
+	 * @see hearthstone.impl.HearthstonePackageImpl#getHeroStates()
+	 * @generated
+	 */
+	int HERO_STATES = 14;
 
 	/**
 	 * The meta object id for the '<em>Abilities</em>' data type.
@@ -415,7 +955,7 @@ public interface HearthstonePackage extends EPackage {
 	 * @see hearthstone.impl.HearthstonePackageImpl#getAbilities()
 	 * @generated
 	 */
-	int ABILITIES = 6;
+	int ABILITIES = 15;
 
 	/**
 	 * Returns the meta object for class '{@link hearthstone.Card <em>Card</em>}'.
@@ -516,28 +1056,6 @@ public interface HearthstonePackage extends EPackage {
 	EAttribute getCard_CardStates();
 
 	/**
-	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardAbility <em>Card Ability</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Card Ability</em>'.
-	 * @see hearthstone.Card#getCardAbility()
-	 * @see #getCard()
-	 * @generated
-	 */
-	EAttribute getCard_CardAbility();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link hearthstone.Card#getCardAbilityList <em>Card Ability List</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Card Ability List</em>'.
-	 * @see hearthstone.Card#getCardAbilityList()
-	 * @see #getCard()
-	 * @generated
-	 */
-	EAttribute getCard_CardAbilityList();
-
-	/**
 	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardClass <em>Card Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -549,14 +1067,68 @@ public interface HearthstonePackage extends EPackage {
 	EAttribute getCard_CardClass();
 
 	/**
-	 * Returns the meta object for the '{@link hearthstone.Card#PlayCard() <em>Play Card</em>}' operation.
+	 * Returns the meta object for the containment reference list '{@link hearthstone.Card#getCardHasAbilities <em>Card Has Abilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Play Card</em>' operation.
-	 * @see hearthstone.Card#PlayCard()
+	 * @return the meta object for the containment reference list '<em>Card Has Abilities</em>'.
+	 * @see hearthstone.Card#getCardHasAbilities()
+	 * @see #getCard()
 	 * @generated
 	 */
-	EOperation getCard__PlayCard();
+	EReference getCard_CardHasAbilities();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardSN <em>Card SN</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Card SN</em>'.
+	 * @see hearthstone.Card#getCardSN()
+	 * @see #getCard()
+	 * @generated
+	 */
+	EAttribute getCard_CardSN();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardAbilityDesc <em>Card Ability Desc</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Card Ability Desc</em>'.
+	 * @see hearthstone.Card#getCardAbilityDesc()
+	 * @see #getCard()
+	 * @generated
+	 */
+	EAttribute getCard_CardAbilityDesc();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Card#getCardDeckSN <em>Card Deck SN</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Card Deck SN</em>'.
+	 * @see hearthstone.Card#getCardDeckSN()
+	 * @see #getCard()
+	 * @generated
+	 */
+	EAttribute getCard_CardDeckSN();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.Card#OperateCard(int) <em>Operate Card</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Operate Card</em>' operation.
+	 * @see hearthstone.Card#OperateCard(int)
+	 * @generated
+	 */
+	EOperation getCard__OperateCard__int();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.Card#UpdateCardStates(int) <em>Update Card States</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Update Card States</em>' operation.
+	 * @see hearthstone.Card#UpdateCardStates(int)
+	 * @generated
+	 */
+	EOperation getCard__UpdateCardStates__int();
 
 	/**
 	 * Returns the meta object for class '{@link hearthstone.Deck <em>Deck</em>}'.
@@ -600,6 +1172,17 @@ public interface HearthstonePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDeck_DeckHasCards();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hearthstone.Deck#getDeckHasHero <em>Deck Has Hero</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Deck Has Hero</em>'.
+	 * @see hearthstone.Deck#getDeckHasHero()
+	 * @see #getDeck()
+	 * @generated
+	 */
+	EReference getDeck_DeckHasHero();
 
 	/**
 	 * Returns the meta object for the '{@link hearthstone.Deck#Hello() <em>Hello</em>}' operation.
@@ -655,10 +1238,10 @@ public interface HearthstonePackage extends EPackage {
 	EAttribute getAbility_AbilityAffect();
 
 	/**
-	 * Returns the meta object for the reference list '{@link hearthstone.Ability#getCardHasAbility <em>Card Has Ability</em>}'.
+	 * Returns the meta object for the containment reference list '{@link hearthstone.Ability#getCardHasAbility <em>Card Has Ability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Card Has Ability</em>'.
+	 * @return the meta object for the containment reference list '<em>Card Has Ability</em>'.
 	 * @see hearthstone.Ability#getCardHasAbility()
 	 * @see #getAbility()
 	 * @generated
@@ -686,44 +1269,408 @@ public interface HearthstonePackage extends EPackage {
 	EOperation getAbility__IncreaseAttribute();
 
 	/**
-	 * Returns the meta object for the '{@link hearthstone.Ability#ReturnToHand() <em>Return To Hand</em>}' operation.
+	 * Returns the meta object for class '{@link hearthstone.EGamePlayerHand <em>EGame Player Hand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Return To Hand</em>' operation.
-	 * @see hearthstone.Ability#ReturnToHand()
+	 * @return the meta object for class '<em>EGame Player Hand</em>'.
+	 * @see hearthstone.EGamePlayerHand
 	 * @generated
 	 */
-	EOperation getAbility__ReturnToHand();
+	EClass getEGamePlayerHand();
 
 	/**
-	 * Returns the meta object for the '{@link hearthstone.Ability#GiveShield() <em>Give Shield</em>}' operation.
+	 * Returns the meta object for the reference '{@link hearthstone.EGamePlayerHand#getEReference0 <em>EReference0</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Give Shield</em>' operation.
-	 * @see hearthstone.Ability#GiveShield()
+	 * @return the meta object for the reference '<em>EReference0</em>'.
+	 * @see hearthstone.EGamePlayerHand#getEReference0()
+	 * @see #getEGamePlayerHand()
 	 * @generated
 	 */
-	EOperation getAbility__GiveShield();
+	EReference getEGamePlayerHand_EReference0();
 
 	/**
-	 * Returns the meta object for the '{@link hearthstone.Ability#Summon() <em>Summon</em>}' operation.
+	 * Returns the meta object for the containment reference list '{@link hearthstone.EGamePlayerHand#getCardsInHand <em>Cards In Hand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Summon</em>' operation.
-	 * @see hearthstone.Ability#Summon()
+	 * @return the meta object for the containment reference list '<em>Cards In Hand</em>'.
+	 * @see hearthstone.EGamePlayerHand#getCardsInHand()
+	 * @see #getEGamePlayerHand()
 	 * @generated
 	 */
-	EOperation getAbility__Summon();
+	EReference getEGamePlayerHand_CardsInHand();
 
 	/**
-	 * Returns the meta object for the '{@link hearthstone.Ability#DealDamage() <em>Deal Damage</em>}' operation.
+	 * Returns the meta object for the attribute '{@link hearthstone.EGamePlayerHand#getHandIOwner <em>Hand IOwner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Deal Damage</em>' operation.
-	 * @see hearthstone.Ability#DealDamage()
+	 * @return the meta object for the attribute '<em>Hand IOwner</em>'.
+	 * @see hearthstone.EGamePlayerHand#getHandIOwner()
+	 * @see #getEGamePlayerHand()
 	 * @generated
 	 */
-	EOperation getAbility__DealDamage();
+	EAttribute getEGamePlayerHand_HandIOwner();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.EGamePlayerHand#RemoveCard() <em>Remove Card</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Card</em>' operation.
+	 * @see hearthstone.EGamePlayerHand#RemoveCard()
+	 * @generated
+	 */
+	EOperation getEGamePlayerHand__RemoveCard();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.EGamePlayerHand#DrawCard() <em>Draw Card</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Draw Card</em>' operation.
+	 * @see hearthstone.EGamePlayerHand#DrawCard()
+	 * @generated
+	 */
+	EOperation getEGamePlayerHand__DrawCard();
+
+	/**
+	 * Returns the meta object for class '{@link hearthstone.EGameBoard <em>EGame Board</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>EGame Board</em>'.
+	 * @see hearthstone.EGameBoard
+	 * @generated
+	 */
+	EClass getEGameBoard();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hearthstone.EGameBoard#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>EReference0</em>'.
+	 * @see hearthstone.EGameBoard#getEReference0()
+	 * @see #getEGameBoard()
+	 * @generated
+	 */
+	EReference getEGameBoard_EReference0();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link hearthstone.EGameBoard#getGameBoardHasTwoPlayerBoard <em>Game Board Has Two Player Board</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Game Board Has Two Player Board</em>'.
+	 * @see hearthstone.EGameBoard#getGameBoardHasTwoPlayerBoard()
+	 * @see #getEGameBoard()
+	 * @generated
+	 */
+	EReference getEGameBoard_GameBoardHasTwoPlayerBoard();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.EGameBoard#getBoardSN <em>Board SN</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Board SN</em>'.
+	 * @see hearthstone.EGameBoard#getBoardSN()
+	 * @see #getEGameBoard()
+	 * @generated
+	 */
+	EAttribute getEGameBoard_BoardSN();
+
+	/**
+	 * Returns the meta object for class '{@link hearthstone.EGameDeck <em>EGame Deck</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>EGame Deck</em>'.
+	 * @see hearthstone.EGameDeck
+	 * @generated
+	 */
+	EClass getEGameDeck();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hearthstone.EGameDeck#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>EReference0</em>'.
+	 * @see hearthstone.EGameDeck#getEReference0()
+	 * @see #getEGameDeck()
+	 * @generated
+	 */
+	EReference getEGameDeck_EReference0();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hearthstone.EGameDeck#getEReference1 <em>EReference1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>EReference1</em>'.
+	 * @see hearthstone.EGameDeck#getEReference1()
+	 * @see #getEGameDeck()
+	 * @generated
+	 */
+	EReference getEGameDeck_EReference1();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.EGameDeck#getDeckOwner <em>Deck Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deck Owner</em>'.
+	 * @see hearthstone.EGameDeck#getDeckOwner()
+	 * @see #getEGameDeck()
+	 * @generated
+	 */
+	EAttribute getEGameDeck_DeckOwner();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.EGameDeck#RemoveCard(int) <em>Remove Card</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Remove Card</em>' operation.
+	 * @see hearthstone.EGameDeck#RemoveCard(int)
+	 * @generated
+	 */
+	EOperation getEGameDeck__RemoveCard__int();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.EGameDeck#ReturnCard(int) <em>Return Card</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Return Card</em>' operation.
+	 * @see hearthstone.EGameDeck#ReturnCard(int)
+	 * @generated
+	 */
+	EOperation getEGameDeck__ReturnCard__int();
+
+	/**
+	 * Returns the meta object for class '{@link hearthstone.EGame <em>EGame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>EGame</em>'.
+	 * @see hearthstone.EGame
+	 * @generated
+	 */
+	EClass getEGame();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hearthstone.EGame#getGameHasBoard <em>Game Has Board</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Game Has Board</em>'.
+	 * @see hearthstone.EGame#getGameHasBoard()
+	 * @see #getEGame()
+	 * @generated
+	 */
+	EReference getEGame_GameHasBoard();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.EGame#getGameSN <em>Game SN</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Game SN</em>'.
+	 * @see hearthstone.EGame#getGameSN()
+	 * @see #getEGame()
+	 * @generated
+	 */
+	EAttribute getEGame_GameSN();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link hearthstone.EGame#getGameHasTwoPlayers <em>Game Has Two Players</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Game Has Two Players</em>'.
+	 * @see hearthstone.EGame#getGameHasTwoPlayers()
+	 * @see #getEGame()
+	 * @generated
+	 */
+	EReference getEGame_GameHasTwoPlayers();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.EGame#getGameStates <em>Game States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Game States</em>'.
+	 * @see hearthstone.EGame#getGameStates()
+	 * @see #getEGame()
+	 * @generated
+	 */
+	EAttribute getEGame_GameStates();
+
+	/**
+	 * Returns the meta object for class '{@link hearthstone.Player <em>Player</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Player</em>'.
+	 * @see hearthstone.Player
+	 * @generated
+	 */
+	EClass getPlayer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Player#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see hearthstone.Player#getName()
+	 * @see #getPlayer()
+	 * @generated
+	 */
+	EAttribute getPlayer_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Player#getScore <em>Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Score</em>'.
+	 * @see hearthstone.Player#getScore()
+	 * @see #getPlayer()
+	 * @generated
+	 */
+	EAttribute getPlayer_Score();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hearthstone.Player#getPlayerHasDeck <em>Player Has Deck</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Player Has Deck</em>'.
+	 * @see hearthstone.Player#getPlayerHasDeck()
+	 * @see #getPlayer()
+	 * @generated
+	 */
+	EReference getPlayer_PlayerHasDeck();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hearthstone.Player#getCardsInHand <em>Cards In Hand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Cards In Hand</em>'.
+	 * @see hearthstone.Player#getCardsInHand()
+	 * @see #getPlayer()
+	 * @generated
+	 */
+	EReference getPlayer_CardsInHand();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link hearthstone.Player#getPlayerHasOwnBoard <em>Player Has Own Board</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Player Has Own Board</em>'.
+	 * @see hearthstone.Player#getPlayerHasOwnBoard()
+	 * @see #getPlayer()
+	 * @generated
+	 */
+	EReference getPlayer_PlayerHasOwnBoard();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.Player#PlayCard(int) <em>Play Card</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Play Card</em>' operation.
+	 * @see hearthstone.Player#PlayCard(int)
+	 * @generated
+	 */
+	EOperation getPlayer__PlayCard__int();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.Player#OperateCard() <em>Operate Card</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Operate Card</em>' operation.
+	 * @see hearthstone.Player#OperateCard()
+	 * @generated
+	 */
+	EOperation getPlayer__OperateCard();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.Player#ClickNextTurnBtn() <em>Click Next Turn Btn</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Click Next Turn Btn</em>' operation.
+	 * @see hearthstone.Player#ClickNextTurnBtn()
+	 * @generated
+	 */
+	EOperation getPlayer__ClickNextTurnBtn();
+
+	/**
+	 * Returns the meta object for class '{@link hearthstone.PlayerBoard <em>Player Board</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Player Board</em>'.
+	 * @see hearthstone.PlayerBoard
+	 * @generated
+	 */
+	EClass getPlayerBoard();
+
+	/**
+	 * Returns the meta object for the reference '{@link hearthstone.PlayerBoard#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference0</em>'.
+	 * @see hearthstone.PlayerBoard#getEReference0()
+	 * @see #getPlayerBoard()
+	 * @generated
+	 */
+	EReference getPlayerBoard_EReference0();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.PlayerBoard#getBoardOwner <em>Board Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Board Owner</em>'.
+	 * @see hearthstone.PlayerBoard#getBoardOwner()
+	 * @see #getPlayerBoard()
+	 * @generated
+	 */
+	EAttribute getPlayerBoard_BoardOwner();
+
+	/**
+	 * Returns the meta object for class '{@link hearthstone.Hero <em>Hero</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Hero</em>'.
+	 * @see hearthstone.Hero
+	 * @generated
+	 */
+	EClass getHero();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Hero#getHeroClass <em>Hero Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hero Class</em>'.
+	 * @see hearthstone.Hero#getHeroClass()
+	 * @see #getHero()
+	 * @generated
+	 */
+	EAttribute getHero_HeroClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Hero#getHeroHealth <em>Hero Health</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hero Health</em>'.
+	 * @see hearthstone.Hero#getHeroHealth()
+	 * @see #getHero()
+	 * @generated
+	 */
+	EAttribute getHero_HeroHealth();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Hero#getHeroStates <em>Hero States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hero States</em>'.
+	 * @see hearthstone.Hero#getHeroStates()
+	 * @see #getHero()
+	 * @generated
+	 */
+	EAttribute getHero_HeroStates();
+
+	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Hero#getHeroAbility <em>Hero Ability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hero Ability</em>'.
+	 * @see hearthstone.Hero#getHeroAbility()
+	 * @see #getHero()
+	 * @generated
+	 */
+	EAttribute getHero_HeroAbility();
 
 	/**
 	 * Returns the meta object for enum '{@link hearthstone.CardQuality <em>Card Quality</em>}'.
@@ -746,14 +1693,34 @@ public interface HearthstonePackage extends EPackage {
 	EEnum getCardRace();
 
 	/**
-	 * Returns the meta object for enum '{@link hearthstone.Class <em>Class</em>}'.
+	 * Returns the meta object for enum '{@link hearthstone.HeroClass <em>Hero Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Class</em>'.
-	 * @see hearthstone.Class
+	 * @return the meta object for enum '<em>Hero Class</em>'.
+	 * @see hearthstone.HeroClass
 	 * @generated
 	 */
-	EEnum getClass_();
+	EEnum getHeroClass();
+
+	/**
+	 * Returns the meta object for enum '{@link hearthstone.CardStates <em>Card States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Card States</em>'.
+	 * @see hearthstone.CardStates
+	 * @generated
+	 */
+	EEnum getCardStates();
+
+	/**
+	 * Returns the meta object for enum '{@link hearthstone.HeroStates <em>Hero States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Hero States</em>'.
+	 * @see hearthstone.HeroStates
+	 * @generated
+	 */
+	EEnum getHeroStates();
 
 	/**
 	 * Returns the meta object for data type '{@link hearthstone.Ability <em>Abilities</em>}'.
@@ -864,22 +1831,6 @@ public interface HearthstonePackage extends EPackage {
 		EAttribute CARD__CARD_STATES = eINSTANCE.getCard_CardStates();
 
 		/**
-		 * The meta object literal for the '<em><b>Card Ability</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CARD__CARD_ABILITY = eINSTANCE.getCard_CardAbility();
-
-		/**
-		 * The meta object literal for the '<em><b>Card Ability List</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CARD__CARD_ABILITY_LIST = eINSTANCE.getCard_CardAbilityList();
-
-		/**
 		 * The meta object literal for the '<em><b>Card Class</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -888,12 +1839,52 @@ public interface HearthstonePackage extends EPackage {
 		EAttribute CARD__CARD_CLASS = eINSTANCE.getCard_CardClass();
 
 		/**
-		 * The meta object literal for the '<em><b>Play Card</b></em>' operation.
+		 * The meta object literal for the '<em><b>Card Has Abilities</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation CARD___PLAY_CARD = eINSTANCE.getCard__PlayCard();
+		EReference CARD__CARD_HAS_ABILITIES = eINSTANCE.getCard_CardHasAbilities();
+
+		/**
+		 * The meta object literal for the '<em><b>Card SN</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CARD__CARD_SN = eINSTANCE.getCard_CardSN();
+
+		/**
+		 * The meta object literal for the '<em><b>Card Ability Desc</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CARD__CARD_ABILITY_DESC = eINSTANCE.getCard_CardAbilityDesc();
+
+		/**
+		 * The meta object literal for the '<em><b>Card Deck SN</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CARD__CARD_DECK_SN = eINSTANCE.getCard_CardDeckSN();
+
+		/**
+		 * The meta object literal for the '<em><b>Operate Card</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CARD___OPERATE_CARD__INT = eINSTANCE.getCard__OperateCard__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Update Card States</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation CARD___UPDATE_CARD_STATES__INT = eINSTANCE.getCard__UpdateCardStates__int();
 
 		/**
 		 * The meta object literal for the '{@link hearthstone.impl.DeckImpl <em>Deck</em>}' class.
@@ -928,6 +1919,14 @@ public interface HearthstonePackage extends EPackage {
 		 * @generated
 		 */
 		EReference DECK__DECK_HAS_CARDS = eINSTANCE.getDeck_DeckHasCards();
+
+		/**
+		 * The meta object literal for the '<em><b>Deck Has Hero</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DECK__DECK_HAS_HERO = eINSTANCE.getDeck_DeckHasHero();
 
 		/**
 		 * The meta object literal for the '<em><b>Hello</b></em>' operation.
@@ -972,7 +1971,7 @@ public interface HearthstonePackage extends EPackage {
 		EAttribute ABILITY__ABILITY_AFFECT = eINSTANCE.getAbility_AbilityAffect();
 
 		/**
-		 * The meta object literal for the '<em><b>Card Has Ability</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Card Has Ability</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -996,36 +1995,322 @@ public interface HearthstonePackage extends EPackage {
 		EOperation ABILITY___INCREASE_ATTRIBUTE = eINSTANCE.getAbility__IncreaseAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Return To Hand</b></em>' operation.
+		 * The meta object literal for the '{@link hearthstone.impl.EGamePlayerHandImpl <em>EGame Player Hand</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see hearthstone.impl.EGamePlayerHandImpl
+		 * @see hearthstone.impl.HearthstonePackageImpl#getEGamePlayerHand()
 		 * @generated
 		 */
-		EOperation ABILITY___RETURN_TO_HAND = eINSTANCE.getAbility__ReturnToHand();
+		EClass EGAME_PLAYER_HAND = eINSTANCE.getEGamePlayerHand();
 
 		/**
-		 * The meta object literal for the '<em><b>Give Shield</b></em>' operation.
+		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABILITY___GIVE_SHIELD = eINSTANCE.getAbility__GiveShield();
+		EReference EGAME_PLAYER_HAND__EREFERENCE0 = eINSTANCE.getEGamePlayerHand_EReference0();
 
 		/**
-		 * The meta object literal for the '<em><b>Summon</b></em>' operation.
+		 * The meta object literal for the '<em><b>Cards In Hand</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABILITY___SUMMON = eINSTANCE.getAbility__Summon();
+		EReference EGAME_PLAYER_HAND__CARDS_IN_HAND = eINSTANCE.getEGamePlayerHand_CardsInHand();
 
 		/**
-		 * The meta object literal for the '<em><b>Deal Damage</b></em>' operation.
+		 * The meta object literal for the '<em><b>Hand IOwner</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ABILITY___DEAL_DAMAGE = eINSTANCE.getAbility__DealDamage();
+		EAttribute EGAME_PLAYER_HAND__HAND_IOWNER = eINSTANCE.getEGamePlayerHand_HandIOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Card</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EGAME_PLAYER_HAND___REMOVE_CARD = eINSTANCE.getEGamePlayerHand__RemoveCard();
+
+		/**
+		 * The meta object literal for the '<em><b>Draw Card</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EGAME_PLAYER_HAND___DRAW_CARD = eINSTANCE.getEGamePlayerHand__DrawCard();
+
+		/**
+		 * The meta object literal for the '{@link hearthstone.impl.EGameBoardImpl <em>EGame Board</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.impl.EGameBoardImpl
+		 * @see hearthstone.impl.HearthstonePackageImpl#getEGameBoard()
+		 * @generated
+		 */
+		EClass EGAME_BOARD = eINSTANCE.getEGameBoard();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EGAME_BOARD__EREFERENCE0 = eINSTANCE.getEGameBoard_EReference0();
+
+		/**
+		 * The meta object literal for the '<em><b>Game Board Has Two Player Board</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EGAME_BOARD__GAME_BOARD_HAS_TWO_PLAYER_BOARD = eINSTANCE.getEGameBoard_GameBoardHasTwoPlayerBoard();
+
+		/**
+		 * The meta object literal for the '<em><b>Board SN</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EGAME_BOARD__BOARD_SN = eINSTANCE.getEGameBoard_BoardSN();
+
+		/**
+		 * The meta object literal for the '{@link hearthstone.impl.EGameDeckImpl <em>EGame Deck</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.impl.EGameDeckImpl
+		 * @see hearthstone.impl.HearthstonePackageImpl#getEGameDeck()
+		 * @generated
+		 */
+		EClass EGAME_DECK = eINSTANCE.getEGameDeck();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EGAME_DECK__EREFERENCE0 = eINSTANCE.getEGameDeck_EReference0();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference1</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EGAME_DECK__EREFERENCE1 = eINSTANCE.getEGameDeck_EReference1();
+
+		/**
+		 * The meta object literal for the '<em><b>Deck Owner</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EGAME_DECK__DECK_OWNER = eINSTANCE.getEGameDeck_DeckOwner();
+
+		/**
+		 * The meta object literal for the '<em><b>Remove Card</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EGAME_DECK___REMOVE_CARD__INT = eINSTANCE.getEGameDeck__RemoveCard__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Card</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EGAME_DECK___RETURN_CARD__INT = eINSTANCE.getEGameDeck__ReturnCard__int();
+
+		/**
+		 * The meta object literal for the '{@link hearthstone.impl.EGameImpl <em>EGame</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.impl.EGameImpl
+		 * @see hearthstone.impl.HearthstonePackageImpl#getEGame()
+		 * @generated
+		 */
+		EClass EGAME = eINSTANCE.getEGame();
+
+		/**
+		 * The meta object literal for the '<em><b>Game Has Board</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EGAME__GAME_HAS_BOARD = eINSTANCE.getEGame_GameHasBoard();
+
+		/**
+		 * The meta object literal for the '<em><b>Game SN</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EGAME__GAME_SN = eINSTANCE.getEGame_GameSN();
+
+		/**
+		 * The meta object literal for the '<em><b>Game Has Two Players</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EGAME__GAME_HAS_TWO_PLAYERS = eINSTANCE.getEGame_GameHasTwoPlayers();
+
+		/**
+		 * The meta object literal for the '<em><b>Game States</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EGAME__GAME_STATES = eINSTANCE.getEGame_GameStates();
+
+		/**
+		 * The meta object literal for the '{@link hearthstone.impl.PlayerImpl <em>Player</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.impl.PlayerImpl
+		 * @see hearthstone.impl.HearthstonePackageImpl#getPlayer()
+		 * @generated
+		 */
+		EClass PLAYER = eINSTANCE.getPlayer();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLAYER__NAME = eINSTANCE.getPlayer_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLAYER__SCORE = eINSTANCE.getPlayer_Score();
+
+		/**
+		 * The meta object literal for the '<em><b>Player Has Deck</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLAYER__PLAYER_HAS_DECK = eINSTANCE.getPlayer_PlayerHasDeck();
+
+		/**
+		 * The meta object literal for the '<em><b>Cards In Hand</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLAYER__CARDS_IN_HAND = eINSTANCE.getPlayer_CardsInHand();
+
+		/**
+		 * The meta object literal for the '<em><b>Player Has Own Board</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLAYER__PLAYER_HAS_OWN_BOARD = eINSTANCE.getPlayer_PlayerHasOwnBoard();
+
+		/**
+		 * The meta object literal for the '<em><b>Play Card</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLAYER___PLAY_CARD__INT = eINSTANCE.getPlayer__PlayCard__int();
+
+		/**
+		 * The meta object literal for the '<em><b>Operate Card</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLAYER___OPERATE_CARD = eINSTANCE.getPlayer__OperateCard();
+
+		/**
+		 * The meta object literal for the '<em><b>Click Next Turn Btn</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PLAYER___CLICK_NEXT_TURN_BTN = eINSTANCE.getPlayer__ClickNextTurnBtn();
+
+		/**
+		 * The meta object literal for the '{@link hearthstone.impl.PlayerBoardImpl <em>Player Board</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.impl.PlayerBoardImpl
+		 * @see hearthstone.impl.HearthstonePackageImpl#getPlayerBoard()
+		 * @generated
+		 */
+		EClass PLAYER_BOARD = eINSTANCE.getPlayerBoard();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PLAYER_BOARD__EREFERENCE0 = eINSTANCE.getPlayerBoard_EReference0();
+
+		/**
+		 * The meta object literal for the '<em><b>Board Owner</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PLAYER_BOARD__BOARD_OWNER = eINSTANCE.getPlayerBoard_BoardOwner();
+
+		/**
+		 * The meta object literal for the '{@link hearthstone.impl.HeroImpl <em>Hero</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.impl.HeroImpl
+		 * @see hearthstone.impl.HearthstonePackageImpl#getHero()
+		 * @generated
+		 */
+		EClass HERO = eINSTANCE.getHero();
+
+		/**
+		 * The meta object literal for the '<em><b>Hero Class</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HERO__HERO_CLASS = eINSTANCE.getHero_HeroClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Hero Health</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HERO__HERO_HEALTH = eINSTANCE.getHero_HeroHealth();
+
+		/**
+		 * The meta object literal for the '<em><b>Hero States</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HERO__HERO_STATES = eINSTANCE.getHero_HeroStates();
+
+		/**
+		 * The meta object literal for the '<em><b>Hero Ability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HERO__HERO_ABILITY = eINSTANCE.getHero_HeroAbility();
 
 		/**
 		 * The meta object literal for the '{@link hearthstone.CardQuality <em>Card Quality</em>}' enum.
@@ -1048,14 +2333,34 @@ public interface HearthstonePackage extends EPackage {
 		EEnum CARD_RACE = eINSTANCE.getCardRace();
 
 		/**
-		 * The meta object literal for the '{@link hearthstone.Class <em>Class</em>}' enum.
+		 * The meta object literal for the '{@link hearthstone.HeroClass <em>Hero Class</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see hearthstone.Class
-		 * @see hearthstone.impl.HearthstonePackageImpl#getClass_()
+		 * @see hearthstone.HeroClass
+		 * @see hearthstone.impl.HearthstonePackageImpl#getHeroClass()
 		 * @generated
 		 */
-		EEnum CLASS = eINSTANCE.getClass_();
+		EEnum HERO_CLASS = eINSTANCE.getHeroClass();
+
+		/**
+		 * The meta object literal for the '{@link hearthstone.CardStates <em>Card States</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.CardStates
+		 * @see hearthstone.impl.HearthstonePackageImpl#getCardStates()
+		 * @generated
+		 */
+		EEnum CARD_STATES = eINSTANCE.getCardStates();
+
+		/**
+		 * The meta object literal for the '{@link hearthstone.HeroStates <em>Hero States</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.HeroStates
+		 * @see hearthstone.impl.HearthstonePackageImpl#getHeroStates()
+		 * @generated
+		 */
+		EEnum HERO_STATES = eINSTANCE.getHeroStates();
 
 		/**
 		 * The meta object literal for the '<em>Abilities</em>' data type.

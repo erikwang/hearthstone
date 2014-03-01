@@ -5,21 +5,17 @@ package hearthstone.impl;
 import hearthstone.Ability;
 import hearthstone.Card;
 import hearthstone.HearthstonePackage;
-
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -99,7 +95,7 @@ public class AbilityImpl extends MinimalEObjectImpl.Container implements Ability
 	protected String abilityAffect = ABILITY_AFFECT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCardHasAbility() <em>Card Has Ability</em>}' reference list.
+	 * The cached value of the '{@link #getCardHasAbility() <em>Card Has Ability</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCardHasAbility()
@@ -197,7 +193,7 @@ public class AbilityImpl extends MinimalEObjectImpl.Container implements Ability
 	 */
 	public EList<Card> getCardHasAbility() {
 		if (cardHasAbility == null) {
-			cardHasAbility = new EObjectResolvingEList<Card>(Card.class, this, HearthstonePackage.ABILITY__CARD_HAS_ABILITY);
+			cardHasAbility = new EObjectContainmentEList<Card>(Card.class, this, HearthstonePackage.ABILITY__CARD_HAS_ABILITY);
 		}
 		return cardHasAbility;
 	}
@@ -207,7 +203,7 @@ public class AbilityImpl extends MinimalEObjectImpl.Container implements Ability
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Charge() {
+	public boolean Charge() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -218,7 +214,7 @@ public class AbilityImpl extends MinimalEObjectImpl.Container implements Ability
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void IncreaseAttribute() {
+	public boolean IncreaseAttribute() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -229,43 +225,13 @@ public class AbilityImpl extends MinimalEObjectImpl.Container implements Ability
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void ReturnToHand() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void GiveShield() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void Summon() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void DealDamage() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case HearthstonePackage.ABILITY__CARD_HAS_ABILITY:
+				return ((InternalEList<?>)getCardHasAbility()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -367,23 +333,9 @@ public class AbilityImpl extends MinimalEObjectImpl.Container implements Ability
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case HearthstonePackage.ABILITY___CHARGE:
-				Charge();
-				return null;
+				return Charge();
 			case HearthstonePackage.ABILITY___INCREASE_ATTRIBUTE:
-				IncreaseAttribute();
-				return null;
-			case HearthstonePackage.ABILITY___RETURN_TO_HAND:
-				ReturnToHand();
-				return null;
-			case HearthstonePackage.ABILITY___GIVE_SHIELD:
-				GiveShield();
-				return null;
-			case HearthstonePackage.ABILITY___SUMMON:
-				Summon();
-				return null;
-			case HearthstonePackage.ABILITY___DEAL_DAMAGE:
-				DealDamage();
-				return null;
+				return IncreaseAttribute();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

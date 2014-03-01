@@ -105,7 +105,7 @@ public interface Ability extends EObject {
 	void setAbilityAffect(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Card Has Ability</b></em>' reference list.
+	 * Returns the value of the '<em><b>Card Has Ability</b></em>' containment reference list.
 	 * The list contents are of type {@link hearthstone.Card}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -113,9 +113,9 @@ public interface Ability extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Card Has Ability</em>' reference list.
+	 * @return the value of the '<em>Card Has Ability</em>' containment reference list.
 	 * @see hearthstone.HearthstonePackage#getAbility_CardHasAbility()
-	 * @model upper="5"
+	 * @model containment="true" upper="5"
 	 * @generated
 	 */
 	EList<Card> getCardHasAbility();
@@ -126,7 +126,7 @@ public interface Ability extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void Charge();
+	boolean Charge();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,38 +134,6 @@ public interface Ability extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void IncreaseAttribute();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void ReturnToHand();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void GiveShield();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void Summon();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void DealDamage();
+	boolean IncreaseAttribute();
 
 } // Ability

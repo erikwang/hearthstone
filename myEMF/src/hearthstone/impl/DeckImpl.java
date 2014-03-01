@@ -5,6 +5,7 @@ package hearthstone.impl;
 import hearthstone.Card;
 import hearthstone.Deck;
 import hearthstone.HearthstonePackage;
+import hearthstone.Hero;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hearthstone.impl.DeckImpl#getDeckID <em>Deck ID</em>}</li>
  *   <li>{@link hearthstone.impl.DeckImpl#getDeckName <em>Deck Name</em>}</li>
  *   <li>{@link hearthstone.impl.DeckImpl#getDeckHasCards <em>Deck Has Cards</em>}</li>
+ *   <li>{@link hearthstone.impl.DeckImpl#getDeckHasHero <em>Deck Has Hero</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,6 +84,16 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	 * @ordered
 	 */
 	protected EList<Card> deckHasCards;
+
+	/**
+	 * The cached value of the '{@link #getDeckHasHero() <em>Deck Has Hero</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeckHasHero()
+	 * @generated
+	 * @ordered
+	 */
+	protected Hero deckHasHero;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,10 +173,53 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void Hello() {
+	public Hero getDeckHasHero() {
+		return deckHasHero;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDeckHasHero(Hero newDeckHasHero, NotificationChain msgs) {
+		Hero oldDeckHasHero = deckHasHero;
+		deckHasHero = newDeckHasHero;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HearthstonePackage.DECK__DECK_HAS_HERO, oldDeckHasHero, newDeckHasHero);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeckHasHero(Hero newDeckHasHero) {
+		if (newDeckHasHero != deckHasHero) {
+			NotificationChain msgs = null;
+			if (deckHasHero != null)
+				msgs = ((InternalEObject)deckHasHero).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HearthstonePackage.DECK__DECK_HAS_HERO, null, msgs);
+			if (newDeckHasHero != null)
+				msgs = ((InternalEObject)newDeckHasHero).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HearthstonePackage.DECK__DECK_HAS_HERO, null, msgs);
+			msgs = basicSetDeckHasHero(newDeckHasHero, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.DECK__DECK_HAS_HERO, newDeckHasHero, newDeckHasHero));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean Hello() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -177,6 +232,8 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 		switch (featureID) {
 			case HearthstonePackage.DECK__DECK_HAS_CARDS:
 				return ((InternalEList<?>)getDeckHasCards()).basicRemove(otherEnd, msgs);
+			case HearthstonePackage.DECK__DECK_HAS_HERO:
+				return basicSetDeckHasHero(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -195,6 +252,8 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 				return getDeckName();
 			case HearthstonePackage.DECK__DECK_HAS_CARDS:
 				return getDeckHasCards();
+			case HearthstonePackage.DECK__DECK_HAS_HERO:
+				return getDeckHasHero();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,6 +277,9 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 				getDeckHasCards().clear();
 				getDeckHasCards().addAll((Collection<? extends Card>)newValue);
 				return;
+			case HearthstonePackage.DECK__DECK_HAS_HERO:
+				setDeckHasHero((Hero)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -239,6 +301,9 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 			case HearthstonePackage.DECK__DECK_HAS_CARDS:
 				getDeckHasCards().clear();
 				return;
+			case HearthstonePackage.DECK__DECK_HAS_HERO:
+				setDeckHasHero((Hero)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -257,6 +322,8 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 				return DECK_NAME_EDEFAULT == null ? deckName != null : !DECK_NAME_EDEFAULT.equals(deckName);
 			case HearthstonePackage.DECK__DECK_HAS_CARDS:
 				return deckHasCards != null && !deckHasCards.isEmpty();
+			case HearthstonePackage.DECK__DECK_HAS_HERO:
+				return deckHasHero != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -270,8 +337,7 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case HearthstonePackage.DECK___HELLO:
-				Hello();
-				return null;
+				return Hello();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hearthstone.Deck#getDeckID <em>Deck ID</em>}</li>
  *   <li>{@link hearthstone.Deck#getDeckName <em>Deck Name</em>}</li>
  *   <li>{@link hearthstone.Deck#getDeckHasCards <em>Deck Has Cards</em>}</li>
+ *   <li>{@link hearthstone.Deck#getDeckHasHero <em>Deck Has Hero</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,10 +88,36 @@ public interface Deck extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deck Has Cards</em>' containment reference list.
 	 * @see hearthstone.HearthstonePackage#getDeck_DeckHasCards()
-	 * @model containment="true" upper="9"
+	 * @model containment="true" lower="30" upper="30"
 	 * @generated
 	 */
 	EList<Card> getDeckHasCards();
+
+	/**
+	 * Returns the value of the '<em><b>Deck Has Hero</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Deck Has Hero</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Deck Has Hero</em>' containment reference.
+	 * @see #setDeckHasHero(Hero)
+	 * @see hearthstone.HearthstonePackage#getDeck_DeckHasHero()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	Hero getDeckHasHero();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Deck#getDeckHasHero <em>Deck Has Hero</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deck Has Hero</em>' containment reference.
+	 * @see #getDeckHasHero()
+	 * @generated
+	 */
+	void setDeckHasHero(Hero value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,6 +125,6 @@ public interface Deck extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void Hello();
+	boolean Hello();
 
 } // Deck

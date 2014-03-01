@@ -21,9 +21,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hearthstone.Card#getCardNumberLimit <em>Card Number Limit</em>}</li>
  *   <li>{@link hearthstone.Card#getCardRace <em>Card Race</em>}</li>
  *   <li>{@link hearthstone.Card#getCardStates <em>Card States</em>}</li>
- *   <li>{@link hearthstone.Card#getCardAbility <em>Card Ability</em>}</li>
- *   <li>{@link hearthstone.Card#getCardAbilityList <em>Card Ability List</em>}</li>
  *   <li>{@link hearthstone.Card#getCardClass <em>Card Class</em>}</li>
+ *   <li>{@link hearthstone.Card#getCardHasAbilities <em>Card Has Abilities</em>}</li>
+ *   <li>{@link hearthstone.Card#getCardSN <em>Card SN</em>}</li>
+ *   <li>{@link hearthstone.Card#getCardAbilityDesc <em>Card Ability Desc</em>}</li>
+ *   <li>{@link hearthstone.Card#getCardDeckSN <em>Card Deck SN</em>}</li>
  * </ul>
  * </p>
  *
@@ -138,6 +140,7 @@ public interface Card extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Card Quality</b></em>' attribute.
+	 * The literals are from the enumeration {@link hearthstone.CardQuality}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -148,22 +151,24 @@ public interface Card extends EObject {
 	 * 4 - legedary
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Card Quality</em>' attribute.
-	 * @see #setCardQuality(String)
+	 * @see hearthstone.CardQuality
+	 * @see #setCardQuality(CardQuality)
 	 * @see hearthstone.HearthstonePackage#getCard_CardQuality()
 	 * @model
 	 * @generated
 	 */
-	String getCardQuality();
+	CardQuality getCardQuality();
 
 	/**
 	 * Sets the value of the '{@link hearthstone.Card#getCardQuality <em>Card Quality</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Card Quality</em>' attribute.
+	 * @see hearthstone.CardQuality
 	 * @see #getCardQuality()
 	 * @generated
 	 */
-	void setCardQuality(String value);
+	void setCardQuality(CardQuality value);
 
 	/**
 	 * Returns the value of the '<em><b>Card Number Limit</b></em>' attribute.
@@ -223,6 +228,7 @@ public interface Card extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Card States</b></em>' attribute.
+	 * The literals are from the enumeration {@link hearthstone.CardStates}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -234,64 +240,24 @@ public interface Card extends EObject {
 	 * Destory - 99
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Card States</em>' attribute.
-	 * @see #setCardStates(int)
+	 * @see hearthstone.CardStates
+	 * @see #setCardStates(CardStates)
 	 * @see hearthstone.HearthstonePackage#getCard_CardStates()
 	 * @model
 	 * @generated
 	 */
-	int getCardStates();
+	CardStates getCardStates();
 
 	/**
 	 * Sets the value of the '{@link hearthstone.Card#getCardStates <em>Card States</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Card States</em>' attribute.
+	 * @see hearthstone.CardStates
 	 * @see #getCardStates()
 	 * @generated
 	 */
-	void setCardStates(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Card Ability</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Card Ability</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Card Ability</em>' attribute.
-	 * @see #setCardAbility(String)
-	 * @see hearthstone.HearthstonePackage#getCard_CardAbility()
-	 * @model
-	 * @generated
-	 */
-	String getCardAbility();
-
-	/**
-	 * Sets the value of the '{@link hearthstone.Card#getCardAbility <em>Card Ability</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Card Ability</em>' attribute.
-	 * @see #getCardAbility()
-	 * @generated
-	 */
-	void setCardAbility(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Card Ability List</b></em>' attribute list.
-	 * The list contents are of type {@link hearthstone.Ability}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Card Ability List</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Card Ability List</em>' attribute list.
-	 * @see hearthstone.HearthstonePackage#getCard_CardAbilityList()
-	 * @model dataType="hearthstone.Abilities" upper="3"
-	 * @generated
-	 */
-	EList<Ability> getCardAbilityList();
+	void setCardStates(CardStates value);
 
 	/**
 	 * Returns the value of the '<em><b>Card Class</b></em>' attribute.
@@ -320,11 +286,113 @@ public interface Card extends EObject {
 	void setCardClass(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Card Has Abilities</b></em>' containment reference list.
+	 * The list contents are of type {@link hearthstone.Ability}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Card Has Abilities</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Card Has Abilities</em>' containment reference list.
+	 * @see hearthstone.HearthstonePackage#getCard_CardHasAbilities()
+	 * @model containment="true" upper="5"
+	 * @generated
+	 */
+	EList<Ability> getCardHasAbilities();
+
+	/**
+	 * Returns the value of the '<em><b>Card SN</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Card SN</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Card SN</em>' attribute.
+	 * @see #setCardSN(int)
+	 * @see hearthstone.HearthstonePackage#getCard_CardSN()
+	 * @model
+	 * @generated
+	 */
+	int getCardSN();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Card#getCardSN <em>Card SN</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card SN</em>' attribute.
+	 * @see #getCardSN()
+	 * @generated
+	 */
+	void setCardSN(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Card Ability Desc</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Card Ability Desc</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Card Ability Desc</em>' attribute.
+	 * @see #setCardAbilityDesc(String)
+	 * @see hearthstone.HearthstonePackage#getCard_CardAbilityDesc()
+	 * @model
+	 * @generated
+	 */
+	String getCardAbilityDesc();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Card#getCardAbilityDesc <em>Card Ability Desc</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card Ability Desc</em>' attribute.
+	 * @see #getCardAbilityDesc()
+	 * @generated
+	 */
+	void setCardAbilityDesc(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Card Deck SN</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Card Deck SN</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Card Deck SN</em>' attribute.
+	 * @see #setCardDeckSN(int)
+	 * @see hearthstone.HearthstonePackage#getCard_CardDeckSN()
+	 * @model
+	 * @generated
+	 */
+	int getCardDeckSN();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Card#getCardDeckSN <em>Card Deck SN</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Card Deck SN</em>' attribute.
+	 * @see #getCardDeckSN()
+	 * @generated
+	 */
+	void setCardDeckSN(int value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
-	void PlayCard();
+	boolean OperateCard(int TargetCardSN);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean UpdateCardStates(int CardStates);
 
 } // Card
