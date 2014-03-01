@@ -287,13 +287,22 @@ public interface HearthstonePackage extends EPackage {
 	int DECK___HELLO = 0;
 
 	/**
+	 * The operation id for the '<em>Show Deck Cards</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECK___SHOW_DECK_CARDS = 1;
+
+	/**
 	 * The number of operations of the '<em>Deck</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECK_OPERATION_COUNT = 1;
+	int DECK_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link hearthstone.impl.AbilityImpl <em>Ability</em>}' class.
@@ -597,6 +606,15 @@ public interface HearthstonePackage extends EPackage {
 	int GAME_DECK___HELLO = DECK___HELLO;
 
 	/**
+	 * The operation id for the '<em>Show Deck Cards</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_DECK___SHOW_DECK_CARDS = DECK___SHOW_DECK_CARDS;
+
+	/**
 	 * The operation id for the '<em>Remove Card</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -670,13 +688,22 @@ public interface HearthstonePackage extends EPackage {
 	int GAME__GAME_STATES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Game ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME__GAME_ID = 4;
+
+	/**
 	 * The number of structural features of the '<em>Game</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_FEATURE_COUNT = 4;
+	int GAME_FEATURE_COUNT = 5;
 
 	/**
 	 * The operation id for the '<em>Show Game</em>' operation.
@@ -984,6 +1011,16 @@ public interface HearthstonePackage extends EPackage {
 	int HERO_STATES = 14;
 
 	/**
+	 * The meta object id for the '{@link hearthstone.GameState <em>Game State</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see hearthstone.GameState
+	 * @see hearthstone.impl.HearthstonePackageImpl#getGameState()
+	 * @generated
+	 */
+	int GAME_STATE = 15;
+
+	/**
 	 * The meta object id for the '<em>Abilities</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -991,7 +1028,7 @@ public interface HearthstonePackage extends EPackage {
 	 * @see hearthstone.impl.HearthstonePackageImpl#getAbilities()
 	 * @generated
 	 */
-	int ABILITIES = 15;
+	int ABILITIES = 16;
 
 
 	/**
@@ -1230,6 +1267,16 @@ public interface HearthstonePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getDeck__Hello();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.Deck#ShowDeckCards() <em>Show Deck Cards</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Show Deck Cards</em>' operation.
+	 * @see hearthstone.Deck#ShowDeckCards()
+	 * @generated
+	 */
+	EOperation getDeck__ShowDeckCards();
 
 	/**
 	 * Returns the meta object for class '{@link hearthstone.Ability <em>Ability</em>}'.
@@ -1529,6 +1576,17 @@ public interface HearthstonePackage extends EPackage {
 	EAttribute getGame_GameStates();
 
 	/**
+	 * Returns the meta object for the attribute '{@link hearthstone.Game#getGameID <em>Game ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Game ID</em>'.
+	 * @see hearthstone.Game#getGameID()
+	 * @see #getGame()
+	 * @generated
+	 */
+	EAttribute getGame_GameID();
+
+	/**
 	 * Returns the meta object for the '{@link hearthstone.Game#ShowGame(int) <em>Show Game</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1803,6 +1861,16 @@ public interface HearthstonePackage extends EPackage {
 	EEnum getHeroStates();
 
 	/**
+	 * Returns the meta object for enum '{@link hearthstone.GameState <em>Game State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Game State</em>'.
+	 * @see hearthstone.GameState
+	 * @generated
+	 */
+	EEnum getGameState();
+
+	/**
 	 * Returns the meta object for data type '{@link hearthstone.Ability <em>Abilities</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2015,6 +2083,14 @@ public interface HearthstonePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DECK___HELLO = eINSTANCE.getDeck__Hello();
+
+		/**
+		 * The meta object literal for the '<em><b>Show Deck Cards</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DECK___SHOW_DECK_CARDS = eINSTANCE.getDeck__ShowDeckCards();
 
 		/**
 		 * The meta object literal for the '{@link hearthstone.impl.AbilityImpl <em>Ability</em>}' class.
@@ -2251,6 +2327,14 @@ public interface HearthstonePackage extends EPackage {
 		EAttribute GAME__GAME_STATES = eINSTANCE.getGame_GameStates();
 
 		/**
+		 * The meta object literal for the '<em><b>Game ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAME__GAME_ID = eINSTANCE.getGame_GameID();
+
+		/**
 		 * The meta object literal for the '<em><b>Show Game</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2473,6 +2557,16 @@ public interface HearthstonePackage extends EPackage {
 		 * @generated
 		 */
 		EEnum HERO_STATES = eINSTANCE.getHeroStates();
+
+		/**
+		 * The meta object literal for the '{@link hearthstone.GameState <em>Game State</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see hearthstone.GameState
+		 * @see hearthstone.impl.HearthstonePackageImpl#getGameState()
+		 * @generated
+		 */
+		EEnum GAME_STATE = eINSTANCE.getGameState();
 
 		/**
 		 * The meta object literal for the '<em>Abilities</em>' data type.

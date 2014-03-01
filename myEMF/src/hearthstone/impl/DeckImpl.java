@@ -234,6 +234,17 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void ShowDeckCards() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -345,6 +356,9 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 		switch (operationID) {
 			case HearthstonePackage.DECK___HELLO:
 				return Hello();
+			case HearthstonePackage.DECK___SHOW_DECK_CARDS:
+				ShowDeckCards();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

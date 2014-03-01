@@ -128,4 +128,12 @@ public interface Deck extends EObject {
 	 */
 	boolean Hello();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void ShowDeckCards();
+
 } // Deck

@@ -92,6 +92,10 @@
         <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Deck/Hello"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_Bo0NEZDjEeObiYdb3vGF6w"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_kPZNsKGFEeOdSIKU0iLUvg" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Deck/ShowDeckCards"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_kPZNsaGFEeOdSIKU0iLUvg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_wwYksZBQEeOyBZvOKHCRlg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_wwYkspBQEeOyBZvOKHCRlg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_wwYks5BQEeOyBZvOKHCRlg"/>
@@ -335,6 +339,10 @@
         <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//Game/GameStates"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_R1-J8aDCEeOynOhOwtWdew"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_HDK8YKGLEeOdSIKU0iLUvg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//Game/GameID"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HDK8YaGLEeOdSIKU0iLUvg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_XpVtAqCREeOynOhOwtWdew"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_XpVtA6CREeOynOhOwtWdew"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_XpVtBKCREeOynOhOwtWdew"/>
@@ -509,6 +517,33 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_ZkJrsaDEEeOynOhOwtWdew" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="HearthStone.ecore#//HeroStates"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZkJrsqDEEeOynOhOwtWdew" x="1170" y="405"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_L0cLoKGOEeOdSIKU0iLUvg" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_L0dZwKGOEeOdSIKU0iLUvg" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_L0dZwaGOEeOdSIKU0iLUvg" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_MjCXAKGOEeOdSIKU0iLUvg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="HearthStone.ecore#//GameState/Created"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MjCXAaGOEeOdSIKU0iLUvg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_OumPoKGOEeOdSIKU0iLUvg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="HearthStone.ecore#//GameState/Playing"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_OumPoaGOEeOdSIKU0iLUvg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_PsA6IKGOEeOdSIKU0iLUvg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="HearthStone.ecore#//GameState/Over"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_PsA6IaGOEeOdSIKU0iLUvg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Q7vcoKGOEeOdSIKU0iLUvg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="HearthStone.ecore#//GameState/Halt"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Q7vcoaGOEeOdSIKU0iLUvg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_L0dZwqGOEeOdSIKU0iLUvg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_L0dZw6GOEeOdSIKU0iLUvg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_L0dZxKGOEeOdSIKU0iLUvg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_L0cLoaGOEeOdSIKU0iLUvg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="HearthStone.ecore#//GameState"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_L0cLoqGOEeOdSIKU0iLUvg" x="804" y="488"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_wwPawZBQEeOyBZvOKHCRlg"/>
   <element xmi:type="ecore:EPackage" href="HearthStone.ecore#/"/>

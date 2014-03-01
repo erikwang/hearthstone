@@ -42,6 +42,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Deck">
     <eOperations name="Hello" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="ShowDeckCards"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeckID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="DeckName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DeckHasCards" ordered="false"
@@ -120,7 +121,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameSN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GameHasTwoPlayers" lowerBound="2"
         upperBound="2" eType="#//Player" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameStates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameStates" eType="#//GameState"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Player">
     <eOperations name="PlayCard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -164,5 +166,11 @@
     <eLiterals name="ReadyForAction" value="1"/>
     <eLiterals name="Acted" value="2"/>
     <eLiterals name="Dead" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GameState">
+    <eLiterals name="Created"/>
+    <eLiterals name="Playing" value="1"/>
+    <eLiterals name="Over" value="2"/>
+    <eLiterals name="Halt" value="3"/>
   </eClassifiers>
 </ecore:EPackage>
