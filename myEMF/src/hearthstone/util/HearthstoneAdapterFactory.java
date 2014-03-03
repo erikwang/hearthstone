@@ -105,6 +105,10 @@ public class HearthstoneAdapterFactory extends AdapterFactoryImpl {
 				return createHeroAdapter();
 			}
 			@Override
+			public Adapter caseGamePool(GamePool object) {
+				return createGamePoolAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -261,6 +265,20 @@ public class HearthstoneAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createHeroAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hearthstone.GamePool <em>Game Pool</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hearthstone.GamePool
+	 * @generated
+	 */
+	public Adapter createGamePoolAdapter() {
 		return null;
 	}
 

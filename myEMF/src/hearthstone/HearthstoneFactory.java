@@ -112,6 +112,15 @@ public interface HearthstoneFactory extends EFactory {
 	Hero createHero();
 
 	/**
+	 * Returns a new object of class '<em>Game Pool</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Game Pool</em>'.
+	 * @generated
+	 */
+	GamePool createGamePool();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

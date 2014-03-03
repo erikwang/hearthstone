@@ -3,14 +3,11 @@
 package hearthstone.impl;
 
 import hearthstone.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
@@ -67,6 +64,7 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 			case HearthstonePackage.PLAYER: return createPlayer();
 			case HearthstonePackage.PLAYER_BOARD: return createPlayerBoard();
 			case HearthstonePackage.HERO: return createHero();
+			case HearthstonePackage.GAME_POOL: return createGamePool();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -231,6 +229,16 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GamePool createGamePool() {
+		GamePoolImpl gamePool = new GamePoolImpl();
+		return gamePool;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CardQuality createCardQualityFromString(EDataType eDataType, String initialValue) {
 		CardQuality result = CardQuality.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -363,6 +371,7 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	public String convertAbilitiesToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

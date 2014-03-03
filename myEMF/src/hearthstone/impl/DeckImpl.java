@@ -6,22 +6,15 @@ import hearthstone.Card;
 import hearthstone.Deck;
 import hearthstone.HearthstonePackage;
 import hearthstone.Hero;
-
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -221,20 +214,34 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
 	public boolean Hello() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		System.out.println("Hello from DECK");
+		return true;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void ShowGameStartDeckCards() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		//throw new UnsupportedOperationException();
+		this.ShowGameStartDeckCards();
+	}
+
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void ShowDeckCards() {
+	public void ShowVersion() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -356,8 +363,8 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 		switch (operationID) {
 			case HearthstonePackage.DECK___HELLO:
 				return Hello();
-			case HearthstonePackage.DECK___SHOW_DECK_CARDS:
-				ShowDeckCards();
+			case HearthstonePackage.DECK___SHOW_VERSION:
+				ShowVersion();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

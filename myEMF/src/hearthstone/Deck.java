@@ -134,6 +134,6 @@ public interface Deck extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void ShowDeckCards();
+	void ShowVersion();
 
 } // Deck

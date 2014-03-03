@@ -85,6 +85,8 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 			case HearthstonePackage.GAME_PLAYER_HAND: {
 				GamePlayerHand gamePlayerHand = (GamePlayerHand)theEObject;
 				T result = caseGamePlayerHand(gamePlayerHand);
+				if (result == null) result = caseGameDeck(gamePlayerHand);
+				if (result == null) result = caseDeck(gamePlayerHand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -116,12 +118,19 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 			case HearthstonePackage.PLAYER_BOARD: {
 				PlayerBoard playerBoard = (PlayerBoard)theEObject;
 				T result = casePlayerBoard(playerBoard);
+				if (result == null) result = caseDeck(playerBoard);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case HearthstonePackage.HERO: {
 				Hero hero = (Hero)theEObject;
 				T result = caseHero(hero);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HearthstonePackage.GAME_POOL: {
+				GamePool gamePool = (GamePool)theEObject;
+				T result = caseGamePool(gamePool);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -276,6 +285,21 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseHero(Hero object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Game Pool</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Game Pool</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGamePool(GamePool object) {
 		return null;
 	}
 

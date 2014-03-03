@@ -12,6 +12,7 @@ import hearthstone.Game;
 import hearthstone.GameBoard;
 import hearthstone.GameDeck;
 import hearthstone.GamePlayerHand;
+import hearthstone.GamePool;
 import hearthstone.GameState;
 import hearthstone.HearthstoneFactory;
 import hearthstone.HearthstonePackage;
@@ -20,7 +21,6 @@ import hearthstone.HeroClass;
 import hearthstone.HeroStates;
 import hearthstone.Player;
 import hearthstone.PlayerBoard;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -107,6 +106,13 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * @generated
 	 */
 	private EClass heroEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass gamePoolEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -421,7 +427,7 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getDeck__ShowDeckCards() {
+	public EOperation getDeck__ShowVersion() {
 		return deckEClass.getEOperations().get(1);
 	}
 
@@ -502,7 +508,7 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGamePlayerHand_EReference0() {
+	public EReference getGamePlayerHand_CardsInHand() {
 		return (EReference)gamePlayerHandEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -511,17 +517,8 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGamePlayerHand_CardsInHand() {
-		return (EReference)gamePlayerHandEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getGamePlayerHand_HandIOwner() {
-		return (EAttribute)gamePlayerHandEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)gamePlayerHandEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -538,7 +535,7 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGamePlayerHand__DrawCard() {
+	public EOperation getGamePlayerHand__DrawCard__Player() {
 		return gamePlayerHandEClass.getEOperations().get(1);
 	}
 
@@ -556,7 +553,7 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGameBoard_EReference0() {
+	public EReference getGameBoard_GameBoardHasTwoPlayerBoard() {
 		return (EReference)gameBoardEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -565,17 +562,8 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGameBoard_GameBoardHasTwoPlayerBoard() {
-		return (EReference)gameBoardEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getGameBoard_BoardSN() {
-		return (EAttribute)gameBoardEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)gameBoardEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -592,26 +580,17 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGameDeck_EReference0() {
-		return (EReference)gameDeckEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGameDeck_EReference1() {
-		return (EReference)gameDeckEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getGameDeck_DeckOwner() {
-		return (EAttribute)gameDeckEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)gameDeckEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGameDeck_GameStartDeckCards() {
+		return (EAttribute)gameDeckEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -630,6 +609,24 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 */
 	public EOperation getGameDeck__ReturnCard__int() {
 		return gameDeckEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGameDeck__ShowGameDeck() {
+		return gameDeckEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGameDeck__ShowGameStartDeckCards() {
+		return gameDeckEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -781,6 +778,24 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPlayer_PlayerHasGameStartDeck() {
+		return (EReference)playerEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPlayer_PlayerHasDeckSet() {
+		return (EReference)playerEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getPlayer__PlayCard__int() {
 		return playerEClass.getEOperations().get(0);
 	}
@@ -817,17 +832,8 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPlayerBoard_EReference0() {
-		return (EReference)playerBoardEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getPlayerBoard_BoardOwner() {
-		return (EAttribute)playerBoardEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)playerBoardEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -873,6 +879,33 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 */
 	public EAttribute getHero_HeroAbility() {
 		return (EAttribute)heroEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGamePool() {
+		return gamePoolEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGamePool_GamePoolHasGames() {
+		return (EReference)gamePoolEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGamePool_GamePoolDesc() {
+		return (EAttribute)gamePoolEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -989,7 +1022,7 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		createEReference(deckEClass, DECK__DECK_HAS_CARDS);
 		createEReference(deckEClass, DECK__DECK_HAS_HERO);
 		createEOperation(deckEClass, DECK___HELLO);
-		createEOperation(deckEClass, DECK___SHOW_DECK_CARDS);
+		createEOperation(deckEClass, DECK___SHOW_VERSION);
 
 		abilityEClass = createEClass(ABILITY);
 		createEAttribute(abilityEClass, ABILITY__ABILITY_ID);
@@ -1000,23 +1033,22 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		createEOperation(abilityEClass, ABILITY___INCREASE_ATTRIBUTE);
 
 		gamePlayerHandEClass = createEClass(GAME_PLAYER_HAND);
-		createEReference(gamePlayerHandEClass, GAME_PLAYER_HAND__EREFERENCE0);
 		createEReference(gamePlayerHandEClass, GAME_PLAYER_HAND__CARDS_IN_HAND);
 		createEAttribute(gamePlayerHandEClass, GAME_PLAYER_HAND__HAND_IOWNER);
 		createEOperation(gamePlayerHandEClass, GAME_PLAYER_HAND___REMOVE_CARD);
-		createEOperation(gamePlayerHandEClass, GAME_PLAYER_HAND___DRAW_CARD);
+		createEOperation(gamePlayerHandEClass, GAME_PLAYER_HAND___DRAW_CARD__PLAYER);
 
 		gameBoardEClass = createEClass(GAME_BOARD);
-		createEReference(gameBoardEClass, GAME_BOARD__EREFERENCE0);
 		createEReference(gameBoardEClass, GAME_BOARD__GAME_BOARD_HAS_TWO_PLAYER_BOARD);
 		createEAttribute(gameBoardEClass, GAME_BOARD__BOARD_SN);
 
 		gameDeckEClass = createEClass(GAME_DECK);
-		createEReference(gameDeckEClass, GAME_DECK__EREFERENCE0);
-		createEReference(gameDeckEClass, GAME_DECK__EREFERENCE1);
 		createEAttribute(gameDeckEClass, GAME_DECK__DECK_OWNER);
+		createEAttribute(gameDeckEClass, GAME_DECK__GAME_START_DECK_CARDS);
 		createEOperation(gameDeckEClass, GAME_DECK___REMOVE_CARD__INT);
 		createEOperation(gameDeckEClass, GAME_DECK___RETURN_CARD__INT);
+		createEOperation(gameDeckEClass, GAME_DECK___SHOW_GAME_DECK);
+		createEOperation(gameDeckEClass, GAME_DECK___SHOW_GAME_START_DECK_CARDS);
 
 		gameEClass = createEClass(GAME);
 		createEReference(gameEClass, GAME__GAME_HAS_BOARD);
@@ -1035,12 +1067,13 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		createEAttribute(playerEClass, PLAYER__SN);
 		createEAttribute(playerEClass, PLAYER__LAST_LOGIN);
 		createEAttribute(playerEClass, PLAYER__PLAYER_LEVEL);
+		createEReference(playerEClass, PLAYER__PLAYER_HAS_GAME_START_DECK);
+		createEReference(playerEClass, PLAYER__PLAYER_HAS_DECK_SET);
 		createEOperation(playerEClass, PLAYER___PLAY_CARD__INT);
 		createEOperation(playerEClass, PLAYER___OPERATE_CARD);
 		createEOperation(playerEClass, PLAYER___CLICK_NEXT_TURN_BTN);
 
 		playerBoardEClass = createEClass(PLAYER_BOARD);
-		createEReference(playerBoardEClass, PLAYER_BOARD__EREFERENCE0);
 		createEAttribute(playerBoardEClass, PLAYER_BOARD__BOARD_OWNER);
 
 		heroEClass = createEClass(HERO);
@@ -1048,6 +1081,10 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		createEAttribute(heroEClass, HERO__HERO_HEALTH);
 		createEAttribute(heroEClass, HERO__HERO_STATES);
 		createEAttribute(heroEClass, HERO__HERO_ABILITY);
+
+		gamePoolEClass = createEClass(GAME_POOL);
+		createEReference(gamePoolEClass, GAME_POOL__GAME_POOL_HAS_GAMES);
+		createEAttribute(gamePoolEClass, GAME_POOL__GAME_POOL_DESC);
 
 		// Create enums
 		cardQualityEEnum = createEEnum(CARD_QUALITY);
@@ -1089,7 +1126,9 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		gamePlayerHandEClass.getESuperTypes().add(this.getGameDeck());
 		gameDeckEClass.getESuperTypes().add(this.getDeck());
+		playerBoardEClass.getESuperTypes().add(this.getDeck());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(cardEClass, Card.class, "Card", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1122,7 +1161,7 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 
 		initEOperation(getDeck__Hello(), ecorePackage.getEBoolean(), "Hello", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getDeck__ShowDeckCards(), null, "ShowDeckCards", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDeck__ShowVersion(), null, "ShowVersion", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(abilityEClass, Ability.class, "Ability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbility_AbilityID(), ecorePackage.getEInt(), "AbilityID", null, 0, 1, Ability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1135,29 +1174,31 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		initEOperation(getAbility__IncreaseAttribute(), ecorePackage.getEBoolean(), "IncreaseAttribute", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gamePlayerHandEClass, GamePlayerHand.class, "GamePlayerHand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGamePlayerHand_EReference0(), this.getGame(), null, "EReference0", null, 0, 1, GamePlayerHand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGamePlayerHand_CardsInHand(), this.getCard(), null, "CardsInHand", null, 0, 10, GamePlayerHand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGamePlayerHand_HandIOwner(), ecorePackage.getEString(), "HandIOwner", null, 0, 1, GamePlayerHand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGamePlayerHand__RemoveCard(), ecorePackage.getEBoolean(), "RemoveCard", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getGamePlayerHand__DrawCard(), ecorePackage.getEBoolean(), "DrawCard", 1, 5, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getGamePlayerHand__DrawCard__Player(), ecorePackage.getEBoolean(), "DrawCard", 1, 5, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getPlayer(), "_player", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gameBoardEClass, GameBoard.class, "GameBoard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGameBoard_EReference0(), this.getGame(), null, "EReference0", null, 1, 1, GameBoard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGameBoard_GameBoardHasTwoPlayerBoard(), this.getPlayerBoard(), null, "GameBoardHasTwoPlayerBoard", null, 2, 2, GameBoard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGameBoard_BoardSN(), ecorePackage.getEInt(), "BoardSN", null, 0, 1, GameBoard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gameDeckEClass, GameDeck.class, "GameDeck", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGameDeck_EReference0(), this.getGame(), null, "EReference0", null, 0, 1, GameDeck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGameDeck_EReference1(), this.getGame(), null, "EReference1", null, 0, 1, GameDeck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGameDeck_DeckOwner(), ecorePackage.getEString(), "DeckOwner", null, 0, 1, GameDeck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGameDeck_GameStartDeckCards(), ecorePackage.getEString(), "GameStartDeckCards", null, 0, 1, GameDeck.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getGameDeck__RemoveCard__int(), ecorePackage.getEBoolean(), "RemoveCard", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "removeCardSN", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getGameDeck__ReturnCard__int(), ecorePackage.getEBoolean(), "ReturnCard", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "returnCardSN", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGameDeck__ShowGameDeck(), null, "ShowGameDeck", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getGameDeck__ShowGameStartDeckCards(), null, "ShowGameStartDeckCards", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGame_GameHasBoard(), this.getGameBoard(), null, "GameHasBoard", null, 1, 1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1178,6 +1219,8 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		initEAttribute(getPlayer_SN(), ecorePackage.getEInt(), "SN", null, 0, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlayer_LastLogin(), ecorePackage.getEDate(), "LastLogin", null, 0, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlayer_PlayerLevel(), ecorePackage.getEInt(), "PlayerLevel", null, 0, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlayer_PlayerHasGameStartDeck(), this.getDeck(), null, "PlayerHasGameStartDeck", null, 0, 1, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPlayer_PlayerHasDeckSet(), this.getDeck(), null, "PlayerHasDeckSet", null, 0, 9, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPlayer__PlayCard__int(), ecorePackage.getEBoolean(), "PlayCard", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "cardSN", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1187,7 +1230,6 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		initEOperation(getPlayer__ClickNextTurnBtn(), ecorePackage.getEBoolean(), "ClickNextTurnBtn", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(playerBoardEClass, PlayerBoard.class, "PlayerBoard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlayerBoard_EReference0(), this.getGameBoard(), null, "EReference0", null, 0, 1, PlayerBoard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlayerBoard_BoardOwner(), ecorePackage.getEString(), "BoardOwner", null, 0, 1, PlayerBoard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(heroEClass, Hero.class, "Hero", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1195,6 +1237,10 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		initEAttribute(getHero_HeroHealth(), ecorePackage.getEInt(), "HeroHealth", null, 1, 1, Hero.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHero_HeroStates(), this.getHeroStates(), "HeroStates", null, 0, 1, Hero.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHero_HeroAbility(), ecorePackage.getEString(), "HeroAbility", null, 0, 1, Hero.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(gamePoolEClass, GamePool.class, "GamePool", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGamePool_GamePoolHasGames(), this.getGame(), null, "GamePoolHasGames", null, 0, -1, GamePool.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGamePool_GamePoolDesc(), ecorePackage.getEString(), "GamePoolDesc", null, 0, 1, GamePool.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(cardQualityEEnum, CardQuality.class, "CardQuality");
