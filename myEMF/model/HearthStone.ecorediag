@@ -647,6 +647,18 @@
     <element xsi:nil="true"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-nr5k6TGEeOFkN6xAcSguQ" x="165" y="915" width="196"/>
   </children>
+  <children xmi:type="notation:Shape" xmi:id="_zONNsKVnEeOFkN6xAcSguQ" type="Note" fontName="Segoe UI" description="Operations:" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_zONNsaVnEeOFkN6xAcSguQ" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_zONNsqVnEeOFkN6xAcSguQ" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:TextStyle" xmi:id="_zONNs6VnEeOFkN6xAcSguQ"/>
+    <styles xmi:type="notation:LineTypeStyle" xmi:id="_zONNtKVnEeOFkN6xAcSguQ"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zONNtaVnEeOFkN6xAcSguQ" x="810" y="720" width="196"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_wwPawZBQEeOyBZvOKHCRlg"/>
   <element xmi:type="ecore:EPackage" href="HearthStone.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_wwerUJBQEeOyBZvOKHCRlg" type="3002" source="_wwX9oJBQEeOyBZvOKHCRlg" target="_wwUTQJBQEeOyBZvOKHCRlg">
@@ -834,5 +846,12 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_J9pFM6THEeOFkN6xAcSguQ" points="[-69, -32, 191, 62]$[-201, -94, 59, 0]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_J9rhcKTHEeOFkN6xAcSguQ" id="(1.0,0.7678571428571429)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_J9rhcaTHEeOFkN6xAcSguQ" id="(0.6220735785953178,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_5L1pwKVnEeOFkN6xAcSguQ" type="NoteAttachment" source="_XpVF8KCREeOynOhOwtWdew" target="_zONNsKVnEeOFkN6xAcSguQ" lineWidth="1">
+    <styles xmi:type="notation:ArrowStyle" xmi:id="_5L1pwaVnEeOFkN6xAcSguQ"/>
+    <styles xmi:type="notation:LineTypeStyle" xmi:id="_5L1pwqVnEeOFkN6xAcSguQ"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5L1pw6VnEeOFkN6xAcSguQ" points="[82, 7, 41, -176]$[42, 183, 1, 0]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5L4GAKVnEeOFkN6xAcSguQ" id="(0.3010204081632653,0.0)"/>
   </edges>
 </notation:Diagram>
