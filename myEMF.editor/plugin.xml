@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated HearthStone -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="hearthstone.presentation.HearthstoneModelWizardID"
+            name="%_UI_HearthstoneModelWizard_label"
+            class="hearthstone.presentation.HearthstoneModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/HearthstoneModelFile.gif">
+         <description>%_UI_HearthstoneModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated HearthStone -->
+      <editor
+            id="hearthstone.presentation.HearthstoneEditorID"
+            name="%_UI_HearthstoneEditor_label"
+            icon="icons/full/obj16/HearthstoneModelFile.gif"
+            extensions="hearthstone"
+            class="hearthstone.presentation.HearthstoneEditor"
+            contributorClass="hearthstone.presentation.HearthstoneActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
