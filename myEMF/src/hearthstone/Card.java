@@ -386,7 +386,7 @@ public interface Card extends EObject {
 	 * @model
 	 * @generated
 	 */
-	boolean OperateCard(int TargetCardSN);
+	boolean UpdateCardStates(int CardStates);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -394,6 +394,14 @@ public interface Card extends EObject {
 	 * @model
 	 * @generated
 	 */
-	boolean UpdateCardStates(int CardStates);
+	void InteractAnotherCard(Card _card);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void ShowCard();
 
 } // Card

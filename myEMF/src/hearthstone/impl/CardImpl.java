@@ -590,7 +590,7 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean OperateCard(int TargetCardSN) {
+	public boolean UpdateCardStates(int CardStates) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -599,12 +599,38 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public boolean UpdateCardStates(int CardStates) {
+	public void InteractAnotherCard(Card _card) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		System.out.println("[Card acting] "+this.cardName+" L= "+this.getCardLife()+" P= "+this.getCardPower() +" vs "+_card.getCardName()+" L= "+_card.getCardLife()+" P= "+_card.getCardPower());
+		this.cardLife = this.cardLife - _card.getCardPower();
+		_card.setCardLife(_card.getCardLife() - this.cardPower);
+		
+		System.out.println("[Card acted] "+this.cardName+" L= "+this.getCardLife()+" P= "+this.getCardPower() +" vs "+_card.getCardName()+" L= "+_card.getCardLife()+" P= "+_card.getCardPower());
+		if(this.cardLife <= 0){
+			this.cardStates = CardStates.DEAD;
+			System.out.println("[Card died] "+this.cardName+" is destroied");
+		}
+		if(_card.getCardLife() <= 0){
+			_card.setCardStates(CardStates.DEAD);
+			System.out.println("[Card died] "+_card.getCardName()+" is destroied");
+		}
+		
+		this.cardStates = CardStates.ACTED;
+		//throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void ShowCard() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		System.out.println("[Card report][" +this.cardStates+"] "+ this.cardName+" Cost="+this.cardCost+" Life/Power="+ this.cardLife+"/"+this.cardPower);
 	}
 
 	/**
@@ -809,10 +835,14 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case HearthstonePackage.CARD___OPERATE_CARD__INT:
-				return OperateCard((Integer)arguments.get(0));
 			case HearthstonePackage.CARD___UPDATE_CARD_STATES__INT:
 				return UpdateCardStates((Integer)arguments.get(0));
+			case HearthstonePackage.CARD___INTERACT_ANOTHER_CARD__CARD:
+				InteractAnotherCard((Card)arguments.get(0));
+				return null;
+			case HearthstonePackage.CARD___SHOW_CARD:
+				ShowCard();
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

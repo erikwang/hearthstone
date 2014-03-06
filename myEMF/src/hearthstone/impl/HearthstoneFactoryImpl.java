@@ -65,6 +65,7 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 			case HearthstonePackage.PLAYER_BOARD: return createPlayerBoard();
 			case HearthstonePackage.HERO: return createHero();
 			case HearthstonePackage.GAME_POOL: return createGamePool();
+			case HearthstonePackage.CARD_COLLECTION: return createCardCollection();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -232,6 +233,16 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	public GamePool createGamePool() {
 		GamePoolImpl gamePool = new GamePoolImpl();
 		return gamePool;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CardCollection createCardCollection() {
+		CardCollectionImpl cardCollection = new CardCollectionImpl();
+		return cardCollection;
 	}
 
 	/**

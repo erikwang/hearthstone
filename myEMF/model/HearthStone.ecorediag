@@ -56,13 +56,17 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_wwWIc5BQEeOyBZvOKHCRlg"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_wwWIdJBQEeOyBZvOKHCRlg" type="5002">
-      <children xmi:type="notation:Node" xmi:id="_wwXWlpBQEeOyBZvOKHCRlg" type="2002">
-        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Card/OperateCard"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_wwXWl5BQEeOyBZvOKHCRlg"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_HnXygKDDEeOynOhOwtWdew" type="2002">
         <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Card/UpdateCardStates"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_HnXygaDDEeOynOhOwtWdew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_SnAHcKL1EeOOvOy1vjTHFA" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Card/InteractAnotherCard"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_SnAHcaL1EeOOvOy1vjTHFA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_dXhD8KTHEeOFkN6xAcSguQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Card/ShowCard"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_dXhD8aTHEeOFkN6xAcSguQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_wwWIdZBQEeOyBZvOKHCRlg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_wwWIdpBQEeOyBZvOKHCRlg"/>
@@ -70,7 +74,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_wwUTQZBQEeOyBZvOKHCRlg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="HearthStone.ecore#//Card"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wwUTQpBQEeOyBZvOKHCRlg" x="90"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wwUTQpBQEeOyBZvOKHCRlg" x="90" y="-60"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_wwX9oJBQEeOyBZvOKHCRlg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_wwX9o5BQEeOyBZvOKHCRlg" type="4001"/>
@@ -96,13 +100,17 @@
         <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Deck/ShowVersion"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_-fL6UaJUEeOdSIKU0iLUvg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_NoCLwKSlEeOFkN6xAcSguQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Deck/ShowCardsInDeck"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_NoCLwaSlEeOFkN6xAcSguQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_wwYksZBQEeOyBZvOKHCRlg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_wwYkspBQEeOyBZvOKHCRlg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_wwYks5BQEeOyBZvOKHCRlg"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_wwX9oZBQEeOyBZvOKHCRlg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="HearthStone.ecore#//Deck"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wwX9opBQEeOyBZvOKHCRlg" x="135" y="405"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wwX9opBQEeOyBZvOKHCRlg" x="135" y="405" width="197"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_wwYkuJBQEeOyBZvOKHCRlg" type="1001">
     <children xmi:type="notation:Node" xmi:id="_wwZLwJBQEeOyBZvOKHCRlg" type="4001"/>
@@ -138,7 +146,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_wwYkuZBQEeOyBZvOKHCRlg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="HearthStone.ecore#//Ability"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wwYkupBQEeOyBZvOKHCRlg" x="630" y="165"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wwYkupBQEeOyBZvOKHCRlg" x="570" y="120"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_wwboAJBQEeOyBZvOKHCRlg" type="1005">
     <children xmi:type="notation:Node" xmi:id="_wwboA5BQEeOyBZvOKHCRlg" type="4010"/>
@@ -256,7 +264,7 @@
     <children xmi:type="notation:Node" xmi:id="_NwtbAKCREeOynOhOwtWdew" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_NwuCEKCREeOynOhOwtWdew" type="5001">
       <children xmi:type="notation:Node" xmi:id="_uyO3MKC9EeOynOhOwtWdew" type="2001">
-        <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//GamePlayerHand/HandIOwner"/>
+        <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//GamePlayerHand/HandOwner"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_uyO3MaC9EeOynOhOwtWdew"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_NwuCEaCREeOynOhOwtWdew"/>
@@ -264,13 +272,9 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_NwuCE6CREeOynOhOwtWdew"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_NwuCFKCREeOynOhOwtWdew" type="5002">
-      <children xmi:type="notation:Node" xmi:id="_0jedEKC9EeOynOhOwtWdew" type="2002">
-        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//GamePlayerHand/RemoveCard"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_0jedEaC9EeOynOhOwtWdew"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_59AGgKC9EeOynOhOwtWdew" type="2002">
-        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//GamePlayerHand/DrawCard"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_59AGgaC9EeOynOhOwtWdew"/>
+      <children xmi:type="notation:Node" xmi:id="_n8TqcKSdEeOFkN6xAcSguQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//GamePlayerHand/ShowGameHand"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_n8TqcaSdEeOFkN6xAcSguQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_NwuCFaCREeOynOhOwtWdew"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_NwuCFqCREeOynOhOwtWdew"/>
@@ -278,7 +282,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_NwsM4aCREeOynOhOwtWdew" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="HearthStone.ecore#//GamePlayerHand"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NwsM4qCREeOynOhOwtWdew" x="-270" y="885"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_NwsM4qCREeOynOhOwtWdew" x="-270" y="930"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_TRzsEKCREeOynOhOwtWdew" type="1001">
     <children xmi:type="notation:Node" xmi:id="_TR0TIKCREeOynOhOwtWdew" type="4001"/>
@@ -292,6 +296,10 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_TR0TJKCREeOynOhOwtWdew"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_TR0TJaCREeOynOhOwtWdew" type="5002">
+      <children xmi:type="notation:Node" xmi:id="_MXSLAKSkEeOFkN6xAcSguQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//GameBoard/ShowGameBoard"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MXSLAaSkEeOFkN6xAcSguQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_TR0TJqCREeOynOhOwtWdew"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_TR0TJ6CREeOynOhOwtWdew"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_TR0TKKCREeOynOhOwtWdew"/>
@@ -364,6 +372,10 @@
         <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Game/ShowGame"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_lNPhkaF7EeOdSIKU0iLUvg"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_ecYPgKShEeOFkN6xAcSguQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Game/ShowGameInDetail"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ecYPgaShEeOFkN6xAcSguQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_XpWUEaCREeOynOhOwtWdew"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_XpWUEqCREeOynOhOwtWdew"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_XpWUE6CREeOynOhOwtWdew"/>
@@ -384,7 +396,7 @@
         <layoutConstraint xmi:type="notation:Location" xmi:id="_2BRKYaC1EeOynOhOwtWdew"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_8Wu7wKFyEeOdSIKU0iLUvg" type="2001">
-        <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//Player/SN"/>
+        <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//Player/PlayerID"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_8Wu7waFyEeOdSIKU0iLUvg"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_PKxCgKFzEeOdSIKU0iLUvg" type="2001">
@@ -412,6 +424,14 @@
         <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Player/ClickNextTurnBtn"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_cLTtcaC_EeOynOhOwtWdew"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_59AGgKC9EeOynOhOwtWdew" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Player/DrawCard"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_59AGgaC9EeOynOhOwtWdew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_0M4HUKL0EeOOvOy1vjTHFA" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Player/OperateCard.1"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_0M4HUaL0EeOOvOy1vjTHFA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_0TbvkaC1EeOynOhOwtWdew"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_0TbvkqC1EeOynOhOwtWdew"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_0Tbvk6C1EeOynOhOwtWdew"/>
@@ -432,6 +452,10 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_a_kvlKC-EeOynOhOwtWdew"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_a_lWoKC-EeOynOhOwtWdew" type="5002">
+      <children xmi:type="notation:Node" xmi:id="_UHCPgKSlEeOFkN6xAcSguQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//PlayerBoard/ShowPlayerBoard"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UHCPgaSlEeOFkN6xAcSguQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_a_lWoaC-EeOynOhOwtWdew"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_a_lWoqC-EeOynOhOwtWdew"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_a_lWo6C-EeOynOhOwtWdew"/>
@@ -493,6 +517,10 @@
       <children xmi:type="notation:Node" xmi:id="_PKkowKDEEeOynOhOwtWdew" type="2001">
         <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//Hero/HeroAbility"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_PKkowaDEEeOynOhOwtWdew"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_cP2xwKSaEeOFkN6xAcSguQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//Hero/HeroDesc"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cP2xwaSaEeOFkN6xAcSguQ"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_ErgB1aDEEeOynOhOwtWdew"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_ErgB1qDEEeOynOhOwtWdew"/>
@@ -577,11 +605,53 @@
     <element xmi:type="ecore:EClass" href="HearthStone.ecore#//GamePool"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_COOlcqI1EeOdSIKU0iLUvg" x="975" y="600"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_i6PscKL1EeOOvOy1vjTHFA" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_i6Q6kKL1EeOOvOy1vjTHFA" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_i6RhoKL1EeOOvOy1vjTHFA" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_uYOysKL1EeOOvOy1vjTHFA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//CardCollection/CollectionOwner"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uYPZwKL1EeOOvOy1vjTHFA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_s5BpwKL1EeOOvOy1vjTHFA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="HearthStone.ecore#//CardCollection/CollectionID"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_s5BpwaL1EeOOvOy1vjTHFA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_i6RhoaL1EeOOvOy1vjTHFA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_i6RhoqL1EeOOvOy1vjTHFA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_i6Rho6L1EeOOvOy1vjTHFA"/>
+      <layoutConstraint xmi:type="notation:Ratio" xmi:id="_TVtLEKL2EeOOvOy1vjTHFA" value="0.41333333333333333"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_i6RhpKL1EeOOvOy1vjTHFA" type="5002">
+      <children xmi:type="notation:Node" xmi:id="_yjPakKL1EeOOvOy1vjTHFA" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//CardCollection/ShowCollection"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_yjPakaL1EeOOvOy1vjTHFA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_i6RhpaL1EeOOvOy1vjTHFA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_i6RhpqL1EeOOvOy1vjTHFA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_i6Rhp6L1EeOOvOy1vjTHFA"/>
+      <layoutConstraint xmi:type="notation:Ratio" xmi:id="_TVtLEaL2EeOOvOy1vjTHFA" value="0.43333333333333335"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_i6PscaL1EeOOvOy1vjTHFA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="HearthStone.ecore#//CardCollection"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_i6PscqL1EeOOvOy1vjTHFA" x="555" y="-60" width="229" height="152"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_-nr5kKTGEeOFkN6xAcSguQ" type="Note" fontName="Segoe UI" description="This reference has problem. It can either belong to Player or GameBoard but can't be the same time" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_-nu84KTGEeOFkN6xAcSguQ" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_-nu84aTGEeOFkN6xAcSguQ" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:TextStyle" xmi:id="_-nr5kaTGEeOFkN6xAcSguQ"/>
+    <styles xmi:type="notation:LineTypeStyle" xmi:id="_-nr5kqTGEeOFkN6xAcSguQ"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-nr5k6TGEeOFkN6xAcSguQ" x="165" y="915" width="196"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_wwPawZBQEeOyBZvOKHCRlg"/>
   <element xmi:type="ecore:EPackage" href="HearthStone.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_wwerUJBQEeOyBZvOKHCRlg" type="3002" source="_wwX9oJBQEeOyBZvOKHCRlg" target="_wwUTQJBQEeOyBZvOKHCRlg">
     <children xmi:type="notation:Node" xmi:id="_wwfSYJBQEeOyBZvOKHCRlg" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_wwfSYZBQEeOyBZvOKHCRlg" x="-27" y="-56"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_wwfSYZBQEeOyBZvOKHCRlg" x="-43" y="-56"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_wwfSYpBQEeOyBZvOKHCRlg" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_wwfSY5BQEeOyBZvOKHCRlg" x="3" y="-11"/>
@@ -597,7 +667,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_c5qi4aCsEeOynOhOwtWdew" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_c5qi4qCsEeOynOhOwtWdew" fontName="Segoe UI"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_c5qi46CsEeOynOhOwtWdew" points="[147, 23, -139, -12]$[196, 23, -90, -12]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_c5qi46CsEeOynOhOwtWdew" points="[152, 33, -183, -14]$[238, 33, -97, -14]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_c5tmMKCsEeOynOhOwtWdew" id="(0.415929203539823,0.22448979591836735)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_2vX8oKCsEeOynOhOwtWdew" type="3002" source="_0TbIgKC1EeOynOhOwtWdew" target="_UhSW8KCREeOynOhOwtWdew">
@@ -618,7 +688,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_7cSXsaCsEeOynOhOwtWdew" x="-45" y="79"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_7cSXsqCsEeOynOhOwtWdew" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_7cSXs6CsEeOynOhOwtWdew" x="10" y="10"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_7cSXs6CsEeOynOhOwtWdew" x="-11" y="6"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_7cRwoaCsEeOynOhOwtWdew" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_7cRwoqCsEeOynOhOwtWdew" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
@@ -628,10 +698,10 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_BcNSwKCtEeOynOhOwtWdew" type="3002" source="_XpVF8KCREeOynOhOwtWdew" target="_TRzsEKCREeOynOhOwtWdew">
     <children xmi:type="notation:Node" xmi:id="_BcNSxKCtEeOynOhOwtWdew" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_BcNSxaCtEeOynOhOwtWdew" x="-55" y="15"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BcNSxaCtEeOynOhOwtWdew" x="-39" y="11"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_BcNSxqCtEeOynOhOwtWdew" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_BcNSx6CtEeOynOhOwtWdew" x="10" y="10"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_BcNSx6CtEeOynOhOwtWdew" x="-9" y="7"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_BcNSwaCtEeOynOhOwtWdew" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_BcNSwqCtEeOynOhOwtWdew" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
@@ -656,7 +726,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_ssWlRaC8EeOynOhOwtWdew" x="-79" y="18"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_ssXMUKC8EeOynOhOwtWdew" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_ssXMUaC8EeOynOhOwtWdew" x="22" y="18"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ssXMUaC8EeOynOhOwtWdew" x="11" y="18"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_ssWlQaC8EeOynOhOwtWdew" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_ssWlQqC8EeOynOhOwtWdew" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
@@ -665,23 +735,9 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_56CukKC8EeOynOhOwtWdew" id="(0.9897959183673469,0.5779036827195467)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nYMqYKDEEeOynOhOwtWdew" id="(0.04669260700389105,0.2671232876712329)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_dcO0sKC9EeOynOhOwtWdew" type="3002" source="_NwsM4KCREeOynOhOwtWdew" target="_wwUTQJBQEeOyBZvOKHCRlg">
-    <children xmi:type="notation:Node" xmi:id="_dcPbwKC9EeOynOhOwtWdew" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_dcPbwaC9EeOynOhOwtWdew" x="-10" y="-10"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_dcPbwqC9EeOynOhOwtWdew" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_dcPbw6C9EeOynOhOwtWdew" x="123" y="17"/>
-    </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_dcO0saC9EeOynOhOwtWdew" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_dcO0sqC9EeOynOhOwtWdew" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="HearthStone.ecore#//GamePlayerHand/CardsInHand"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dcO0s6C9EeOynOhOwtWdew" points="[13, -48, -368, 709]$[13, -757, -368, 0]$[343, -757, -38, 0]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dcQp4KC9EeOynOhOwtWdew" id="(0.07975460122699386,0.4897959183673469)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dcQp4aC9EeOynOhOwtWdew" id="(0.13145539906103287,0.501628664495114)"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="_iz9R4KC-EeOynOhOwtWdew" type="3002" source="_0TbIgKC1EeOynOhOwtWdew" target="_a_kIgKC-EeOynOhOwtWdew">
     <children xmi:type="notation:Node" xmi:id="_iz9R5KC-EeOynOhOwtWdew" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_iz9R5aC-EeOynOhOwtWdew" x="-41" y="88"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_iz9R5aC-EeOynOhOwtWdew" x="-28" y="88"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_iz9R5qC-EeOynOhOwtWdew" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_iz9R56C-EeOynOhOwtWdew" x="10" y="10"/>
@@ -689,8 +745,8 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_iz9R4aC-EeOynOhOwtWdew" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_iz9R4qC-EeOynOhOwtWdew" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="HearthStone.ecore#//Player/PlayerHasOwnBoard"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_iz9R46C-EeOynOhOwtWdew" points="[10, -8, -201, -63]$[204, -8, -7, -63]$[204, 53, -7, -2]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iz_HEKC-EeOynOhOwtWdew" id="(0.9612403100775194,0.6)"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_iz9R46C-EeOynOhOwtWdew" points="[10, -7, -199, -48]$[202, -7, -7, -48]$[202, 39, -7, -2]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_iz_HEKC-EeOynOhOwtWdew" id="(0.9807692307692307,0.4789272030651341)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Ov4qIKC_EeOynOhOwtWdew" id="(0.5846153846153846,0.047619047619047616)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_u7aL4KC-EeOynOhOwtWdew" type="3002" source="_TRzsEKCREeOynOhOwtWdew" target="_a_kIgKC-EeOynOhOwtWdew">
@@ -707,7 +763,7 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_r__U4KDEEeOynOhOwtWdew" type="3002" source="_wwX9oJBQEeOyBZvOKHCRlg" target="_ErgB0KDEEeOynOhOwtWdew">
     <children xmi:type="notation:Node" xmi:id="_r__78KDEEeOynOhOwtWdew" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_r__78aDEEeOynOhOwtWdew" x="-59" y="-12"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_r__78aDEEeOynOhOwtWdew" x="-106" y="-9"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_r__78qDEEeOynOhOwtWdew" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_r__786DEEeOynOhOwtWdew" x="10" y="10"/>
@@ -757,5 +813,26 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_dcZewqJoEeOdSIKU0iLUvg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="HearthStone.ecore#//Player/PlayerHasDeckSet"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dcZew6JoEeOdSIKU0iLUvg" points="[96, -78, -135, 114]$[299, -198, 68, -6]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_ljSLQKL1EeOOvOy1vjTHFA" type="3002" source="_i6PscKL1EeOOvOy1vjTHFA" target="_wwUTQJBQEeOyBZvOKHCRlg">
+    <children xmi:type="notation:Node" xmi:id="_ljSyUKL1EeOOvOy1vjTHFA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ljSyUaL1EeOOvOy1vjTHFA" x="-67" y="-11"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ljSyUqL1EeOOvOy1vjTHFA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ljSyU6L1EeOOvOy1vjTHFA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_ljSLQaL1EeOOvOy1vjTHFA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ljSLQqL1EeOOvOy1vjTHFA" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="HearthStone.ecore#//CardCollection/CollectionHasCards"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ljSLQ6L1EeOOvOy1vjTHFA" points="[-49, 8, 204, 1]$[-252, -38, 1, -45]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ljUngKL1EeOOvOy1vjTHFA" id="(0.5,0.1622340425531915)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_J9pFMKTHEeOFkN6xAcSguQ" type="NoteAttachment" source="_-nr5kKTGEeOFkN6xAcSguQ" target="_u7aL4KC-EeOynOhOwtWdew" lineWidth="1">
+    <styles xmi:type="notation:ArrowStyle" xmi:id="_J9pFMaTHEeOFkN6xAcSguQ"/>
+    <styles xmi:type="notation:LineTypeStyle" xmi:id="_J9pFMqTHEeOFkN6xAcSguQ"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_J9pFM6THEeOFkN6xAcSguQ" points="[-69, -32, 191, 62]$[-201, -94, 59, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_J9rhcKTHEeOFkN6xAcSguQ" id="(1.0,0.7678571428571429)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_J9rhcaTHEeOFkN6xAcSguQ" id="(0.6220735785953178,1.0)"/>
   </edges>
 </notation:Diagram>

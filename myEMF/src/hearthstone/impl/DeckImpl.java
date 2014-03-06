@@ -6,8 +6,10 @@ import hearthstone.Card;
 import hearthstone.Deck;
 import hearthstone.HearthstonePackage;
 import hearthstone.Hero;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -250,6 +252,19 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void ShowCardsInDeck() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		for(int t=0; t<this.deckHasCards.size();t++){
+			System.out.println("{"+this.deckHasCards.get(t).getCardCost()+"}["+this.deckHasCards.get(t).getCardQuality()+"]["+this.deckHasCards.get(t).getCardClass()+"]["+this.deckHasCards.get(t).getCardName()+"]["+this.deckHasCards.get(t).getCardAbilityDesc()+"]");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -365,6 +380,9 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 				return Hello();
 			case HearthstonePackage.DECK___SHOW_VERSION:
 				ShowVersion();
+				return null;
+			case HearthstonePackage.DECK___SHOW_CARDS_IN_DECK:
+				ShowCardsInDeck();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
