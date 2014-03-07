@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint/1.1.0" xsi:schemaLocation="http://www.obeo.fr/dsl/viewpoint/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description" xmi:id="_sraSQKVrEeOFkN6xAcSguQ" selectedViews="_tsTukKVrEeOFkN6xAcSguQ _ttezQKVrEeOFkN6xAcSguQ _ttkS0KVrEeOFkN6xAcSguQ" version="6.8.0.201307151200">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.obeo.fr/dsl/viewpoint/description/1.1.0" xmlns:description_1="http://www.obeo.fr/dsl/viewpoint/diagram/sequence/description/2.0.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:sequence="http://www.obeo.fr/dsl/viewpoint/diagram/sequence/2.0.0" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmlns:viewpoint="http://www.obeo.fr/dsl/viewpoint/1.1.0" xsi:schemaLocation="http://www.obeo.fr/dsl/viewpoint/description/1.1.0 http://www.obeo.fr/dsl/viewpoint/1.1.0#//description http://www.obeo.fr/dsl/viewpoint/diagram/sequence/description/2.0.0 http://www.obeo.fr/dsl/viewpoint/diagram/sequence/2.0.0#//description" xmi:id="_sraSQKVrEeOFkN6xAcSguQ" selectedViews="_tsTukKVrEeOFkN6xAcSguQ _ttezQKVrEeOFkN6xAcSguQ _ttkS0KVrEeOFkN6xAcSguQ" version="6.8.0.201307151200">
   <models xmi:type="ecore:EPackage" href="model/HearthStone.ecore#/"/>
   <models xmi:type="ecore:EPackage" href="http://www.eclipse.org/emf/2002/Ecore#/"/>
   <models xmi:type="notation:Diagram" href="model/HearthStone.ecorediag#_wwPawJBQEeOyBZvOKHCRlg"/>
   <models xmi:type="genmodel:GenModel" href="model/HearthStone.genmodel#/"/>
+  <models xmi:type="uml:Model" href="hearthstone.uml#_GX-foKWDEeOFkN6xAcSguQ"/>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_tsTukKVrEeOFkN6xAcSguQ" initialized="true">
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='UML%20Structural%20Modeling']"/>
   </ownedViews>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_ttezQKVrEeOFkN6xAcSguQ" initialized="true">
+    <ownedRepresentations xmi:type="sequence:SequenceDDiagram" xmi:id="_KSgbgKWDEeOFkN6xAcSguQ" name="Game">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_KSsBsKWDEeOFkN6xAcSguQ" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_KSsBsaWDEeOFkN6xAcSguQ" type="Viewpoint" element="_KSgbgKWDEeOFkN6xAcSguQ" measurementUnit="Pixel">
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_KSsBsqWDEeOFkN6xAcSguQ"/>
+        </data>
+      </ownedAnnotationEntries>
+      <description xmi:type="description_1:SequenceDiagramDescription" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='UML%20Behavioral%20Modeling']/@ownedRepresentations[name='Sequence%20Diagram']"/>
+      <filterVariableHistory xmi:type="viewpoint:FilterVariableHistory" xmi:id="_KSgbgaWDEeOFkN6xAcSguQ"/>
+      <activatedLayers xmi:type="description:Layer" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='UML%20Behavioral%20Modeling']/@ownedRepresentations[name='Sequence%20Diagram']/@defaultLayer"/>
+      <target xmi:type="uml:Interaction" href="hearthstone.uml#_JkamcKWDEeOFkN6xAcSguQ"/>
+    </ownedRepresentations>
     <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.obeonetwork.dsl.uml2.design/description/uml2.odesign#//@ownedViewpoints[name='UML%20Behavioral%20Modeling']"/>
   </ownedViews>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_ttkS0KVrEeOFkN6xAcSguQ" initialized="true">

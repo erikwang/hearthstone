@@ -3,6 +3,7 @@
 package hearthstone.impl;
 
 import hearthstone.Card;
+import hearthstone.CardStates;
 import hearthstone.Deck;
 import hearthstone.HearthstonePackage;
 import hearthstone.Hero;
@@ -258,7 +259,25 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		for(int t=0; t<this.deckHasCards.size();t++){
-			System.out.println("{"+this.deckHasCards.get(t).getCardCost()+"}["+this.deckHasCards.get(t).getCardQuality()+"]["+this.deckHasCards.get(t).getCardClass()+"]["+this.deckHasCards.get(t).getCardName()+"]["+this.deckHasCards.get(t).getCardAbilityDesc()+"]");
+			//System.out.println("{"+this.deckHasCards.get(t).getCardCost()+"}["+this.deckHasCards.get(t).getCardQuality()+"]["+this.deckHasCards.get(t).getCardClass()+"]["+this.deckHasCards.get(t).getCardName()+"]["+this.deckHasCards.get(t).getCardAbilityDesc()+"]");
+			System.out.println("["+t+"]"+this.deckHasCards.get(t).toString());
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 * for sometimes you wish to refresh your deck
+	 */
+	public void FlushDeck() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		
+		for(int t = 0; t<this.getDeckHasCards().size(); t++){
+			if (this.getDeckHasCards().get(t).getCardStates().equals(CardStates.DEAD)){
+				this.getDeckHasCards().remove(t);
+			}
 		}
 	}
 
@@ -383,6 +402,9 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 				return null;
 			case HearthstonePackage.DECK___SHOW_CARDS_IN_DECK:
 				ShowCardsInDeck();
+				return null;
+			case HearthstonePackage.DECK___FLUSH_DECK:
+				FlushDeck();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

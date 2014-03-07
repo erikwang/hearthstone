@@ -610,15 +610,17 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 		
 		System.out.println("[Card acted] "+this.cardName+" L= "+this.getCardLife()+" P= "+this.getCardPower() +" vs "+_card.getCardName()+" L= "+_card.getCardLife()+" P= "+_card.getCardPower());
 		if(this.cardLife <= 0){
-			this.cardStates = CardStates.DEAD;
+			this.setCardStates(CardStates.DEAD);
 			System.out.println("[Card died] "+this.cardName+" is destroied");
+		}else{
+			this.cardStates = CardStates.ACTED;	
 		}
 		if(_card.getCardLife() <= 0){
 			_card.setCardStates(CardStates.DEAD);
 			System.out.println("[Card died] "+_card.getCardName()+" is destroied");
 		}
 		
-		this.cardStates = CardStates.ACTED;
+		
 		//throw new UnsupportedOperationException();
 	}
 

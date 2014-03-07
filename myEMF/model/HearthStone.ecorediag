@@ -104,6 +104,10 @@
         <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Deck/ShowCardsInDeck"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_NoCLwaSlEeOFkN6xAcSguQ"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_SpnhUKWMEeOFkN6xAcSguQ" type="2002">
+        <element xmi:type="ecore:EOperation" href="HearthStone.ecore#//Deck/FlushDeck"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_SpnhUaWMEeOFkN6xAcSguQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_wwYksZBQEeOyBZvOKHCRlg"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_wwYkspBQEeOyBZvOKHCRlg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_wwYks5BQEeOyBZvOKHCRlg"/>

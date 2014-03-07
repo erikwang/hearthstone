@@ -314,13 +314,22 @@ public interface HearthstonePackage extends EPackage {
 	int DECK___SHOW_CARDS_IN_DECK = 2;
 
 	/**
+	 * The operation id for the '<em>Flush Deck</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DECK___FLUSH_DECK = 3;
+
+	/**
 	 * The number of operations of the '<em>Deck</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECK_OPERATION_COUNT = 3;
+	int DECK_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link hearthstone.impl.AbilityImpl <em>Ability</em>}' class.
@@ -525,6 +534,15 @@ public interface HearthstonePackage extends EPackage {
 	int GAME_DECK___SHOW_CARDS_IN_DECK = DECK___SHOW_CARDS_IN_DECK;
 
 	/**
+	 * The operation id for the '<em>Flush Deck</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_DECK___FLUSH_DECK = DECK___FLUSH_DECK;
+
+	/**
 	 * The operation id for the '<em>Remove Card</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -676,6 +694,15 @@ public interface HearthstonePackage extends EPackage {
 	 * @ordered
 	 */
 	int GAME_PLAYER_HAND___SHOW_CARDS_IN_DECK = GAME_DECK___SHOW_CARDS_IN_DECK;
+
+	/**
+	 * The operation id for the '<em>Flush Deck</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME_PLAYER_HAND___FLUSH_DECK = GAME_DECK___FLUSH_DECK;
 
 	/**
 	 * The operation id for the '<em>Remove Card</em>' operation.
@@ -1120,6 +1147,15 @@ public interface HearthstonePackage extends EPackage {
 	 * @ordered
 	 */
 	int PLAYER_BOARD___SHOW_CARDS_IN_DECK = DECK___SHOW_CARDS_IN_DECK;
+
+	/**
+	 * The operation id for the '<em>Flush Deck</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAYER_BOARD___FLUSH_DECK = DECK___FLUSH_DECK;
 
 	/**
 	 * The operation id for the '<em>Show Player Board</em>' operation.
@@ -1659,6 +1695,16 @@ public interface HearthstonePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getDeck__ShowCardsInDeck();
+
+	/**
+	 * Returns the meta object for the '{@link hearthstone.Deck#FlushDeck() <em>Flush Deck</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Flush Deck</em>' operation.
+	 * @see hearthstone.Deck#FlushDeck()
+	 * @generated
+	 */
+	EOperation getDeck__FlushDeck();
 
 	/**
 	 * Returns the meta object for class '{@link hearthstone.Ability <em>Ability</em>}'.
@@ -2623,6 +2669,14 @@ public interface HearthstonePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation DECK___SHOW_CARDS_IN_DECK = eINSTANCE.getDeck__ShowCardsInDeck();
+
+		/**
+		 * The meta object literal for the '<em><b>Flush Deck</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DECK___FLUSH_DECK = eINSTANCE.getDeck__FlushDeck();
 
 		/**
 		 * The meta object literal for the '{@link hearthstone.impl.AbilityImpl <em>Ability</em>}' class.

@@ -144,4 +144,12 @@ public interface Deck extends EObject {
 	 */
 	void ShowCardsInDeck();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void FlushDeck();
+
 } // Deck

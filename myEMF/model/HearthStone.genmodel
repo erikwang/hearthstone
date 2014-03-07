@@ -80,6 +80,7 @@
       <genOperations ecoreOperation="HearthStone.ecore#//Deck/Hello"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Deck/ShowVersion"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Deck/ShowCardsInDeck"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//Deck/FlushDeck"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//Ability">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Ability/AbilityID"/>

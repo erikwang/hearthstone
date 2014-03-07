@@ -462,6 +462,15 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDeck__FlushDeck() {
+		return deckEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAbility() {
 		return abilityEClass;
 	}
@@ -1141,6 +1150,7 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		createEOperation(deckEClass, DECK___HELLO);
 		createEOperation(deckEClass, DECK___SHOW_VERSION);
 		createEOperation(deckEClass, DECK___SHOW_CARDS_IN_DECK);
+		createEOperation(deckEClass, DECK___FLUSH_DECK);
 
 		abilityEClass = createEClass(ABILITY);
 		createEAttribute(abilityEClass, ABILITY__ABILITY_ID);
@@ -1295,6 +1305,8 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		initEOperation(getDeck__ShowVersion(), null, "ShowVersion", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getDeck__ShowCardsInDeck(), null, "ShowCardsInDeck", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getDeck__FlushDeck(), null, "FlushDeck", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(abilityEClass, Ability.class, "Ability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbility_AbilityID(), ecorePackage.getEInt(), "AbilityID", null, 0, 1, Ability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
