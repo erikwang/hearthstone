@@ -1040,22 +1040,13 @@ public interface HearthstonePackage extends EPackage {
 	int PLAYER___DRAW_CARD = 3;
 
 	/**
-	 * The operation id for the '<em>Operate Card</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PLAYER___OPERATE_CARD = 4;
-
-	/**
 	 * The number of operations of the '<em>Player</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLAYER_OPERATION_COUNT = 5;
+	int PLAYER_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link hearthstone.impl.PlayerBoardImpl <em>Player Board</em>}' class.
@@ -2182,16 +2173,6 @@ public interface HearthstonePackage extends EPackage {
 	EOperation getPlayer__DrawCard();
 
 	/**
-	 * Returns the meta object for the '{@link hearthstone.Player#OperateCard() <em>Operate Card</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Operate Card</em>' operation.
-	 * @see hearthstone.Player#OperateCard()
-	 * @generated
-	 */
-	EOperation getPlayer__OperateCard();
-
-	/**
 	 * Returns the meta object for class '{@link hearthstone.PlayerBoard <em>Player Board</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3049,14 +3030,6 @@ public interface HearthstonePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PLAYER___DRAW_CARD = eINSTANCE.getPlayer__DrawCard();
-
-		/**
-		 * The meta object literal for the '<em><b>Operate Card</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation PLAYER___OPERATE_CARD = eINSTANCE.getPlayer__OperateCard();
 
 		/**
 		 * The meta object literal for the '{@link hearthstone.impl.PlayerBoardImpl <em>Player Board</em>}' class.

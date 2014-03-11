@@ -394,7 +394,7 @@ public interface Card extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void InteractAnotherCard(Card _card);
+	void InteractAnotherCard(Card thecard);
 
 	/**
 	 * <!-- begin-user-doc -->

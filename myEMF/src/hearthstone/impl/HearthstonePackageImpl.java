@@ -876,15 +876,6 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPlayer__OperateCard() {
-		return playerEClass.getEOperations().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPlayerBoard() {
 		return playerBoardEClass;
 	}
@@ -1202,7 +1193,6 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		createEOperation(playerEClass, PLAYER___OPERATE_CARD__CARD);
 		createEOperation(playerEClass, PLAYER___CLICK_NEXT_TURN_BTN);
 		createEOperation(playerEClass, PLAYER___DRAW_CARD);
-		createEOperation(playerEClass, PLAYER___OPERATE_CARD);
 
 		playerBoardEClass = createEClass(PLAYER_BOARD);
 		createEAttribute(playerBoardEClass, PLAYER_BOARD__BOARD_OWNER);
@@ -1289,7 +1279,7 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		addEParameter(op, ecorePackage.getEInt(), "CardStates", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getCard__InteractAnotherCard__Card(), null, "InteractAnotherCard", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCard(), "_card", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCard(), "thecard", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getCard__ShowCard(), null, "ShowCard", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1370,16 +1360,14 @@ public class HearthstonePackageImpl extends EPackageImpl implements HearthstoneP
 		initEReference(getPlayer_PlayerHasDeckSet(), this.getDeck(), null, "PlayerHasDeckSet", null, 0, 9, Player.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getPlayer__PlayCard__int(), null, "PlayCard", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "_cardindex", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "cardindex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getPlayer__OperateCard__Card(), ecorePackage.getEBoolean(), "OperateCard", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCard(), "_card", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCard(), "thecard", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPlayer__ClickNextTurnBtn(), ecorePackage.getEBoolean(), "ClickNextTurnBtn", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPlayer__DrawCard(), ecorePackage.getEBoolean(), "DrawCard", 1, 5, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getPlayer__OperateCard(), null, "OperateCard", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(playerBoardEClass, PlayerBoard.class, "PlayerBoard", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPlayerBoard_BoardOwner(), ecorePackage.getEString(), "BoardOwner", null, 0, 1, PlayerBoard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

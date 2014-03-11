@@ -6,7 +6,7 @@
       <eParameters name="CardStates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="InteractAnotherCard">
-      <eParameters name="_card" eType="#//Card"/>
+      <eParameters name="thecard" eType="#//Card"/>
     </eOperations>
     <eOperations name="ShowCard"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -128,14 +128,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Player">
     <eOperations name="PlayCard">
-      <eParameters name="_cardindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="cardindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="OperateCard" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eParameters name="_card" eType="#//Card"/>
+      <eParameters name="thecard" eType="#//Card"/>
     </eOperations>
     <eOperations name="ClickNextTurnBtn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="DrawCard" lowerBound="1" upperBound="5" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eOperations name="OperateCard"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TotalWins" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlayerHasDeck" lowerBound="1"
@@ -196,4 +195,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CollectionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CollectionOwner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GameRule"/>
 </ecore:EPackage>

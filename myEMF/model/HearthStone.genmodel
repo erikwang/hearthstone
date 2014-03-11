@@ -68,7 +68,7 @@
         <genParameters ecoreParameter="HearthStone.ecore#//Card/UpdateCardStates/CardStates"/>
       </genOperations>
       <genOperations ecoreOperation="HearthStone.ecore#//Card/InteractAnotherCard">
-        <genParameters ecoreParameter="HearthStone.ecore#//Card/InteractAnotherCard/_card"/>
+        <genParameters ecoreParameter="HearthStone.ecore#//Card/InteractAnotherCard/thecard"/>
       </genOperations>
       <genOperations ecoreOperation="HearthStone.ecore#//Card/ShowCard"/>
     </genClasses>
@@ -137,14 +137,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Player/PlayerHasGameStartDeck"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Player/PlayerHasDeckSet"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Player/PlayCard">
-        <genParameters ecoreParameter="HearthStone.ecore#//Player/PlayCard/_cardindex"/>
+        <genParameters ecoreParameter="HearthStone.ecore#//Player/PlayCard/cardindex"/>
       </genOperations>
       <genOperations ecoreOperation="HearthStone.ecore#//Player/OperateCard">
-        <genParameters ecoreParameter="HearthStone.ecore#//Player/OperateCard/_card"/>
+        <genParameters ecoreParameter="HearthStone.ecore#//Player/OperateCard/thecard"/>
       </genOperations>
       <genOperations ecoreOperation="HearthStone.ecore#//Player/ClickNextTurnBtn"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Player/DrawCard"/>
-      <genOperations ecoreOperation="HearthStone.ecore#//Player/OperateCard.1"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//PlayerBoard">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//PlayerBoard/BoardOwner"/>

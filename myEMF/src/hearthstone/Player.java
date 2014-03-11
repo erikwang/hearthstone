@@ -289,7 +289,7 @@ public interface Player extends EObject {
 	 * @model
 	 * @generated
 	 */
-	void PlayCard(int _cardindex);
+	void PlayCard(int cardindex);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,7 +297,7 @@ public interface Player extends EObject {
 	 * @model
 	 * @generated
 	 */
-	boolean OperateCard(Card _card);
+	boolean OperateCard(Card thecard);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -314,13 +314,5 @@ public interface Player extends EObject {
 	 * @generated NOT
 	 */
 	boolean DrawCard();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void OperateCard();
 
 } // Player

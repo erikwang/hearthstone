@@ -131,14 +131,19 @@ public class AutoDeckBuilder {
 					if(! strPlayer.matches("^[01]$")){
 						System.out.println("[Error] Input is not a number either 0 or 1");
 						break;
+					}
+					System.out.println("> Please enter how many cards to draw: 1-9");
+					String strNumOfCards = sca.nextLine();
+					if(! strNumOfCards.matches("^[1-9]$")){
+						System.out.println("[Error] Number of card should be a number from 1 to 9");
+						break;
 					}else{
 						int intPlayer = new Integer(strPlayer).intValue();
-						theGame.getGameHasTwoPlayers().get(intPlayer).DrawCard();
-						theGame.getGameHasTwoPlayers().get(intPlayer).DrawCard();
-						theGame.getGameHasTwoPlayers().get(intPlayer).DrawCard();
-						theGame.getGameHasTwoPlayers().get(intPlayer).DrawCard();
-						theGame.getGameHasTwoPlayers().get(intPlayer).DrawCard();
-						System.out.println("Player "+theGame.getGameHasTwoPlayers().get(intPlayer)+" drew a card");	
+						int intNumOfCards = new Integer(strNumOfCards).intValue();
+						for(int tt = 0;tt<intNumOfCards;tt++){
+							theGame.getGameHasTwoPlayers().get(intPlayer).DrawCard();							
+						}
+						System.out.println("Player "+theGame.getGameHasTwoPlayers().get(intPlayer)+" drew "+intNumOfCards+" card(s)");	
 					}
 					
 				}else{
@@ -149,21 +154,26 @@ public class AutoDeckBuilder {
 			case "pc":
 					theGame = AskInputGameIndex();
 					if(theGame != null){
-						System.out.println("> Please enter which player player a card: 0-you or 1-opponet");
+						System.out.println("> Please enter which player play a card: 0-you or 1-opponet");
 						String strPlayer = sca.nextLine();
 						if(! strPlayer.matches("^[01]$")){
 							System.out.println("[Error] Input is not a number either 0 or 1");
 							break;
 						}else{
 							int intPlayer = new Integer(strPlayer).intValue();
-							theGame.getGameHasTwoPlayers().get(intPlayer).PlayCard(0);
-							theGame.getGameHasTwoPlayers().get(intPlayer).PlayCard(0);
-							theGame.getGameHasTwoPlayers().get(intPlayer).PlayCard(0);
-							theGame.getGameHasTwoPlayers().get(intPlayer).PlayCard(0);
-							theGame.getGameHasTwoPlayers().get(intPlayer).PlayCard(0);
-							System.out.println("Player "+theGame.getGameHasTwoPlayers().get(intPlayer)+" has player a card");	
+							theGame.getGameHasTwoPlayers().get(intPlayer).getCardsInHand().ShowGameHand();
+							System.out.println("> Please enter which card to play 0 - "+(theGame.getGameHasTwoPlayers().get(intPlayer).getCardsInHand().getCardsInHand().size()-1));
+							String strIndexOfCards = sca.nextLine();
+							if(! strIndexOfCards.matches("^[0-9]$")){
+								System.out.println("[Error] Input is not a number between 0 to 9");
+								break;
+							}else{
+								int intIndexOfCards = new Integer(strIndexOfCards).intValue();
+								theGame.getGameHasTwoPlayers().get(intPlayer).PlayCard(intIndexOfCards);
+								System.out.println("Player "+theGame.getGameHasTwoPlayers().get(intPlayer)+" has player a card");
+							break;
+							}
 						}
-						
 					}
 			break;
 
@@ -188,7 +198,7 @@ public class AutoDeckBuilder {
 					yourCard = AskInputCardIndex(theGame.getGameHasTwoPlayers().get(intPlayer).getPlayerHasOwnBoard());
 					oppoCard = AskInputCardIndex(theGame.getGameHasTwoPlayers().get(Math.abs(intPlayer - 1)).getPlayerHasOwnBoard());
 					
-					if (yourCard != null || oppoCard != null){
+					if (yourCard != null & oppoCard != null){
 						yourCard.InteractAnotherCard(oppoCard);
 						theGame.getGameHasTwoPlayers().get(0).getPlayerHasOwnBoard().FlushDeck();
 						theGame.getGameHasTwoPlayers().get(1).getPlayerHasOwnBoard().FlushDeck();

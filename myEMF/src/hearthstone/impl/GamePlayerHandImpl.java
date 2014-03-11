@@ -129,7 +129,7 @@ public class GamePlayerHandImpl extends GameDeckImpl implements GamePlayerHand {
 			System.out.println("[Hands report] Current there is no card in hand.");
 		}else{
 			for(int t = 0; t<this.getCardsInHand().size(); t++){
-				System.out.println("[Hands report] "+this.getCardsInHand().get(t));
+				System.out.println("[Hands]["+t+"] "+this.getCardsInHand().get(t));
 			}	
 		}
 	}

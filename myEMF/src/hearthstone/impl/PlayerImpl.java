@@ -515,7 +515,7 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		//throw new UnsupportedOperationException();
-		if(this.getCardsInHand().getCardsInHand().size() > 0){
+		if(_cardindex < (this.getCardsInHand().getCardsInHand().size()) && _cardindex >= 0){
 			this.getCardsInHand().getCardsInHand().get(_cardindex).setCardStates(CardStates.SLEEP);
 			System.out.println("[Play a card]"+ this.name+" plays this card to his board");
 			this.getCardsInHand().getCardsInHand().get(_cardindex).ShowCard();
@@ -533,7 +533,7 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean OperateCard(Card _card) {
+	public boolean OperateCard(Card thecard) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -560,27 +560,23 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 		// Ensure that you remove @generated or mark it @generated NOT
 		if(this.getPlayerHasDeck().getDeckHasCards().size() > 0){
 			System.out.println("Cards in deck left "+this.getPlayerHasDeck().getDeckHasCards().size()+" A card of ["+this.getPlayerHasDeck().getDeckHasCards().get(0).getCardName()+"] has drew to hand");
-			this.getPlayerHasDeck().getDeckHasCards().get(0).setCardStates(CardStates.IN_PLAYER_HAND);
-			this.getPlayerHasDeck().getDeckHasCards().get(0).ShowCard();
-			this.getCardsInHand().getCardsInHand().add(this.getPlayerHasDeck().getDeckHasCards().get(0));
-			//_player.getPlayerHasDeck().getDeckHasCards().remove(0); // don't need this
-			return true;	
+			if(this.getCardsInHand().getCardsInHand().size()>9){
+				System.out.println("[Oops] Player"+this.getName()+" hand is too full, card"+this.getPlayerHasDeck().getDeckHasCards().get(0).getCardName()+" was discard.");
+				this.getPlayerHasDeck().getDeckHasCards().get(0).setCardStates(CardStates.DEAD);
+				this.getPlayerHasDeck().getDeckHasCards().remove(0);
+				return true;
+			}else{
+				this.getPlayerHasDeck().getDeckHasCards().get(0).setCardStates(CardStates.IN_PLAYER_HAND);
+				this.getPlayerHasDeck().getDeckHasCards().get(0).ShowCard();
+				this.getCardsInHand().getCardsInHand().add(this.getPlayerHasDeck().getDeckHasCards().get(0));
+				//_player.getPlayerHasDeck().getDeckHasCards().remove(0); // don't need this
+				return true;		
+			}
 		}else{
 			System.out.println("No more cards in the deck");
 			return false;
 		}
 		//throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void OperateCard() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -772,9 +768,6 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 				return ClickNextTurnBtn();
 			case HearthstonePackage.PLAYER___DRAW_CARD:
 				return DrawCard();
-			case HearthstonePackage.PLAYER___OPERATE_CARD:
-				OperateCard();
-				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}
