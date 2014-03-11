@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link hearthstone.GameBoard#getGameBoardHasTwoPlayerBoard <em>Game Board Has Two Player Board</em>}</li>
+ *   <li>{@link hearthstone.GameBoard#getGameBoardHasPlayerBoard <em>Game Board Has Player Board</em>}</li>
  *   <li>{@link hearthstone.GameBoard#getBoardSN <em>Board SN</em>}</li>
  * </ul>
  * </p>
@@ -25,20 +25,20 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface GameBoard extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Game Board Has Two Player Board</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Game Board Has Player Board</b></em>' containment reference list.
 	 * The list contents are of type {@link hearthstone.PlayerBoard}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Game Board Has Two Player Board</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Game Board Has Player Board</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Game Board Has Two Player Board</em>' containment reference list.
-	 * @see hearthstone.HearthstonePackage#getGameBoard_GameBoardHasTwoPlayerBoard()
-	 * @model containment="true" lower="2" upper="2"
+	 * @return the value of the '<em>Game Board Has Player Board</em>' containment reference list.
+	 * @see hearthstone.HearthstonePackage#getGameBoard_GameBoardHasPlayerBoard()
+	 * @model containment="true" lower="2"
 	 * @generated
 	 */
-	EList<PlayerBoard> getGameBoardHasTwoPlayerBoard();
+	EList<PlayerBoard> getGameBoardHasPlayerBoard();
 
 	/**
 	 * Returns the value of the '<em><b>Board SN</b></em>' attribute.

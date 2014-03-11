@@ -315,4 +315,15 @@ public interface Player extends EObject {
 	 */
 	boolean DrawCard();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Use your on board card to attack your opponent's hero
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	void OperateCard(Hero theHero);
+
 } // Player

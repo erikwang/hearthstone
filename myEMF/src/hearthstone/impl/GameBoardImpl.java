@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link hearthstone.impl.GameBoardImpl#getGameBoardHasTwoPlayerBoard <em>Game Board Has Two Player Board</em>}</li>
+ *   <li>{@link hearthstone.impl.GameBoardImpl#getGameBoardHasPlayerBoard <em>Game Board Has Player Board</em>}</li>
  *   <li>{@link hearthstone.impl.GameBoardImpl#getBoardSN <em>Board SN</em>}</li>
  * </ul>
  * </p>
@@ -33,14 +33,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameBoard {
 	/**
-	 * The cached value of the '{@link #getGameBoardHasTwoPlayerBoard() <em>Game Board Has Two Player Board</em>}' containment reference list.
+	 * The cached value of the '{@link #getGameBoardHasPlayerBoard() <em>Game Board Has Player Board</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGameBoardHasTwoPlayerBoard()
+	 * @see #getGameBoardHasPlayerBoard()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PlayerBoard> gameBoardHasTwoPlayerBoard;
+	protected EList<PlayerBoard> gameBoardHasPlayerBoard;
 
 	/**
 	 * The default value of the '{@link #getBoardSN() <em>Board SN</em>}' attribute.
@@ -86,11 +86,11 @@ public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PlayerBoard> getGameBoardHasTwoPlayerBoard() {
-		if (gameBoardHasTwoPlayerBoard == null) {
-			gameBoardHasTwoPlayerBoard = new EObjectContainmentEList<PlayerBoard>(PlayerBoard.class, this, HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_TWO_PLAYER_BOARD);
+	public EList<PlayerBoard> getGameBoardHasPlayerBoard() {
+		if (gameBoardHasPlayerBoard == null) {
+			gameBoardHasPlayerBoard = new EObjectContainmentEList<PlayerBoard>(PlayerBoard.class, this, HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_PLAYER_BOARD);
 		}
-		return gameBoardHasTwoPlayerBoard;
+		return gameBoardHasPlayerBoard;
 	}
 
 	/**
@@ -123,37 +123,40 @@ public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameB
 		
 		switch (pindex){
 		case 1:
-			if(this.getGameBoardHasTwoPlayerBoard().get(0).getDeckHasCards().size() > 0){
-				System.out.println("- Show Game board for Player 1, cards on board: "+this.getGameBoardHasTwoPlayerBoard().get(0).getDeckHasCards().size()+" cards on board");				
-				this.getGameBoardHasTwoPlayerBoard().get(0).ShowCardsInDeck();
+			if(this.getGameBoardHasPlayerBoard().get(0).getDeckHasCards().size() > 0){
+				System.out.println("cards on board: "+this.getGameBoardHasPlayerBoard().get(0).getDeckHasCards().size()+" cards on board");				
+				this.getGameBoardHasPlayerBoard().get(0).ShowCardsInDeck();
 			}else{
 				System.out.println("- No cards on player1's board");
 			}
+			System.out.println("-------------------------------");
 			break;
 			
 		case 2:
-			if(this.getGameBoardHasTwoPlayerBoard().get(1).getDeckHasCards().size() > 0){
-				System.out.println("- Show Game board for Player 2, cards on board: "+this.getGameBoardHasTwoPlayerBoard().get(1).getDeckHasCards().size()+" cards on board");				
-				this.getGameBoardHasTwoPlayerBoard().get(1).ShowCardsInDeck();
+			if(this.getGameBoardHasPlayerBoard().get(1).getDeckHasCards().size() > 0){
+				System.out.println("cards on board: "+this.getGameBoardHasPlayerBoard().get(1).getDeckHasCards().size()+" cards on board");				
+				this.getGameBoardHasPlayerBoard().get(1).ShowCardsInDeck();
 			}else{
 				System.out.println("- No cards on player2's board");
 			}
+			System.out.println("-------------------------------");
 			break;
 		
 		default:
-			if(this.getGameBoardHasTwoPlayerBoard().get(0).getDeckHasCards().size() > 0){
-				System.out.println("- Show Game board for Player 1, cards on board: "+this.getGameBoardHasTwoPlayerBoard().get(0).getDeckHasCards().size()+" cards on board");				
-				this.getGameBoardHasTwoPlayerBoard().get(0).ShowCardsInDeck();
+			if(this.getGameBoardHasPlayerBoard().get(0).getDeckHasCards().size() > 0){
+				System.out.println("cards on board: "+this.getGameBoardHasPlayerBoard().get(0).getDeckHasCards().size()+" cards on board");				
+				this.getGameBoardHasPlayerBoard().get(0).ShowCardsInDeck();
 			}else{
 				System.out.println("- No cards on player1's board");
 			}
 			
-			if(this.getGameBoardHasTwoPlayerBoard().get(1).getDeckHasCards().size() > 0){
-				System.out.println("- Show Game board for Player 2, cards on board: "+this.getGameBoardHasTwoPlayerBoard().get(1).getDeckHasCards().size()+" cards on board");				
-				this.getGameBoardHasTwoPlayerBoard().get(1).ShowCardsInDeck();
+			if(this.getGameBoardHasPlayerBoard().get(1).getDeckHasCards().size() > 0){
+				System.out.println("cards on board: "+this.getGameBoardHasPlayerBoard().get(1).getDeckHasCards().size()+" cards on board");				
+				this.getGameBoardHasPlayerBoard().get(1).ShowCardsInDeck();
 			}else{
 				System.out.println("- No cards on player2's board");
 			}
+			System.out.println("-------------------------------");
 			break;		
 		}
 	}
@@ -166,8 +169,8 @@ public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameB
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_TWO_PLAYER_BOARD:
-				return ((InternalEList<?>)getGameBoardHasTwoPlayerBoard()).basicRemove(otherEnd, msgs);
+			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_PLAYER_BOARD:
+				return ((InternalEList<?>)getGameBoardHasPlayerBoard()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -180,8 +183,8 @@ public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameB
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_TWO_PLAYER_BOARD:
-				return getGameBoardHasTwoPlayerBoard();
+			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_PLAYER_BOARD:
+				return getGameBoardHasPlayerBoard();
 			case HearthstonePackage.GAME_BOARD__BOARD_SN:
 				return getBoardSN();
 		}
@@ -197,9 +200,9 @@ public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameB
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_TWO_PLAYER_BOARD:
-				getGameBoardHasTwoPlayerBoard().clear();
-				getGameBoardHasTwoPlayerBoard().addAll((Collection<? extends PlayerBoard>)newValue);
+			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_PLAYER_BOARD:
+				getGameBoardHasPlayerBoard().clear();
+				getGameBoardHasPlayerBoard().addAll((Collection<? extends PlayerBoard>)newValue);
 				return;
 			case HearthstonePackage.GAME_BOARD__BOARD_SN:
 				setBoardSN((Integer)newValue);
@@ -216,8 +219,8 @@ public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameB
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_TWO_PLAYER_BOARD:
-				getGameBoardHasTwoPlayerBoard().clear();
+			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_PLAYER_BOARD:
+				getGameBoardHasPlayerBoard().clear();
 				return;
 			case HearthstonePackage.GAME_BOARD__BOARD_SN:
 				setBoardSN(BOARD_SN_EDEFAULT);
@@ -234,8 +237,8 @@ public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameB
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_TWO_PLAYER_BOARD:
-				return gameBoardHasTwoPlayerBoard != null && !gameBoardHasTwoPlayerBoard.isEmpty();
+			case HearthstonePackage.GAME_BOARD__GAME_BOARD_HAS_PLAYER_BOARD:
+				return gameBoardHasPlayerBoard != null && !gameBoardHasPlayerBoard.isEmpty();
 			case HearthstonePackage.GAME_BOARD__BOARD_SN:
 				return boardSN != BOARD_SN_EDEFAULT;
 		}

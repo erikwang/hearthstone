@@ -95,26 +95,26 @@ public interface Deck extends EObject {
 	EList<Card> getDeckHasCards();
 
 	/**
-	 * Returns the value of the '<em><b>Deck Has Hero</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Deck Has Hero</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Deck Has Hero</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Deck Has Hero</em>' containment reference.
+	 * @return the value of the '<em>Deck Has Hero</em>' reference.
 	 * @see #setDeckHasHero(Hero)
 	 * @see hearthstone.HearthstonePackage#getDeck_DeckHasHero()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	Hero getDeckHasHero();
 
 	/**
-	 * Sets the value of the '{@link hearthstone.Deck#getDeckHasHero <em>Deck Has Hero</em>}' containment reference.
+	 * Sets the value of the '{@link hearthstone.Deck#getDeckHasHero <em>Deck Has Hero</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Deck Has Hero</em>' containment reference.
+	 * @param value the new value of the '<em>Deck Has Hero</em>' reference.
 	 * @see #getDeckHasHero()
 	 * @generated
 	 */

@@ -92,8 +92,9 @@ public class PlayerBoardImpl extends DeckImpl implements PlayerBoard {
 	 * @generated NOT
 	 */
 	public void ShowPlayerBoard() {
+		System.out.println(this.getBoardOwner()+", ["+this.getDeckHasHero().getHeroClass()+"] HP="+this.getDeckHasHero().getHeroHealth());
 		if(this.getDeckHasCards().size() > 0){
-			System.out.println("- Show Game board for Player, cards on board: "+this.getDeckHasCards().size()+" cards on board");				
+			System.out.println("cards on board: "+this.getDeckHasCards().size()+" cards on board");				
 			this.ShowCardsInDeck();
 		}else{
 			System.out.println("- No cards on player's board");

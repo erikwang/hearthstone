@@ -7,7 +7,9 @@ import hearthstone.Game;
 import hearthstone.GameBoard;
 import hearthstone.GamePool;
 import hearthstone.GameState;
+import hearthstone.GameStates;
 import hearthstone.HearthstoneFactory;
+import hearthstone.Hero;
 import hearthstone.PlayerBoard;
 
 
@@ -74,6 +76,7 @@ public class AutoDeckBuilder {
 				}else{
 					for(int t=0;t<gp.getGamePoolHasGames().size();t++){
 						System.out.println("[Game] "+t+" information:");
+						System.out.println("Game state = "+gp.getGamePoolHasGames().get(t).getGameStates());
 						sg.ShowGame(gp.getGamePoolHasGames().get(t));
 						System.out.println("--------------------------");
 					}	
@@ -87,18 +90,18 @@ public class AutoDeckBuilder {
 				}else{
 					//System.out.println("> Please enter which player's board: 1 or 2");
 					//String strplayer = sca.nextLine();
-					System.out.println("[Show Game Board]"+ theGame.getGameHasTwoPlayers().get(0).toString());
-					theGame.getGameHasTwoPlayers().get(0).getPlayerHasOwnBoard().ShowPlayerBoard();	
-					System.out.println("[Show Game Board]"+ theGame.getGameHasTwoPlayers().get(1).toString());
-					theGame.getGameHasTwoPlayers().get(1).getPlayerHasOwnBoard().ShowPlayerBoard();
+					System.out.println("[Show Game Board]"+ theGame.getGameHasGameRule().getGameHasPlayers().get(0).toString());
+					theGame.getGameHasGameRule().getGameHasPlayers().get(0).getPlayerHasOwnBoard().ShowPlayerBoard();	
+					System.out.println("[Show Game Board]"+ theGame.getGameHasGameRule().getGameHasPlayers().get(1).toString());
+					theGame.getGameHasGameRule().getGameHasPlayers().get(1).getPlayerHasOwnBoard().ShowPlayerBoard();
 				}
 				break;
 				
 			case "sgh":
 				theGame = AskInputGameIndex();
 				if(theGame != null){
-					theGame.getGameHasTwoPlayers().get(0).getCardsInHand().ShowGameHand();
-					theGame.getGameHasTwoPlayers().get(1).getCardsInHand().ShowGameHand();
+					theGame.getGameHasGameRule().getGameHasPlayers().get(0).getCardsInHand().ShowGameHand();
+					theGame.getGameHasGameRule().getGameHasPlayers().get(1).getCardsInHand().ShowGameHand();
 				}else{
 					//System.out.println("Game index is illegal. Game not exists");
 				}
@@ -107,7 +110,7 @@ public class AutoDeckBuilder {
 			case "hg":
 				theGame = AskInputGameIndex();
 				if(theGame != null){	
-					theGame.setGameStates(GameState.HALT);;
+					theGame.setGameStates(GameStates.HALT);
 					System.out.println("[Game has halted] "+ theGame.toString());
 				}else{
 					System.out.println("Game index is illegal. Game not exists");
@@ -141,9 +144,9 @@ public class AutoDeckBuilder {
 						int intPlayer = new Integer(strPlayer).intValue();
 						int intNumOfCards = new Integer(strNumOfCards).intValue();
 						for(int tt = 0;tt<intNumOfCards;tt++){
-							theGame.getGameHasTwoPlayers().get(intPlayer).DrawCard();							
+							theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).DrawCard();							
 						}
-						System.out.println("Player "+theGame.getGameHasTwoPlayers().get(intPlayer)+" drew "+intNumOfCards+" card(s)");	
+						System.out.println("Player "+theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer)+" drew "+intNumOfCards+" card(s)");	
 					}
 					
 				}else{
@@ -161,22 +164,23 @@ public class AutoDeckBuilder {
 							break;
 						}else{
 							int intPlayer = new Integer(strPlayer).intValue();
-							theGame.getGameHasTwoPlayers().get(intPlayer).getCardsInHand().ShowGameHand();
-							System.out.println("> Please enter which card to play 0 - "+(theGame.getGameHasTwoPlayers().get(intPlayer).getCardsInHand().getCardsInHand().size()-1));
+							theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).getCardsInHand().ShowGameHand();
+							System.out.println("> Please enter which card to play 0 - "+(theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).getCardsInHand().getCardsInHand().size()-1));
 							String strIndexOfCards = sca.nextLine();
 							if(! strIndexOfCards.matches("^[0-9]$")){
 								System.out.println("[Error] Input is not a number between 0 to 9");
 								break;
 							}else{
 								int intIndexOfCards = new Integer(strIndexOfCards).intValue();
-								theGame.getGameHasTwoPlayers().get(intPlayer).PlayCard(intIndexOfCards);
-								System.out.println("Player "+theGame.getGameHasTwoPlayers().get(intPlayer)+" has player a card");
+								theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).PlayCard(intIndexOfCards);
+								System.out.println("Player "+theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer)+" has player a card");
 							break;
 							}
 						}
 					}
 			break;
 
+			//Operate a card, this part should be placed in player model, but since it needs some interaction with UI, for convenience I put them here
 			case "oc":
 				theGame = AskInputGameIndex();
 				if(theGame != null){
@@ -188,31 +192,64 @@ public class AutoDeckBuilder {
 					}
 					int intPlayer = new Integer(strPlayer).intValue();
 					System.out.println("> Cards on your board:");
-					theGame.getGameHasTwoPlayers().get(intPlayer).getPlayerHasOwnBoard().ShowPlayerBoard();
+					theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).getPlayerHasOwnBoard().ShowPlayerBoard();
 					System.out.println("> Cards on your opponent's board:");
-					theGame.getGameHasTwoPlayers().get(Math.abs(intPlayer -1)).getPlayerHasOwnBoard().ShowPlayerBoard();
+					theGame.getGameHasGameRule().getGameHasPlayers().get(Math.abs(intPlayer -1)).getPlayerHasOwnBoard().ShowPlayerBoard();
 					
+					
+					//actually here doesn't need two card object, but for coding convenience I put another two cards objects
 					Card yourCard = cf.createCard();
 					Card oppoCard = cf.createCard();
+					Hero oppoHero = cf.createHero();
+					yourCard = AskInputCardIndex(theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).getPlayerHasOwnBoard());
 					
-					yourCard = AskInputCardIndex(theGame.getGameHasTwoPlayers().get(intPlayer).getPlayerHasOwnBoard());
-					oppoCard = AskInputCardIndex(theGame.getGameHasTwoPlayers().get(Math.abs(intPlayer - 1)).getPlayerHasOwnBoard());
 					
-					if (yourCard != null & oppoCard != null){
-						yourCard.InteractAnotherCard(oppoCard);
-						theGame.getGameHasTwoPlayers().get(0).getPlayerHasOwnBoard().FlushDeck();
-						theGame.getGameHasTwoPlayers().get(1).getPlayerHasOwnBoard().FlushDeck();
-						
-						System.out.println("> Now cards on your board:");
-						theGame.getGameHasTwoPlayers().get(intPlayer).getPlayerHasOwnBoard().ShowPlayerBoard();
-						System.out.println("> Now cards on your opponent's board:");
-						theGame.getGameHasTwoPlayers().get(Math.abs(intPlayer -1)).getPlayerHasOwnBoard().ShowPlayerBoard();
-					}else{
-						System.out.println("[Error] One of your card or opponent's card is not exist");
+					System.out.println("> Please enter the opponent's card index you want to attack : 0-"+(+theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).getPlayerHasOwnBoard().getDeckHasCards().size()-1)+". Or h for opponent's hero");
+					String _input = sca.nextLine();
+					if(_input.matches("^[0-9]$")){
+						int cardIndex = new Integer(_input).intValue();
+						if(cardIndex < theGame.getGameHasGameRule().getGameHasPlayers().get(Math.abs(intPlayer - 1)).getPlayerHasOwnBoard().getDeckHasCards().size()){
+							System.out.println("[Card picked] Found the card of index="+cardIndex+" of board");
+							oppoCard = theGame.getGameHasGameRule().getGameHasPlayers().get(Math.abs(intPlayer - 1)).getPlayerHasOwnBoard().getDeckHasCards().get(cardIndex);
+							if (yourCard != null & oppoCard != null){
+								yourCard.InteractAnotherCard(oppoCard);
+								theGame.getGameHasGameRule().getGameHasPlayers().get(0).getPlayerHasOwnBoard().FlushDeck();
+								theGame.getGameHasGameRule().getGameHasPlayers().get(1).getPlayerHasOwnBoard().FlushDeck();
+								
+								System.out.println("> Now cards on your board:");
+								theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).getPlayerHasOwnBoard().ShowPlayerBoard();
+								
+								System.out.println("> Now cards on your opponent's board:");
+								theGame.getGameHasGameRule().getGameHasPlayers().get(Math.abs(intPlayer -1)).getPlayerHasOwnBoard().ShowPlayerBoard();
+								
+							}else{
+								System.out.println("[Error] One of your card or opponent's card is not exist");
+							}
+						}else{
+							System.out.println("[Can't find card on board] No such card in index="+cardIndex+" on the player's board");
+						}
+					}if(_input.matches("^[h]$")){
+						oppoHero = theGame.getGameHasGameRule().getGameHasPlayers().get(Math.abs(intPlayer - 1)).getPlayerHasOwnBoard().getDeckHasHero();
+						if (yourCard != null & oppoHero != null){
+							yourCard.InteractOppoHero(oppoHero);
+							theGame.getGameHasGameRule().getGameHasPlayers().get(0).getPlayerHasOwnBoard().FlushDeck();
+							theGame.getGameHasGameRule().getGameHasPlayers().get(1).getPlayerHasOwnBoard().FlushDeck();
+							System.out.println("> Now cards on your board:");
+							theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).getPlayerHasOwnBoard().ShowPlayerBoard();
+							System.out.println("> Now cards on your opponent's board:");
+							theGame.getGameHasGameRule().getGameHasPlayers().get(Math.abs(intPlayer -1)).getPlayerHasOwnBoard().ShowPlayerBoard();
+						}else{
+							System.out.println("[Error] Your opponent's hero is missing");
+						}
+
+					}
+					else{
+						System.out.println("[Input error] Input is not a number, operation terminated.");
 					}
 				}
-					//theGame.getGameHasTwoPlayers().get(0).getCardsInHand().DrawCard(theGame.getGameHasTwoPlayers().get(0));
-					//theGame.getGameHasTwoPlayers().get(0).DrawCard();
+			if(theGame != null){
+				theGame.CheckGameStates();	
+			}
 			break;
 			
 			case "sgd":
@@ -225,7 +262,7 @@ public class AutoDeckBuilder {
 						break;
 					}else{
 						int intPlayer = new Integer(strPlayer).intValue();
-						theGame.getGameHasTwoPlayers().get(intPlayer).getPlayerHasDeck().ShowGameDeck();
+						theGame.getGameHasGameRule().getGameHasPlayers().get(intPlayer).getPlayerHasDeck().ShowGameDeck();
 					}
 				}
 				break;
@@ -267,7 +304,13 @@ public class AutoDeckBuilder {
 			int gameIndex = new Integer(_input).intValue();
 			if(gameIndex < gp.getGamePoolHasGames().size()){
 				System.out.println("[Game found] Found the game of index="+gameIndex+" of game pool");
-				return gp.getGamePoolHasGames().get(gameIndex);
+				if(! gp.getGamePoolHasGames().get(gameIndex).getGameStates().equals(GameStates.OVER)){
+					return gp.getGamePoolHasGames().get(gameIndex);	
+				}else{
+					System.out.println("[Game found] Found the game of index="+gameIndex+" of game pool, but this game is already over. Try another one");
+					return null;
+				}
+				
 			}else{
 				System.out.println("[Can't find a game] No such game in index="+gameIndex+" of game pool");
 				return null;
@@ -278,20 +321,20 @@ public class AutoDeckBuilder {
 		}
 	}
 	
-	public static Card AskInputCardIndex(PlayerBoard _pb){
-		System.out.println("> Please enter the index number of card: 0-"+(+_pb.getDeckHasCards().size()-1)+".");
+	public static Card AskInputCardIndex(PlayerBoard pb){
+		System.out.println("> Please enter the index number of card: 0-"+(+pb.getDeckHasCards().size()-1));
 		String _input = sca.nextLine();
 		if(_input.matches("^[0-9]+$")){
 			int cardIndex = new Integer(_input).intValue();
-			if(cardIndex < _pb.getDeckHasCards().size()){
+			if(cardIndex < pb.getDeckHasCards().size()){
 				System.out.println("[Card picked] Found the card of index="+cardIndex+" of board");
-				return _pb.getDeckHasCards().get(cardIndex);
+				return pb.getDeckHasCards().get(cardIndex);
 			}else{
 				System.out.println("[Can't find card on board] No such card in index="+cardIndex+" on the player's board");
 				return null;
 			}
 		}else{
-			System.out.println("[Input error] Input is not a number");
+			System.out.println("[Input error] Input is not a number, operation terminated.");
 			return null;
 		}
 	}

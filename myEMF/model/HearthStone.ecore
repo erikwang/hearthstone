@@ -9,6 +9,9 @@
       <eParameters name="thecard" eType="#//Card"/>
     </eOperations>
     <eOperations name="ShowCard"/>
+    <eOperations name="InteractOppoHero">
+      <eParameters name="theHero" eType="#//Hero"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardCost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CardLife" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -51,7 +54,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="DeckHasCards" ordered="false"
         lowerBound="30" upperBound="30" eType="#//Card" containment="true" eKeys="#//Card/CardDeckSN"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DeckHasHero" lowerBound="1"
-        eType="#//Hero" containment="true"/>
+        eType="#//Hero"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Ability">
     <eOperations name="Charge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -97,8 +100,8 @@
     <eOperations name="ShowGameBoard">
       <eParameters name="pindex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GameBoardHasTwoPlayerBoard"
-        lowerBound="2" upperBound="2" eType="#//PlayerBoard" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GameBoardHasPlayerBoard"
+        lowerBound="2" upperBound="-1" eType="#//PlayerBoard" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="BoardSN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GameDeck" eSuperTypes="#//Deck">
@@ -118,13 +121,19 @@
       <eParameters name="GameSN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="ShowGameInDetail"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GameHasBoard" lowerBound="1"
-        eType="#//GameBoard" containment="true"/>
+    <eOperations name="HaltGame"/>
+    <eOperations name="ShowGameHand"/>
+    <eOperations name="ShowGameBoard"/>
+    <eOperations name="CheckGameStates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Check each hero's health, if &lt;=0, we have a winner, and game over&#xD;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameSN" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="GameHasTwoPlayers" lowerBound="2"
-        upperBound="2" eType="#//Player" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameStates" eType="#//GameState"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameStates" eType="#//GameStates"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GameHasGameRule" lowerBound="1"
+        eType="#//GameRule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Player">
     <eOperations name="PlayCard">
@@ -135,6 +144,12 @@
     </eOperations>
     <eOperations name="ClickNextTurnBtn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="DrawCard" lowerBound="1" upperBound="5" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="OperateCard">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Use your on board card to attack your opponent's hero"/>
+      </eAnnotations>
+      <eParameters name="theHero" eType="#//Hero"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TotalWins" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PlayerHasDeck" lowerBound="1"
@@ -167,23 +182,27 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HeroClass" lowerBound="1"
         eType="#//HeroClass"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HeroHealth" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HeroStates" eType="#//HeroStates"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="30"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HeroStates" eType="#//HeroStates"
+        defaultValueLiteral="ReadyForAction"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HeroAbility" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="HeroDesc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HeroPower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="HeroStates">
     <eLiterals name="ReadyForAction" value="1"/>
     <eLiterals name="Acted" value="2"/>
     <eLiterals name="Dead" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="GameState">
+  <eClassifiers xsi:type="ecore:EEnum" name="GameStates">
     <eLiterals name="Created"/>
     <eLiterals name="Playing" value="1"/>
     <eLiterals name="Over" value="2"/>
     <eLiterals name="Halt" value="3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GamePool">
+    <eOperations name="ShowGames"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GamePoolHasGames" upperBound="-1"
         eType="#//Game" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="GamePoolDesc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -195,5 +214,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CollectionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="CollectionOwner" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="GameRule"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GameRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GameHasPlayers" lowerBound="2"
+        upperBound="-1" eType="#//Player" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GameHasBoard" lowerBound="1"
+        eType="#//GameBoard" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="GameHasGameRule" lowerBound="1"
+        eType="#//Game"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameRuleDesc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="GameRuleType" eType="#//GameType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GameSetter"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="GameType">
+    <eLiterals name="Standard"/>
+    <eLiterals name="twovstwo" value="1"/>
+    <eLiterals name="pve" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HeroAbility">
+    <eLiterals name="MageAbility"/>
+  </eClassifiers>
 </ecore:EPackage>

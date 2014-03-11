@@ -113,6 +113,14 @@ public class HearthstoneAdapterFactory extends AdapterFactoryImpl {
 				return createCardCollectionAdapter();
 			}
 			@Override
+			public Adapter caseGameRule(GameRule object) {
+				return createGameRuleAdapter();
+			}
+			@Override
+			public Adapter caseGameSetter(GameSetter object) {
+				return createGameSetterAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -297,6 +305,34 @@ public class HearthstoneAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCardCollectionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hearthstone.GameRule <em>Game Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hearthstone.GameRule
+	 * @generated
+	 */
+	public Adapter createGameRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link hearthstone.GameSetter <em>Game Setter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see hearthstone.GameSetter
+	 * @generated
+	 */
+	public Adapter createGameSetterAdapter() {
 		return null;
 	}
 

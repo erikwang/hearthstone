@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hearthstone.Hero#getHeroStates <em>Hero States</em>}</li>
  *   <li>{@link hearthstone.Hero#getHeroAbility <em>Hero Ability</em>}</li>
  *   <li>{@link hearthstone.Hero#getHeroDesc <em>Hero Desc</em>}</li>
+ *   <li>{@link hearthstone.Hero#getHeroPower <em>Hero Power</em>}</li>
  * </ul>
  * </p>
  *
@@ -56,6 +57,7 @@ public interface Hero extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Hero Health</b></em>' attribute.
+	 * The default value is <code>"30"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Hero Health</em>' attribute isn't clear,
@@ -65,7 +67,7 @@ public interface Hero extends EObject {
 	 * @return the value of the '<em>Hero Health</em>' attribute.
 	 * @see #setHeroHealth(int)
 	 * @see hearthstone.HearthstonePackage#getHero_HeroHealth()
-	 * @model required="true"
+	 * @model default="30" required="true"
 	 * @generated
 	 */
 	int getHeroHealth();
@@ -82,6 +84,7 @@ public interface Hero extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Hero States</b></em>' attribute.
+	 * The default value is <code>"ReadyForAction"</code>.
 	 * The literals are from the enumeration {@link hearthstone.HeroStates}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -93,7 +96,7 @@ public interface Hero extends EObject {
 	 * @see hearthstone.HeroStates
 	 * @see #setHeroStates(HeroStates)
 	 * @see hearthstone.HearthstonePackage#getHero_HeroStates()
-	 * @model
+	 * @model default="ReadyForAction"
 	 * @generated
 	 */
 	HeroStates getHeroStates();
@@ -160,5 +163,32 @@ public interface Hero extends EObject {
 	 * @generated
 	 */
 	void setHeroDesc(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Hero Power</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hero Power</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hero Power</em>' attribute.
+	 * @see #setHeroPower(int)
+	 * @see hearthstone.HearthstonePackage#getHero_HeroPower()
+	 * @model default="0"
+	 * @generated
+	 */
+	int getHeroPower();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Hero#getHeroPower <em>Hero Power</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Hero Power</em>' attribute.
+	 * @see #getHeroPower()
+	 * @generated
+	 */
+	void setHeroPower(int value);
 
 } // Hero

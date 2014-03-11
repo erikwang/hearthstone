@@ -160,7 +160,6 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 		// Ensure that you remove @generated or mark it @generated NOT
 		//System.out.println("The hero is a "+this.getDeckHasHero().getHeroClass().toString()+", with ability of"+this.getDeckHasHero().getHeroAbility());
 		System.out.println("[Current game deck report]");
-		System.out.println("[Hero is] "+this.getDeckHasHero().getHeroClass());
 		this.ShowCardsInDeck();
 
 	}

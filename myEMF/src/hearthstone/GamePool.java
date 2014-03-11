@@ -66,4 +66,12 @@ public interface GamePool extends EObject {
 	 */
 	void setGamePoolDesc(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void ShowGames();
+
 } // GamePool

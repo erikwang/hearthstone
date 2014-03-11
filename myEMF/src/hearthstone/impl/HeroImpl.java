@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link hearthstone.impl.HeroImpl#getHeroStates <em>Hero States</em>}</li>
  *   <li>{@link hearthstone.impl.HeroImpl#getHeroAbility <em>Hero Ability</em>}</li>
  *   <li>{@link hearthstone.impl.HeroImpl#getHeroDesc <em>Hero Desc</em>}</li>
+ *   <li>{@link hearthstone.impl.HeroImpl#getHeroPower <em>Hero Power</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,7 +61,7 @@ public class HeroImpl extends MinimalEObjectImpl.Container implements Hero {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int HERO_HEALTH_EDEFAULT = 0;
+	protected static final int HERO_HEALTH_EDEFAULT = 30;
 
 	/**
 	 * The cached value of the '{@link #getHeroHealth() <em>Hero Health</em>}' attribute.
@@ -131,6 +132,26 @@ public class HeroImpl extends MinimalEObjectImpl.Container implements Hero {
 	 * @ordered
 	 */
 	protected String heroDesc = HERO_DESC_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getHeroPower() <em>Hero Power</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHeroPower()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int HERO_POWER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getHeroPower() <em>Hero Power</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHeroPower()
+	 * @generated
+	 * @ordered
+	 */
+	protected int heroPower = HERO_POWER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -261,6 +282,27 @@ public class HeroImpl extends MinimalEObjectImpl.Container implements Hero {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getHeroPower() {
+		return heroPower;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHeroPower(int newHeroPower) {
+		int oldHeroPower = heroPower;
+		heroPower = newHeroPower;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.HERO__HERO_POWER, oldHeroPower, heroPower));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -274,6 +316,8 @@ public class HeroImpl extends MinimalEObjectImpl.Container implements Hero {
 				return getHeroAbility();
 			case HearthstonePackage.HERO__HERO_DESC:
 				return getHeroDesc();
+			case HearthstonePackage.HERO__HERO_POWER:
+				return getHeroPower();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -300,6 +344,9 @@ public class HeroImpl extends MinimalEObjectImpl.Container implements Hero {
 				return;
 			case HearthstonePackage.HERO__HERO_DESC:
 				setHeroDesc((String)newValue);
+				return;
+			case HearthstonePackage.HERO__HERO_POWER:
+				setHeroPower((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -328,6 +375,9 @@ public class HeroImpl extends MinimalEObjectImpl.Container implements Hero {
 			case HearthstonePackage.HERO__HERO_DESC:
 				setHeroDesc(HERO_DESC_EDEFAULT);
 				return;
+			case HearthstonePackage.HERO__HERO_POWER:
+				setHeroPower(HERO_POWER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -350,6 +400,8 @@ public class HeroImpl extends MinimalEObjectImpl.Container implements Hero {
 				return HERO_ABILITY_EDEFAULT == null ? heroAbility != null : !HERO_ABILITY_EDEFAULT.equals(heroAbility);
 			case HearthstonePackage.HERO__HERO_DESC:
 				return HERO_DESC_EDEFAULT == null ? heroDesc != null : !HERO_DESC_EDEFAULT.equals(heroDesc);
+			case HearthstonePackage.HERO__HERO_POWER:
+				return heroPower != HERO_POWER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -374,6 +426,8 @@ public class HeroImpl extends MinimalEObjectImpl.Container implements Hero {
 		result.append(heroAbility);
 		result.append(", HeroDesc: ");
 		result.append(heroDesc);
+		result.append(", HeroPower: ");
+		result.append(heroPower);
 		result.append(')');
 		return result.toString();
 	}

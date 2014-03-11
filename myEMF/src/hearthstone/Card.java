@@ -404,4 +404,12 @@ public interface Card extends EObject {
 	 */
 	void ShowCard();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void InteractOppoHero(Hero theHero);
+
 } // Card

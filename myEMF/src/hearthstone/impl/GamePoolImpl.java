@@ -6,6 +6,7 @@ import hearthstone.Game;
 import hearthstone.GamePool;
 import hearthstone.HearthstonePackage;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -124,6 +125,17 @@ public class GamePoolImpl extends MinimalEObjectImpl.Container implements GamePo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void ShowGames() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -201,6 +213,21 @@ public class GamePoolImpl extends MinimalEObjectImpl.Container implements GamePo
 				return GAME_POOL_DESC_EDEFAULT == null ? gamePoolDesc != null : !GAME_POOL_DESC_EDEFAULT.equals(gamePoolDesc);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case HearthstonePackage.GAME_POOL___SHOW_GAMES:
+				ShowGames();
+				return null;
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -43,11 +43,19 @@
       <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//HeroStates/Acted"/>
       <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//HeroStates/Dead"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="HearthStone.ecore#//GameState">
-      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameState/Created"/>
-      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameState/Playing"/>
-      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameState/Over"/>
-      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameState/Halt"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="HearthStone.ecore#//GameStates">
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameStates/Created"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameStates/Playing"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameStates/Over"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameStates/Halt"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="HearthStone.ecore#//GameType">
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameType/Standard"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameType/twovstwo"/>
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//GameType/pve"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="HearthStone.ecore#//HeroAbility">
+      <genEnumLiterals ecoreEnumLiteral="HearthStone.ecore#//HeroAbility/MageAbility"/>
     </genEnums>
     <genDataTypes ecoreDataType="HearthStone.ecore#//Abilities"/>
     <genClasses ecoreClass="HearthStone.ecore#//Card">
@@ -71,6 +79,9 @@
         <genParameters ecoreParameter="HearthStone.ecore#//Card/InteractAnotherCard/thecard"/>
       </genOperations>
       <genOperations ecoreOperation="HearthStone.ecore#//Card/ShowCard"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//Card/InteractOppoHero">
+        <genParameters ecoreParameter="HearthStone.ecore#//Card/InteractOppoHero/theHero"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//Deck">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Deck/DeckID"/>
@@ -96,7 +107,7 @@
       <genOperations ecoreOperation="HearthStone.ecore#//GamePlayerHand/ShowGameHand"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//GameBoard">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GameBoard/GameBoardHasTwoPlayerBoard"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GameBoard/GameBoardHasPlayerBoard"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//GameBoard/BoardSN"/>
       <genOperations ecoreOperation="HearthStone.ecore#//GameBoard/ShowGameBoard">
         <genParameters ecoreParameter="HearthStone.ecore#//GameBoard/ShowGameBoard/pindex"/>
@@ -115,15 +126,18 @@
       <genOperations ecoreOperation="HearthStone.ecore#//GameDeck/ShowGameStartDeckCards"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//Game">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Game/GameHasBoard"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Game/GameSN"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Game/GameHasTwoPlayers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Game/GameStates"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Game/GameID"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HearthStone.ecore#//Game/GameHasGameRule"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Game/ShowGame">
         <genParameters ecoreParameter="HearthStone.ecore#//Game/ShowGame/GameSN"/>
       </genOperations>
       <genOperations ecoreOperation="HearthStone.ecore#//Game/ShowGameInDetail"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//Game/HaltGame"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//Game/ShowGameHand"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//Game/ShowGameBoard"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//Game/CheckGameStates"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//Player">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Player/Name"/>
@@ -144,6 +158,9 @@
       </genOperations>
       <genOperations ecoreOperation="HearthStone.ecore#//Player/ClickNextTurnBtn"/>
       <genOperations ecoreOperation="HearthStone.ecore#//Player/DrawCard"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//Player/OperateCard.1">
+        <genParameters ecoreParameter="HearthStone.ecore#//Player/OperateCard.1/theHero"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//PlayerBoard">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//PlayerBoard/BoardOwner"/>
@@ -155,10 +172,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Hero/HeroStates"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Hero/HeroAbility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Hero/HeroDesc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//Hero/HeroPower"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//GamePool">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GamePool/GamePoolHasGames"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//GamePool/GamePoolDesc"/>
+      <genOperations ecoreOperation="HearthStone.ecore#//GamePool/ShowGames"/>
     </genClasses>
     <genClasses ecoreClass="HearthStone.ecore#//CardCollection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//CardCollection/CollectionHasCards"/>
@@ -166,5 +185,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//CardCollection/CollectionOwner"/>
       <genOperations ecoreOperation="HearthStone.ecore#//CardCollection/ShowCollection"/>
     </genClasses>
+    <genClasses ecoreClass="HearthStone.ecore#//GameRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GameRule/GameHasPlayers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GameRule/GameHasBoard"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference HearthStone.ecore#//GameRule/GameHasGameRule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//GameRule/GameRuleDesc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute HearthStone.ecore#//GameRule/GameRuleType"/>
+    </genClasses>
+    <genClasses ecoreClass="HearthStone.ecore#//GameSetter"/>
   </genPackages>
 </genmodel:GenModel>

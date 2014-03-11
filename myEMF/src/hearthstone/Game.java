@@ -2,8 +2,6 @@
  */
 package hearthstone;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,11 +12,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link hearthstone.Game#getGameHasBoard <em>Game Has Board</em>}</li>
  *   <li>{@link hearthstone.Game#getGameSN <em>Game SN</em>}</li>
- *   <li>{@link hearthstone.Game#getGameHasTwoPlayers <em>Game Has Two Players</em>}</li>
  *   <li>{@link hearthstone.Game#getGameStates <em>Game States</em>}</li>
  *   <li>{@link hearthstone.Game#getGameID <em>Game ID</em>}</li>
+ *   <li>{@link hearthstone.Game#getGameHasGameRule <em>Game Has Game Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,32 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Game extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Game Has Board</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Game Has Board</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Game Has Board</em>' containment reference.
-	 * @see #setGameHasBoard(GameBoard)
-	 * @see hearthstone.HearthstonePackage#getGame_GameHasBoard()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	GameBoard getGameHasBoard();
-
-	/**
-	 * Sets the value of the '{@link hearthstone.Game#getGameHasBoard <em>Game Has Board</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Game Has Board</em>' containment reference.
-	 * @see #getGameHasBoard()
-	 * @generated
-	 */
-	void setGameHasBoard(GameBoard value);
-
 	/**
 	 * Returns the value of the '<em><b>Game SN</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -80,24 +51,8 @@ public interface Game extends EObject {
 	void setGameSN(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Game Has Two Players</b></em>' containment reference list.
-	 * The list contents are of type {@link hearthstone.Player}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Game Has Two Players</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Game Has Two Players</em>' containment reference list.
-	 * @see hearthstone.HearthstonePackage#getGame_GameHasTwoPlayers()
-	 * @model containment="true" lower="2" upper="2"
-	 * @generated
-	 */
-	EList<Player> getGameHasTwoPlayers();
-
-	/**
 	 * Returns the value of the '<em><b>Game States</b></em>' attribute.
-	 * The literals are from the enumeration {@link hearthstone.GameState}.
+	 * The literals are from the enumeration {@link hearthstone.GameStates}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Game States</em>' attribute isn't clear,
@@ -105,24 +60,24 @@ public interface Game extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Game States</em>' attribute.
-	 * @see hearthstone.GameState
-	 * @see #setGameStates(GameState)
+	 * @see hearthstone.GameStates
+	 * @see #setGameStates(GameStates)
 	 * @see hearthstone.HearthstonePackage#getGame_GameStates()
 	 * @model
 	 * @generated
 	 */
-	GameState getGameStates();
+	GameStates getGameStates();
 
 	/**
 	 * Sets the value of the '{@link hearthstone.Game#getGameStates <em>Game States</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Game States</em>' attribute.
-	 * @see hearthstone.GameState
+	 * @see hearthstone.GameStates
 	 * @see #getGameStates()
 	 * @generated
 	 */
-	void setGameStates(GameState value);
+	void setGameStates(GameStates value);
 
 	/**
 	 * Returns the value of the '<em><b>Game ID</b></em>' attribute.
@@ -151,6 +106,32 @@ public interface Game extends EObject {
 	void setGameID(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Game Has Game Rule</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Game Has Game Rule</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Game Has Game Rule</em>' reference.
+	 * @see #setGameHasGameRule(GameRule)
+	 * @see hearthstone.HearthstonePackage#getGame_GameHasGameRule()
+	 * @model required="true"
+	 * @generated
+	 */
+	GameRule getGameHasGameRule();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Game#getGameHasGameRule <em>Game Has Game Rule</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Game Has Game Rule</em>' reference.
+	 * @see #getGameHasGameRule()
+	 * @generated
+	 */
+	void setGameHasGameRule(GameRule value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -165,5 +146,41 @@ public interface Game extends EObject {
 	 * @generated
 	 */
 	void ShowGameInDetail();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void HaltGame();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void ShowGameHand();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void ShowGameBoard();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Check each hero's health, if <=0, we have a winner, and game over
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean CheckGameStates();
 
 } // Game

@@ -7,22 +7,19 @@ import hearthstone.Card;
 import hearthstone.CardQuality;
 import hearthstone.CardStates;
 import hearthstone.HearthstonePackage;
+import hearthstone.Hero;
+import hearthstone.HeroStates;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -638,6 +635,32 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void InteractOppoHero(Hero theHero) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		System.out.println("[Card acting] "+this.cardName+" L= "+this.getCardLife()+" P= "+this.getCardPower() +" vs "+theHero.getHeroClass()+" L= "+theHero.getHeroHealth()+" P= "+theHero.getHeroPower());
+		this.cardLife = this.cardLife - theHero.getHeroPower();
+		theHero.setHeroHealth(theHero.getHeroHealth() - this.cardPower);
+		
+		System.out.println("[Card acting] "+this.cardName+" L= "+this.getCardLife()+" P= "+this.getCardPower() +" vs "+theHero.getHeroClass()+" L= "+theHero.getHeroHealth()+" P= "+theHero.getHeroPower());
+		if(this.cardLife <= 0){
+			this.setCardStates(CardStates.DEAD);
+			System.out.println("[Card died] "+this.cardName+" is destroied");
+		}else{
+			this.cardStates = CardStates.ACTED;	
+		}
+		if(theHero.getHeroHealth() <= 0){
+			theHero.setHeroStates(HeroStates.DEAD);
+			System.out.println("[Hero died] "+theHero.getHeroClass()+" is destroied");
+		}
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -844,6 +867,9 @@ public class CardImpl extends MinimalEObjectImpl.Container implements Card {
 				return null;
 			case HearthstonePackage.CARD___SHOW_CARD:
 				ShowCard();
+				return null;
+			case HearthstonePackage.CARD___INTERACT_OPPO_HERO__HERO:
+				InteractOppoHero((Hero)arguments.get(0));
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);

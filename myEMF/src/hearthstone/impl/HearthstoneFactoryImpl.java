@@ -66,6 +66,8 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 			case HearthstonePackage.HERO: return createHero();
 			case HearthstonePackage.GAME_POOL: return createGamePool();
 			case HearthstonePackage.CARD_COLLECTION: return createCardCollection();
+			case HearthstonePackage.GAME_RULE: return createGameRule();
+			case HearthstonePackage.GAME_SETTER: return createGameSetter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -89,8 +91,12 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 				return createCardStatesFromString(eDataType, initialValue);
 			case HearthstonePackage.HERO_STATES:
 				return createHeroStatesFromString(eDataType, initialValue);
-			case HearthstonePackage.GAME_STATE:
-				return createGameStateFromString(eDataType, initialValue);
+			case HearthstonePackage.GAME_STATES:
+				return createGameStatesFromString(eDataType, initialValue);
+			case HearthstonePackage.GAME_TYPE:
+				return createGameTypeFromString(eDataType, initialValue);
+			case HearthstonePackage.HERO_ABILITY:
+				return createHeroAbilityFromString(eDataType, initialValue);
 			case HearthstonePackage.ABILITIES:
 				return createAbilitiesFromString(eDataType, initialValue);
 			default:
@@ -116,8 +122,12 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 				return convertCardStatesToString(eDataType, instanceValue);
 			case HearthstonePackage.HERO_STATES:
 				return convertHeroStatesToString(eDataType, instanceValue);
-			case HearthstonePackage.GAME_STATE:
-				return convertGameStateToString(eDataType, instanceValue);
+			case HearthstonePackage.GAME_STATES:
+				return convertGameStatesToString(eDataType, instanceValue);
+			case HearthstonePackage.GAME_TYPE:
+				return convertGameTypeToString(eDataType, instanceValue);
+			case HearthstonePackage.HERO_ABILITY:
+				return convertHeroAbilityToString(eDataType, instanceValue);
 			case HearthstonePackage.ABILITIES:
 				return convertAbilitiesToString(eDataType, instanceValue);
 			default:
@@ -250,6 +260,26 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GameRule createGameRule() {
+		GameRuleImpl gameRule = new GameRuleImpl();
+		return gameRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GameSetter createGameSetter() {
+		GameSetterImpl gameSetter = new GameSetterImpl();
+		return gameSetter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CardQuality createCardQualityFromString(EDataType eDataType, String initialValue) {
 		CardQuality result = CardQuality.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -350,8 +380,8 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GameState createGameStateFromString(EDataType eDataType, String initialValue) {
-		GameState result = GameState.get(initialValue);
+	public GameStates createGameStatesFromString(EDataType eDataType, String initialValue) {
+		GameStates result = GameStates.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -361,7 +391,47 @@ public class HearthstoneFactoryImpl extends EFactoryImpl implements HearthstoneF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertGameStateToString(EDataType eDataType, Object instanceValue) {
+	public String convertGameStatesToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GameType createGameTypeFromString(EDataType eDataType, String initialValue) {
+		GameType result = GameType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertGameTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HeroAbility createHeroAbilityFromString(EDataType eDataType, String initialValue) {
+		HeroAbility result = HeroAbility.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertHeroAbilityToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

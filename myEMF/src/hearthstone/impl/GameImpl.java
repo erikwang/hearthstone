@@ -3,23 +3,16 @@
 package hearthstone.impl;
 
 import hearthstone.Game;
-import hearthstone.GameBoard;
-import hearthstone.GameState;
+import hearthstone.GameRule;
+import hearthstone.GameStates;
 import hearthstone.HearthstonePackage;
-import hearthstone.Player;
-
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,27 +21,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link hearthstone.impl.GameImpl#getGameHasBoard <em>Game Has Board</em>}</li>
  *   <li>{@link hearthstone.impl.GameImpl#getGameSN <em>Game SN</em>}</li>
- *   <li>{@link hearthstone.impl.GameImpl#getGameHasTwoPlayers <em>Game Has Two Players</em>}</li>
  *   <li>{@link hearthstone.impl.GameImpl#getGameStates <em>Game States</em>}</li>
  *   <li>{@link hearthstone.impl.GameImpl#getGameID <em>Game ID</em>}</li>
+ *   <li>{@link hearthstone.impl.GameImpl#getGameHasGameRule <em>Game Has Game Rule</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class GameImpl extends MinimalEObjectImpl.Container implements Game {
-	/**
-	 * The cached value of the '{@link #getGameHasBoard() <em>Game Has Board</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGameHasBoard()
-	 * @generated
-	 * @ordered
-	 */
-	protected GameBoard gameHasBoard;
-
 	/**
 	 * The default value of the '{@link #getGameSN() <em>Game SN</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -70,16 +52,6 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	protected int gameSN = GAME_SN_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getGameHasTwoPlayers() <em>Game Has Two Players</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGameHasTwoPlayers()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Player> gameHasTwoPlayers;
-
-	/**
 	 * The default value of the '{@link #getGameStates() <em>Game States</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,7 +59,7 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final GameState GAME_STATES_EDEFAULT = GameState.CREATED;
+	protected static final GameStates GAME_STATES_EDEFAULT = GameStates.CREATED;
 
 	/**
 	 * The cached value of the '{@link #getGameStates() <em>Game States</em>}' attribute.
@@ -97,7 +69,7 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * @generated
 	 * @ordered
 	 */
-	protected GameState gameStates = GAME_STATES_EDEFAULT;
+	protected GameStates gameStates = GAME_STATES_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getGameID() <em>Game ID</em>}' attribute.
@@ -120,6 +92,16 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	protected String gameID = GAME_ID_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getGameHasGameRule() <em>Game Has Game Rule</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGameHasGameRule()
+	 * @generated
+	 * @ordered
+	 */
+	protected GameRule gameHasGameRule;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -136,49 +118,6 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	protected EClass eStaticClass() {
 		return HearthstonePackage.Literals.GAME;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GameBoard getGameHasBoard() {
-		return gameHasBoard;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetGameHasBoard(GameBoard newGameHasBoard, NotificationChain msgs) {
-		GameBoard oldGameHasBoard = gameHasBoard;
-		gameHasBoard = newGameHasBoard;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HearthstonePackage.GAME__GAME_HAS_BOARD, oldGameHasBoard, newGameHasBoard);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGameHasBoard(GameBoard newGameHasBoard) {
-		if (newGameHasBoard != gameHasBoard) {
-			NotificationChain msgs = null;
-			if (gameHasBoard != null)
-				msgs = ((InternalEObject)gameHasBoard).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HearthstonePackage.GAME__GAME_HAS_BOARD, null, msgs);
-			if (newGameHasBoard != null)
-				msgs = ((InternalEObject)newGameHasBoard).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HearthstonePackage.GAME__GAME_HAS_BOARD, null, msgs);
-			msgs = basicSetGameHasBoard(newGameHasBoard, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.GAME__GAME_HAS_BOARD, newGameHasBoard, newGameHasBoard));
 	}
 
 	/**
@@ -207,19 +146,7 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Player> getGameHasTwoPlayers() {
-		if (gameHasTwoPlayers == null) {
-			gameHasTwoPlayers = new EObjectContainmentEList<Player>(Player.class, this, HearthstonePackage.GAME__GAME_HAS_TWO_PLAYERS);
-		}
-		return gameHasTwoPlayers;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GameState getGameStates() {
+	public GameStates getGameStates() {
 		return gameStates;
 	}
 
@@ -228,8 +155,8 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setGameStates(GameState newGameStates) {
-		GameState oldGameStates = gameStates;
+	public void setGameStates(GameStates newGameStates) {
+		GameStates oldGameStates = gameStates;
 		gameStates = newGameStates == null ? GAME_STATES_EDEFAULT : newGameStates;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.GAME__GAME_STATES, oldGameStates, gameStates));
@@ -261,6 +188,44 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GameRule getGameHasGameRule() {
+		if (gameHasGameRule != null && gameHasGameRule.eIsProxy()) {
+			InternalEObject oldGameHasGameRule = (InternalEObject)gameHasGameRule;
+			gameHasGameRule = (GameRule)eResolveProxy(oldGameHasGameRule);
+			if (gameHasGameRule != oldGameHasGameRule) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HearthstonePackage.GAME__GAME_HAS_GAME_RULE, oldGameHasGameRule, gameHasGameRule));
+			}
+		}
+		return gameHasGameRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GameRule basicGetGameHasGameRule() {
+		return gameHasGameRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGameHasGameRule(GameRule newGameHasGameRule) {
+		GameRule oldGameHasGameRule = gameHasGameRule;
+		gameHasGameRule = newGameHasGameRule;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.GAME__GAME_HAS_GAME_RULE, oldGameHasGameRule, gameHasGameRule));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public void ShowGame(int GameSN) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -275,19 +240,19 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	public void ShowGameInDetail() {
 		if(this.getGameID() == null){
 			System.out.println("Current there is no game. Use cg to create a new one");
-		}else if(this.getGameStates() == GameState.HALT){
+		}else if(this.getGameStates() == GameStates.HALT){
 			System.out.println("Current game ["+this.getGameID()+"] was halted");
 		}else{
 			System.out.println("[Game report] Game ID: "+this.getGameID());
-			System.out.println("[Game report] Players: "+this.getGameHasTwoPlayers().get(0).getName()+" VS "+this.getGameHasTwoPlayers().get(1).getName());
+			System.out.println("[Game report] Players: "+this.getGameHasGameRule().getGameHasPlayers().get(0).getName()+" VS "+this.getGameHasGameRule().getGameHasPlayers().get(1).getName());
 			//System.out.println(_theGame.getGameHasTwoPlayers().get(0).getPlayerHasDeck());
 			//System.out.println(_theGame.getGameHasTwoPlayers().get(1).getPlayerHasDeck());
 			//Utilites.showCurrentGameDeckCards(_theGame.getGameHasTwoPlayers().get(0).getPlayerHasGameStartDeck());
 			//Utilites.showCurrentGameDeckCards(_theGame.getGameHasTwoPlayers().get(1).getPlayerHasGameStartDeck());
-			this.getGameHasTwoPlayers().get(0).getPlayerHasDeck().ShowGameStartDeckCards();
-			this.getGameHasTwoPlayers().get(0).getPlayerHasDeck().ShowGameDeck();
-			this.getGameHasTwoPlayers().get(1).getPlayerHasDeck().ShowGameStartDeckCards();
-			this.getGameHasTwoPlayers().get(1).getPlayerHasDeck().ShowGameDeck();
+			this.getGameHasGameRule().getGameHasPlayers().get(0).getPlayerHasDeck().ShowGameStartDeckCards();
+			this.getGameHasGameRule().getGameHasPlayers().get(0).getPlayerHasDeck().ShowGameDeck();
+			this.getGameHasGameRule().getGameHasPlayers().get(1).getPlayerHasDeck().ShowGameStartDeckCards();
+			this.getGameHasGameRule().getGameHasPlayers().get(1).getPlayerHasDeck().ShowGameDeck();
 		}
 	}
 
@@ -297,15 +262,54 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case HearthstonePackage.GAME__GAME_HAS_BOARD:
-				return basicSetGameHasBoard(null, msgs);
-			case HearthstonePackage.GAME__GAME_HAS_TWO_PLAYERS:
-				return ((InternalEList<?>)getGameHasTwoPlayers()).basicRemove(otherEnd, msgs);
+	public void HaltGame() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void ShowGameHand() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void ShowGameBoard() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean CheckGameStates() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (this.getGameHasGameRule().getGameHasPlayers().get(0).getPlayerHasOwnBoard().getDeckHasHero().getHeroHealth() <=0){
+			System.out.println("[!!!Winner!!!] The winner of this game is "+this.getGameHasGameRule().getGameHasPlayers().get(1).getName());
+			this.setGameStates(gameStates.OVER);
+			return false;
+		}else{ 
+			if(this.getGameHasGameRule().getGameHasPlayers().get(1).getPlayerHasOwnBoard().getDeckHasHero().getHeroHealth() <=0){
+			System.out.println("[!!!Winner!!!] The winner of this game is "+this.getGameHasGameRule().getGameHasPlayers().get(0).getName());
+			this.setGameStates(gameStates.OVER);
+			return false;
 		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		return true;
+		}
 	}
 
 	/**
@@ -316,16 +320,15 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case HearthstonePackage.GAME__GAME_HAS_BOARD:
-				return getGameHasBoard();
 			case HearthstonePackage.GAME__GAME_SN:
 				return getGameSN();
-			case HearthstonePackage.GAME__GAME_HAS_TWO_PLAYERS:
-				return getGameHasTwoPlayers();
 			case HearthstonePackage.GAME__GAME_STATES:
 				return getGameStates();
 			case HearthstonePackage.GAME__GAME_ID:
 				return getGameID();
+			case HearthstonePackage.GAME__GAME_HAS_GAME_RULE:
+				if (resolve) return getGameHasGameRule();
+				return basicGetGameHasGameRule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -339,21 +342,17 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case HearthstonePackage.GAME__GAME_HAS_BOARD:
-				setGameHasBoard((GameBoard)newValue);
-				return;
 			case HearthstonePackage.GAME__GAME_SN:
 				setGameSN((Integer)newValue);
 				return;
-			case HearthstonePackage.GAME__GAME_HAS_TWO_PLAYERS:
-				getGameHasTwoPlayers().clear();
-				getGameHasTwoPlayers().addAll((Collection<? extends Player>)newValue);
-				return;
 			case HearthstonePackage.GAME__GAME_STATES:
-				setGameStates((GameState)newValue);
+				setGameStates((GameStates)newValue);
 				return;
 			case HearthstonePackage.GAME__GAME_ID:
 				setGameID((String)newValue);
+				return;
+			case HearthstonePackage.GAME__GAME_HAS_GAME_RULE:
+				setGameHasGameRule((GameRule)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -367,20 +366,17 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case HearthstonePackage.GAME__GAME_HAS_BOARD:
-				setGameHasBoard((GameBoard)null);
-				return;
 			case HearthstonePackage.GAME__GAME_SN:
 				setGameSN(GAME_SN_EDEFAULT);
-				return;
-			case HearthstonePackage.GAME__GAME_HAS_TWO_PLAYERS:
-				getGameHasTwoPlayers().clear();
 				return;
 			case HearthstonePackage.GAME__GAME_STATES:
 				setGameStates(GAME_STATES_EDEFAULT);
 				return;
 			case HearthstonePackage.GAME__GAME_ID:
 				setGameID(GAME_ID_EDEFAULT);
+				return;
+			case HearthstonePackage.GAME__GAME_HAS_GAME_RULE:
+				setGameHasGameRule((GameRule)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -394,16 +390,14 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case HearthstonePackage.GAME__GAME_HAS_BOARD:
-				return gameHasBoard != null;
 			case HearthstonePackage.GAME__GAME_SN:
 				return gameSN != GAME_SN_EDEFAULT;
-			case HearthstonePackage.GAME__GAME_HAS_TWO_PLAYERS:
-				return gameHasTwoPlayers != null && !gameHasTwoPlayers.isEmpty();
 			case HearthstonePackage.GAME__GAME_STATES:
 				return gameStates != GAME_STATES_EDEFAULT;
 			case HearthstonePackage.GAME__GAME_ID:
 				return GAME_ID_EDEFAULT == null ? gameID != null : !GAME_ID_EDEFAULT.equals(gameID);
+			case HearthstonePackage.GAME__GAME_HAS_GAME_RULE:
+				return gameHasGameRule != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -422,6 +416,17 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 			case HearthstonePackage.GAME___SHOW_GAME_IN_DETAIL:
 				ShowGameInDetail();
 				return null;
+			case HearthstonePackage.GAME___HALT_GAME:
+				HaltGame();
+				return null;
+			case HearthstonePackage.GAME___SHOW_GAME_HAND:
+				ShowGameHand();
+				return null;
+			case HearthstonePackage.GAME___SHOW_GAME_BOARD:
+				ShowGameBoard();
+				return null;
+			case HearthstonePackage.GAME___CHECK_GAME_STATES:
+				return CheckGameStates();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

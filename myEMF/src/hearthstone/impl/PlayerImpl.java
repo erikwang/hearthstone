@@ -8,6 +8,7 @@ import hearthstone.Deck;
 import hearthstone.GameDeck;
 import hearthstone.GamePlayerHand;
 import hearthstone.HearthstonePackage;
+import hearthstone.Hero;
 import hearthstone.Player;
 import hearthstone.PlayerBoard;
 
@@ -584,6 +585,17 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public void OperateCard(Hero theHero) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -768,6 +780,9 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 				return ClickNextTurnBtn();
 			case HearthstonePackage.PLAYER___DRAW_CARD:
 				return DrawCard();
+			case HearthstonePackage.PLAYER___OPERATE_CARD__HERO:
+				OperateCard((Hero)arguments.get(0));
+				return null;
 		}
 		return super.eInvoke(operationID, arguments);
 	}

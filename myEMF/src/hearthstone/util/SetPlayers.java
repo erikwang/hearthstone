@@ -1,30 +1,26 @@
 package hearthstone.util;
 
-import hearthstone.Card;
-import hearthstone.CardQuality;
+
 import hearthstone.HearthstoneFactory;
 import hearthstone.Player;
 
+
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
 
-import org.eclipse.emf.common.util.ECollections;
+
 
 public class SetPlayers {
 
 	HearthstoneFactory cf = HearthstoneFactory.eINSTANCE;
-	Player playerone = cf.createPlayer();
-	Player playertwo = cf.createPlayer();
+	//Player playerone = cf.createPlayer();
+	//Player playertwo = cf.createPlayer();
 	Hashtable<Integer, Player> allplayers = new Hashtable<Integer, Player>();
-	
-	
+	Random randomGenerator = new Random();
 	
 	public void GetPlayerFromDb() throws Exception{
 		String sql1 = "SELECT * FROM hearthstone.player";
@@ -65,7 +61,7 @@ public class SetPlayers {
 	}
 	
 	public List<Player> getRandomPlayer() throws Exception{
-		Random randomGenerator = new Random();
+		//Random randomGenerator = new Random();
 		if(allplayers.size() == 0){
 			throw new Exception("No player data in database, please check.");
 		}
@@ -79,11 +75,11 @@ public class SetPlayers {
 			playersn2 = 1 + randomGenerator.nextInt(allplayers.size());
 		}
 		tdplayer2 = allplayers.get(playersn2);
+		
 
 		List<Player> theplayers = new ArrayList<Player>();
 		theplayers.add(tdplayer);
 		theplayers.add(tdplayer2);
-		//showPlayers(theplayers);
 		return theplayers;
 	}
 	
@@ -91,7 +87,5 @@ public class SetPlayers {
 		System.out.println("Player one is "+_players.get(0).getName()+" - "+_players.get(0).getTotalWins()+" win(s)");
 		System.out.println("Player two is "+_players.get(1).getName()+" - "+_players.get(1).getTotalWins()+" win(s)");
 	}
-	
-	
 
 }

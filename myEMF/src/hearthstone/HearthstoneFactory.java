@@ -130,6 +130,24 @@ public interface HearthstoneFactory extends EFactory {
 	CardCollection createCardCollection();
 
 	/**
+	 * Returns a new object of class '<em>Game Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Game Rule</em>'.
+	 * @generated
+	 */
+	GameRule createGameRule();
+
+	/**
+	 * Returns a new object of class '<em>Game Setter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Game Setter</em>'.
+	 * @generated
+	 */
+	GameSetter createGameSetter();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
