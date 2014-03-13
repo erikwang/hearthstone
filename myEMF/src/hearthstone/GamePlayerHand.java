@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link hearthstone.GamePlayerHand#getCardsInHand <em>Cards In Hand</em>}</li>
+ *   <li>{@link hearthstone.GamePlayerHand#getHandsBelongToPlayer <em>Hands Belong To Player</em>}</li>
  *   <li>{@link hearthstone.GamePlayerHand#getHandOwner <em>Hand Owner</em>}</li>
  * </ul>
  * </p>
@@ -37,6 +38,34 @@ public interface GamePlayerHand extends GameDeck {
 	 * @generated
 	 */
 	EList<Card> getCardsInHand();
+
+	/**
+	 * Returns the value of the '<em><b>Hands Belong To Player</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link hearthstone.Player#getPlayerHasHand <em>Player Has Hand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hands Belong To Player</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hands Belong To Player</em>' container reference.
+	 * @see #setHandsBelongToPlayer(Player)
+	 * @see hearthstone.HearthstonePackage#getGamePlayerHand_HandsBelongToPlayer()
+	 * @see hearthstone.Player#getPlayerHasHand
+	 * @model opposite="PlayerHasHand" transient="false"
+	 * @generated
+	 */
+	Player getHandsBelongToPlayer();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.GamePlayerHand#getHandsBelongToPlayer <em>Hands Belong To Player</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Hands Belong To Player</em>' container reference.
+	 * @see #getHandsBelongToPlayer()
+	 * @generated
+	 */
+	void setHandsBelongToPlayer(Player value);
 
 	/**
 	 * Returns the value of the '<em><b>Hand Owner</b></em>' attribute.

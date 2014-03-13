@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link hearthstone.impl.GamePlayerHandImpl#getCardsInHand <em>Cards In Hand</em>}</li>
+ *   <li>{@link hearthstone.impl.GamePlayerHandImpl#getHandsBelongToPlayer <em>Hands Belong To Player</em>}</li>
  *   <li>{@link hearthstone.impl.GamePlayerHandImpl#getHandOwner <em>Hand Owner</em>}</li>
  * </ul>
  * </p>
@@ -100,6 +102,47 @@ public class GamePlayerHandImpl extends GameDeckImpl implements GamePlayerHand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Player getHandsBelongToPlayer() {
+		if (eContainerFeatureID() != HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER) return null;
+		return (Player)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetHandsBelongToPlayer(Player newHandsBelongToPlayer, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newHandsBelongToPlayer, HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHandsBelongToPlayer(Player newHandsBelongToPlayer) {
+		if (newHandsBelongToPlayer != eInternalContainer() || (eContainerFeatureID() != HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER && newHandsBelongToPlayer != null)) {
+			if (EcoreUtil.isAncestor(this, newHandsBelongToPlayer))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newHandsBelongToPlayer != null)
+				msgs = ((InternalEObject)newHandsBelongToPlayer).eInverseAdd(this, HearthstonePackage.PLAYER__PLAYER_HAS_HAND, Player.class, msgs);
+			msgs = basicSetHandsBelongToPlayer(newHandsBelongToPlayer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER, newHandsBelongToPlayer, newHandsBelongToPlayer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getHandOwner() {
 		return handOwner;
 	}
@@ -137,6 +180,22 @@ public class GamePlayerHandImpl extends GameDeckImpl implements GamePlayerHand {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetHandsBelongToPlayer((Player)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * remove a card from game deck, and add it to player hand
 	 * This method was moved to Player, following code will no longer be used
 	 */
@@ -145,7 +204,7 @@ public class GamePlayerHandImpl extends GameDeckImpl implements GamePlayerHand {
 		// Ensure that you remove @generated or mark it @generated NOT
 		if(_player.getPlayerHasDeck().getDeckHasCards().size() > 0){
 			System.out.println("Cards in deck left "+_player.getPlayerHasDeck().getDeckHasCards().size()+" A card of ["+_player.getPlayerHasDeck().getDeckHasCards().get(0).getCardName()+"] has drew to hand");
-			_player.getCardsInHand().getCardsInHand().add(_player.getPlayerHasDeck().getDeckHasCards().get(0));
+			_player.getPlayerHasHand().getCardsInHand().add(_player.getPlayerHasDeck().getDeckHasCards().get(0));
 			//_player.getPlayerHasDeck().getDeckHasCards().remove(0); // don't need this
 			return true;	
 		}else{
@@ -164,8 +223,24 @@ public class GamePlayerHandImpl extends GameDeckImpl implements GamePlayerHand {
 		switch (featureID) {
 			case HearthstonePackage.GAME_PLAYER_HAND__CARDS_IN_HAND:
 				return ((InternalEList<?>)getCardsInHand()).basicRemove(otherEnd, msgs);
+			case HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER:
+				return basicSetHandsBelongToPlayer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER:
+				return eInternalContainer().eInverseRemove(this, HearthstonePackage.PLAYER__PLAYER_HAS_HAND, Player.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -178,6 +253,8 @@ public class GamePlayerHandImpl extends GameDeckImpl implements GamePlayerHand {
 		switch (featureID) {
 			case HearthstonePackage.GAME_PLAYER_HAND__CARDS_IN_HAND:
 				return getCardsInHand();
+			case HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER:
+				return getHandsBelongToPlayer();
 			case HearthstonePackage.GAME_PLAYER_HAND__HAND_OWNER:
 				return getHandOwner();
 		}
@@ -197,6 +274,9 @@ public class GamePlayerHandImpl extends GameDeckImpl implements GamePlayerHand {
 				getCardsInHand().clear();
 				getCardsInHand().addAll((Collection<? extends Card>)newValue);
 				return;
+			case HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER:
+				setHandsBelongToPlayer((Player)newValue);
+				return;
 			case HearthstonePackage.GAME_PLAYER_HAND__HAND_OWNER:
 				setHandOwner((String)newValue);
 				return;
@@ -215,6 +295,9 @@ public class GamePlayerHandImpl extends GameDeckImpl implements GamePlayerHand {
 			case HearthstonePackage.GAME_PLAYER_HAND__CARDS_IN_HAND:
 				getCardsInHand().clear();
 				return;
+			case HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER:
+				setHandsBelongToPlayer((Player)null);
+				return;
 			case HearthstonePackage.GAME_PLAYER_HAND__HAND_OWNER:
 				setHandOwner(HAND_OWNER_EDEFAULT);
 				return;
@@ -232,6 +315,8 @@ public class GamePlayerHandImpl extends GameDeckImpl implements GamePlayerHand {
 		switch (featureID) {
 			case HearthstonePackage.GAME_PLAYER_HAND__CARDS_IN_HAND:
 				return cardsInHand != null && !cardsInHand.isEmpty();
+			case HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER:
+				return getHandsBelongToPlayer() != null;
 			case HearthstonePackage.GAME_PLAYER_HAND__HAND_OWNER:
 				return HAND_OWNER_EDEFAULT == null ? handOwner != null : !HAND_OWNER_EDEFAULT.equals(handOwner);
 		}

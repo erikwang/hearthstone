@@ -32,8 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link hearthstone.impl.CardCollectionImpl#getCollectionHasCards <em>Collection Has Cards</em>}</li>
- *   <li>{@link hearthstone.impl.CardCollectionImpl#getCollectionID <em>Collection ID</em>}</li>
  *   <li>{@link hearthstone.impl.CardCollectionImpl#getCollectionOwner <em>Collection Owner</em>}</li>
+ *   <li>{@link hearthstone.impl.CardCollectionImpl#getCollectionID <em>Collection ID</em>}</li>
  * </ul>
  * </p>
  *
@@ -49,26 +49,6 @@ public class CardCollectionImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected EList<Card> collectionHasCards;
-
-	/**
-	 * The default value of the '{@link #getCollectionID() <em>Collection ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCollectionID()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int COLLECTION_ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getCollectionID() <em>Collection ID</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCollectionID()
-	 * @generated
-	 * @ordered
-	 */
-	protected int collectionID = COLLECTION_ID_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCollectionOwner() <em>Collection Owner</em>}' attribute.
@@ -89,6 +69,26 @@ public class CardCollectionImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected int collectionOwner = COLLECTION_OWNER_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCollectionID() <em>Collection ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCollectionID()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int COLLECTION_ID_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCollectionID() <em>Collection ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCollectionID()
+	 * @generated
+	 * @ordered
+	 */
+	protected int collectionID = COLLECTION_ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,10 +198,10 @@ public class CardCollectionImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case HearthstonePackage.CARD_COLLECTION__COLLECTION_HAS_CARDS:
 				return getCollectionHasCards();
-			case HearthstonePackage.CARD_COLLECTION__COLLECTION_ID:
-				return getCollectionID();
 			case HearthstonePackage.CARD_COLLECTION__COLLECTION_OWNER:
 				return getCollectionOwner();
+			case HearthstonePackage.CARD_COLLECTION__COLLECTION_ID:
+				return getCollectionID();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,11 +219,11 @@ public class CardCollectionImpl extends MinimalEObjectImpl.Container implements 
 				getCollectionHasCards().clear();
 				getCollectionHasCards().addAll((Collection<? extends Card>)newValue);
 				return;
-			case HearthstonePackage.CARD_COLLECTION__COLLECTION_ID:
-				setCollectionID((Integer)newValue);
-				return;
 			case HearthstonePackage.CARD_COLLECTION__COLLECTION_OWNER:
 				setCollectionOwner((Integer)newValue);
+				return;
+			case HearthstonePackage.CARD_COLLECTION__COLLECTION_ID:
+				setCollectionID((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,11 +240,11 @@ public class CardCollectionImpl extends MinimalEObjectImpl.Container implements 
 			case HearthstonePackage.CARD_COLLECTION__COLLECTION_HAS_CARDS:
 				getCollectionHasCards().clear();
 				return;
-			case HearthstonePackage.CARD_COLLECTION__COLLECTION_ID:
-				setCollectionID(COLLECTION_ID_EDEFAULT);
-				return;
 			case HearthstonePackage.CARD_COLLECTION__COLLECTION_OWNER:
 				setCollectionOwner(COLLECTION_OWNER_EDEFAULT);
+				return;
+			case HearthstonePackage.CARD_COLLECTION__COLLECTION_ID:
+				setCollectionID(COLLECTION_ID_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -260,10 +260,10 @@ public class CardCollectionImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case HearthstonePackage.CARD_COLLECTION__COLLECTION_HAS_CARDS:
 				return collectionHasCards != null && !collectionHasCards.isEmpty();
-			case HearthstonePackage.CARD_COLLECTION__COLLECTION_ID:
-				return collectionID != COLLECTION_ID_EDEFAULT;
 			case HearthstonePackage.CARD_COLLECTION__COLLECTION_OWNER:
 				return collectionOwner != COLLECTION_OWNER_EDEFAULT;
+			case HearthstonePackage.CARD_COLLECTION__COLLECTION_ID:
+				return collectionID != COLLECTION_ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -293,10 +293,10 @@ public class CardCollectionImpl extends MinimalEObjectImpl.Container implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (CollectionID: ");
-		result.append(collectionID);
-		result.append(", CollectionOwner: ");
+		result.append(" (CollectionOwner: ");
 		result.append(collectionOwner);
+		result.append(", CollectionID: ");
+		result.append(collectionID);
 		result.append(')');
 		return result.toString();
 	}

@@ -73,6 +73,7 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 			case HearthstonePackage.DECK: {
 				Deck deck = (Deck)theEObject;
 				T result = caseDeck(deck);
+				if (result == null) result = caseCardLibrary(deck);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -87,6 +88,7 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 				T result = caseGamePlayerHand(gamePlayerHand);
 				if (result == null) result = caseGameDeck(gamePlayerHand);
 				if (result == null) result = caseDeck(gamePlayerHand);
+				if (result == null) result = caseCardLibrary(gamePlayerHand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -100,6 +102,7 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 				GameDeck gameDeck = (GameDeck)theEObject;
 				T result = caseGameDeck(gameDeck);
 				if (result == null) result = caseDeck(gameDeck);
+				if (result == null) result = caseCardLibrary(gameDeck);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,6 +122,7 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 				PlayerBoard playerBoard = (PlayerBoard)theEObject;
 				T result = casePlayerBoard(playerBoard);
 				if (result == null) result = caseDeck(playerBoard);
+				if (result == null) result = caseCardLibrary(playerBoard);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -149,6 +153,12 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 			case HearthstonePackage.GAME_SETTER: {
 				GameSetter gameSetter = (GameSetter)theEObject;
 				T result = caseGameSetter(gameSetter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case HearthstonePackage.CARD_LIBRARY: {
+				CardLibrary cardLibrary = (CardLibrary)theEObject;
+				T result = caseCardLibrary(cardLibrary);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -363,6 +373,21 @@ public class HearthstoneSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGameSetter(GameSetter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Card Library</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Card Library</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCardLibrary(CardLibrary object) {
 		return null;
 	}
 

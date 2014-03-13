@@ -3,6 +3,7 @@
 package hearthstone.impl;
 
 import hearthstone.Card;
+import hearthstone.CardCollection;
 import hearthstone.CardStates;
 import hearthstone.Deck;
 import hearthstone.GameDeck;
@@ -36,13 +37,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hearthstone.impl.PlayerImpl#getName <em>Name</em>}</li>
  *   <li>{@link hearthstone.impl.PlayerImpl#getTotalWins <em>Total Wins</em>}</li>
  *   <li>{@link hearthstone.impl.PlayerImpl#getPlayerHasDeck <em>Player Has Deck</em>}</li>
- *   <li>{@link hearthstone.impl.PlayerImpl#getCardsInHand <em>Cards In Hand</em>}</li>
+ *   <li>{@link hearthstone.impl.PlayerImpl#getPlayerHasHand <em>Player Has Hand</em>}</li>
  *   <li>{@link hearthstone.impl.PlayerImpl#getPlayerHasOwnBoard <em>Player Has Own Board</em>}</li>
  *   <li>{@link hearthstone.impl.PlayerImpl#getPlayerID <em>Player ID</em>}</li>
  *   <li>{@link hearthstone.impl.PlayerImpl#getLastLogin <em>Last Login</em>}</li>
  *   <li>{@link hearthstone.impl.PlayerImpl#getPlayerLevel <em>Player Level</em>}</li>
  *   <li>{@link hearthstone.impl.PlayerImpl#getPlayerHasGameStartDeck <em>Player Has Game Start Deck</em>}</li>
  *   <li>{@link hearthstone.impl.PlayerImpl#getPlayerHasDeckSet <em>Player Has Deck Set</em>}</li>
+ *   <li>{@link hearthstone.impl.PlayerImpl#getPlayerHasCardCollection <em>Player Has Card Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,14 +102,14 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	protected GameDeck playerHasDeck;
 
 	/**
-	 * The cached value of the '{@link #getCardsInHand() <em>Cards In Hand</em>}' containment reference.
+	 * The cached value of the '{@link #getPlayerHasHand() <em>Player Has Hand</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCardsInHand()
+	 * @see #getPlayerHasHand()
 	 * @generated
 	 * @ordered
 	 */
-	protected GamePlayerHand cardsInHand;
+	protected GamePlayerHand playerHasHand;
 
 	/**
 	 * The cached value of the '{@link #getPlayerHasOwnBoard() <em>Player Has Own Board</em>}' containment reference.
@@ -198,6 +200,16 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	 * @ordered
 	 */
 	protected EList<Deck> playerHasDeckSet;
+
+	/**
+	 * The cached value of the '{@link #getPlayerHasCardCollection() <em>Player Has Card Collection</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlayerHasCardCollection()
+	 * @generated
+	 * @ordered
+	 */
+	protected CardCollection playerHasCardCollection;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -308,8 +320,8 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GamePlayerHand getCardsInHand() {
-		return cardsInHand;
+	public GamePlayerHand getPlayerHasHand() {
+		return playerHasHand;
 	}
 
 	/**
@@ -317,11 +329,11 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCardsInHand(GamePlayerHand newCardsInHand, NotificationChain msgs) {
-		GamePlayerHand oldCardsInHand = cardsInHand;
-		cardsInHand = newCardsInHand;
+	public NotificationChain basicSetPlayerHasHand(GamePlayerHand newPlayerHasHand, NotificationChain msgs) {
+		GamePlayerHand oldPlayerHasHand = playerHasHand;
+		playerHasHand = newPlayerHasHand;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HearthstonePackage.PLAYER__CARDS_IN_HAND, oldCardsInHand, newCardsInHand);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, HearthstonePackage.PLAYER__PLAYER_HAS_HAND, oldPlayerHasHand, newPlayerHasHand);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -332,18 +344,18 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCardsInHand(GamePlayerHand newCardsInHand) {
-		if (newCardsInHand != cardsInHand) {
+	public void setPlayerHasHand(GamePlayerHand newPlayerHasHand) {
+		if (newPlayerHasHand != playerHasHand) {
 			NotificationChain msgs = null;
-			if (cardsInHand != null)
-				msgs = ((InternalEObject)cardsInHand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HearthstonePackage.PLAYER__CARDS_IN_HAND, null, msgs);
-			if (newCardsInHand != null)
-				msgs = ((InternalEObject)newCardsInHand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - HearthstonePackage.PLAYER__CARDS_IN_HAND, null, msgs);
-			msgs = basicSetCardsInHand(newCardsInHand, msgs);
+			if (playerHasHand != null)
+				msgs = ((InternalEObject)playerHasHand).eInverseRemove(this, HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER, GamePlayerHand.class, msgs);
+			if (newPlayerHasHand != null)
+				msgs = ((InternalEObject)newPlayerHasHand).eInverseAdd(this, HearthstonePackage.GAME_PLAYER_HAND__HANDS_BELONG_TO_PLAYER, GamePlayerHand.class, msgs);
+			msgs = basicSetPlayerHasHand(newPlayerHasHand, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.PLAYER__CARDS_IN_HAND, newCardsInHand, newCardsInHand));
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.PLAYER__PLAYER_HAS_HAND, newPlayerHasHand, newPlayerHasHand));
 	}
 
 	/**
@@ -510,18 +522,56 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CardCollection getPlayerHasCardCollection() {
+		if (playerHasCardCollection != null && playerHasCardCollection.eIsProxy()) {
+			InternalEObject oldPlayerHasCardCollection = (InternalEObject)playerHasCardCollection;
+			playerHasCardCollection = (CardCollection)eResolveProxy(oldPlayerHasCardCollection);
+			if (playerHasCardCollection != oldPlayerHasCardCollection) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HearthstonePackage.PLAYER__PLAYER_HAS_CARD_COLLECTION, oldPlayerHasCardCollection, playerHasCardCollection));
+			}
+		}
+		return playerHasCardCollection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CardCollection basicGetPlayerHasCardCollection() {
+		return playerHasCardCollection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPlayerHasCardCollection(CardCollection newPlayerHasCardCollection) {
+		CardCollection oldPlayerHasCardCollection = playerHasCardCollection;
+		playerHasCardCollection = newPlayerHasCardCollection;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.PLAYER__PLAYER_HAS_CARD_COLLECTION, oldPlayerHasCardCollection, playerHasCardCollection));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public void PlayCard(int _cardindex) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		//throw new UnsupportedOperationException();
-		if(_cardindex < (this.getCardsInHand().getCardsInHand().size()) && _cardindex >= 0){
-			this.getCardsInHand().getCardsInHand().get(_cardindex).setCardStates(CardStates.SLEEP);
+		if(_cardindex < (this.getPlayerHasHand().getCardsInHand().size()) && _cardindex >= 0){
+			this.getPlayerHasHand().getCardsInHand().get(_cardindex).setCardStates(CardStates.SLEEP);
 			System.out.println("[Play a card]"+ this.name+" plays this card to his board");
-			this.getCardsInHand().getCardsInHand().get(_cardindex).ShowCard();
-			this.getPlayerHasOwnBoard().getDeckHasCards().add(this.getCardsInHand().getCardsInHand().get(_cardindex));
-			System.out.println("[Card left in hand] = "+this.getCardsInHand().getCardsInHand().size());
+			this.getPlayerHasHand().getCardsInHand().get(_cardindex).ShowCard();
+			this.getPlayerHasOwnBoard().getDeckHasCards().add(this.getPlayerHasHand().getCardsInHand().get(_cardindex));
+			System.out.println("[Card left in hand] = "+this.getPlayerHasHand().getCardsInHand().size());
 			System.out.println("[Card on board] = "+this.getPlayerHasOwnBoard().getDeckHasCards().size());
 		}else{
 			System.out.println("[Play a card] can't play, no cards left in hand");
@@ -561,7 +611,7 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 		// Ensure that you remove @generated or mark it @generated NOT
 		if(this.getPlayerHasDeck().getDeckHasCards().size() > 0){
 			System.out.println("Cards in deck left "+this.getPlayerHasDeck().getDeckHasCards().size()+" A card of ["+this.getPlayerHasDeck().getDeckHasCards().get(0).getCardName()+"] has drew to hand");
-			if(this.getCardsInHand().getCardsInHand().size()>9){
+			if(this.getPlayerHasHand().getCardsInHand().size()>9){
 				System.out.println("[Oops] Player"+this.getName()+" hand is too full, card"+this.getPlayerHasDeck().getDeckHasCards().get(0).getCardName()+" was discard.");
 				this.getPlayerHasDeck().getDeckHasCards().get(0).setCardStates(CardStates.DEAD);
 				this.getPlayerHasDeck().getDeckHasCards().remove(0);
@@ -569,7 +619,7 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 			}else{
 				this.getPlayerHasDeck().getDeckHasCards().get(0).setCardStates(CardStates.IN_PLAYER_HAND);
 				this.getPlayerHasDeck().getDeckHasCards().get(0).ShowCard();
-				this.getCardsInHand().getCardsInHand().add(this.getPlayerHasDeck().getDeckHasCards().get(0));
+				this.getPlayerHasHand().getCardsInHand().add(this.getPlayerHasDeck().getDeckHasCards().get(0));
 				//_player.getPlayerHasDeck().getDeckHasCards().remove(0); // don't need this
 				return true;		
 			}
@@ -597,12 +647,28 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case HearthstonePackage.PLAYER__PLAYER_HAS_HAND:
+				if (playerHasHand != null)
+					msgs = ((InternalEObject)playerHasHand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - HearthstonePackage.PLAYER__PLAYER_HAS_HAND, null, msgs);
+				return basicSetPlayerHasHand((GamePlayerHand)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case HearthstonePackage.PLAYER__PLAYER_HAS_DECK:
 				return basicSetPlayerHasDeck(null, msgs);
-			case HearthstonePackage.PLAYER__CARDS_IN_HAND:
-				return basicSetCardsInHand(null, msgs);
+			case HearthstonePackage.PLAYER__PLAYER_HAS_HAND:
+				return basicSetPlayerHasHand(null, msgs);
 			case HearthstonePackage.PLAYER__PLAYER_HAS_OWN_BOARD:
 				return basicSetPlayerHasOwnBoard(null, msgs);
 			case HearthstonePackage.PLAYER__PLAYER_HAS_GAME_START_DECK:
@@ -627,8 +693,8 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 				return getTotalWins();
 			case HearthstonePackage.PLAYER__PLAYER_HAS_DECK:
 				return getPlayerHasDeck();
-			case HearthstonePackage.PLAYER__CARDS_IN_HAND:
-				return getCardsInHand();
+			case HearthstonePackage.PLAYER__PLAYER_HAS_HAND:
+				return getPlayerHasHand();
 			case HearthstonePackage.PLAYER__PLAYER_HAS_OWN_BOARD:
 				return getPlayerHasOwnBoard();
 			case HearthstonePackage.PLAYER__PLAYER_ID:
@@ -641,6 +707,9 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 				return getPlayerHasGameStartDeck();
 			case HearthstonePackage.PLAYER__PLAYER_HAS_DECK_SET:
 				return getPlayerHasDeckSet();
+			case HearthstonePackage.PLAYER__PLAYER_HAS_CARD_COLLECTION:
+				if (resolve) return getPlayerHasCardCollection();
+				return basicGetPlayerHasCardCollection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -663,8 +732,8 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 			case HearthstonePackage.PLAYER__PLAYER_HAS_DECK:
 				setPlayerHasDeck((GameDeck)newValue);
 				return;
-			case HearthstonePackage.PLAYER__CARDS_IN_HAND:
-				setCardsInHand((GamePlayerHand)newValue);
+			case HearthstonePackage.PLAYER__PLAYER_HAS_HAND:
+				setPlayerHasHand((GamePlayerHand)newValue);
 				return;
 			case HearthstonePackage.PLAYER__PLAYER_HAS_OWN_BOARD:
 				setPlayerHasOwnBoard((PlayerBoard)newValue);
@@ -684,6 +753,9 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 			case HearthstonePackage.PLAYER__PLAYER_HAS_DECK_SET:
 				getPlayerHasDeckSet().clear();
 				getPlayerHasDeckSet().addAll((Collection<? extends Deck>)newValue);
+				return;
+			case HearthstonePackage.PLAYER__PLAYER_HAS_CARD_COLLECTION:
+				setPlayerHasCardCollection((CardCollection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -706,8 +778,8 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 			case HearthstonePackage.PLAYER__PLAYER_HAS_DECK:
 				setPlayerHasDeck((GameDeck)null);
 				return;
-			case HearthstonePackage.PLAYER__CARDS_IN_HAND:
-				setCardsInHand((GamePlayerHand)null);
+			case HearthstonePackage.PLAYER__PLAYER_HAS_HAND:
+				setPlayerHasHand((GamePlayerHand)null);
 				return;
 			case HearthstonePackage.PLAYER__PLAYER_HAS_OWN_BOARD:
 				setPlayerHasOwnBoard((PlayerBoard)null);
@@ -727,6 +799,9 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 			case HearthstonePackage.PLAYER__PLAYER_HAS_DECK_SET:
 				getPlayerHasDeckSet().clear();
 				return;
+			case HearthstonePackage.PLAYER__PLAYER_HAS_CARD_COLLECTION:
+				setPlayerHasCardCollection((CardCollection)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -745,8 +820,8 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 				return totalWins != TOTAL_WINS_EDEFAULT;
 			case HearthstonePackage.PLAYER__PLAYER_HAS_DECK:
 				return playerHasDeck != null;
-			case HearthstonePackage.PLAYER__CARDS_IN_HAND:
-				return cardsInHand != null;
+			case HearthstonePackage.PLAYER__PLAYER_HAS_HAND:
+				return playerHasHand != null;
 			case HearthstonePackage.PLAYER__PLAYER_HAS_OWN_BOARD:
 				return playerHasOwnBoard != null;
 			case HearthstonePackage.PLAYER__PLAYER_ID:
@@ -759,6 +834,8 @@ public class PlayerImpl extends MinimalEObjectImpl.Container implements Player {
 				return playerHasGameStartDeck != null;
 			case HearthstonePackage.PLAYER__PLAYER_HAS_DECK_SET:
 				return playerHasDeckSet != null && !playerHasDeckSet.isEmpty();
+			case HearthstonePackage.PLAYER__PLAYER_HAS_CARD_COLLECTION:
+				return playerHasCardCollection != null;
 		}
 		return super.eIsSet(featureID);
 	}

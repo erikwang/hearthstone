@@ -1,18 +1,21 @@
-package hearthstone.util;
+package hearth.retired;
 import hearthstone.Card;
 import hearthstone.CardQuality;
-import hearthstone.Deck;
 import hearthstone.GameDeck;
 import hearthstone.HearthstoneFactory;
-import hearthstone.impl.DeckImpl;
-import hearthstone.impl.HearthstoneFactoryImpl;
+import hearthstone.util.Dbconn;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 import java.util.*;
 
 import org.eclipse.emf.common.util.ECollections;
+
+/*
+ * All the methods / logic were moved to GameDeck
+ * This class no longer be required
+ * */
+
 
 public class SetCards {
 	Hashtable<Integer, Card> allcards = new Hashtable<Integer, Card>();

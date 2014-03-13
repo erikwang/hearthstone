@@ -4,8 +4,6 @@ package hearthstone;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Deck</b></em>'.
@@ -18,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hearthstone.Deck#getDeckName <em>Deck Name</em>}</li>
  *   <li>{@link hearthstone.Deck#getDeckHasCards <em>Deck Has Cards</em>}</li>
  *   <li>{@link hearthstone.Deck#getDeckHasHero <em>Deck Has Hero</em>}</li>
+ *   <li>{@link hearthstone.Deck#getEReference0 <em>EReference0</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Deck extends EObject {
+public interface Deck extends CardLibrary {
 	/**
 	 * Returns the value of the '<em><b>Deck ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -119,6 +118,32 @@ public interface Deck extends EObject {
 	 * @generated
 	 */
 	void setDeckHasHero(Hero value);
+
+	/**
+	 * Returns the value of the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>EReference0</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>EReference0</em>' reference.
+	 * @see #setEReference0(CardLibrary)
+	 * @see hearthstone.HearthstonePackage#getDeck_EReference0()
+	 * @model
+	 * @generated
+	 */
+	CardLibrary getEReference0();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Deck#getEReference0 <em>EReference0</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>EReference0</em>' reference.
+	 * @see #getEReference0()
+	 * @generated
+	 */
+	void setEReference0(CardLibrary value);
 
 	/**
 	 * <!-- begin-user-doc -->

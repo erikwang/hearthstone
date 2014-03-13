@@ -18,13 +18,14 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hearthstone.Player#getName <em>Name</em>}</li>
  *   <li>{@link hearthstone.Player#getTotalWins <em>Total Wins</em>}</li>
  *   <li>{@link hearthstone.Player#getPlayerHasDeck <em>Player Has Deck</em>}</li>
- *   <li>{@link hearthstone.Player#getCardsInHand <em>Cards In Hand</em>}</li>
+ *   <li>{@link hearthstone.Player#getPlayerHasHand <em>Player Has Hand</em>}</li>
  *   <li>{@link hearthstone.Player#getPlayerHasOwnBoard <em>Player Has Own Board</em>}</li>
  *   <li>{@link hearthstone.Player#getPlayerID <em>Player ID</em>}</li>
  *   <li>{@link hearthstone.Player#getLastLogin <em>Last Login</em>}</li>
  *   <li>{@link hearthstone.Player#getPlayerLevel <em>Player Level</em>}</li>
  *   <li>{@link hearthstone.Player#getPlayerHasGameStartDeck <em>Player Has Game Start Deck</em>}</li>
  *   <li>{@link hearthstone.Player#getPlayerHasDeckSet <em>Player Has Deck Set</em>}</li>
+ *   <li>{@link hearthstone.Player#getPlayerHasCardCollection <em>Player Has Card Collection</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,30 +113,32 @@ public interface Player extends EObject {
 	void setPlayerHasDeck(GameDeck value);
 
 	/**
-	 * Returns the value of the '<em><b>Cards In Hand</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Player Has Hand</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link hearthstone.GamePlayerHand#getHandsBelongToPlayer <em>Hands Belong To Player</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Cards In Hand</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Player Has Hand</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cards In Hand</em>' containment reference.
-	 * @see #setCardsInHand(GamePlayerHand)
-	 * @see hearthstone.HearthstonePackage#getPlayer_CardsInHand()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Player Has Hand</em>' containment reference.
+	 * @see #setPlayerHasHand(GamePlayerHand)
+	 * @see hearthstone.HearthstonePackage#getPlayer_PlayerHasHand()
+	 * @see hearthstone.GamePlayerHand#getHandsBelongToPlayer
+	 * @model opposite="HandsBelongToPlayer" containment="true" required="true"
 	 * @generated
 	 */
-	GamePlayerHand getCardsInHand();
+	GamePlayerHand getPlayerHasHand();
 
 	/**
-	 * Sets the value of the '{@link hearthstone.Player#getCardsInHand <em>Cards In Hand</em>}' containment reference.
+	 * Sets the value of the '{@link hearthstone.Player#getPlayerHasHand <em>Player Has Hand</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cards In Hand</em>' containment reference.
-	 * @see #getCardsInHand()
+	 * @param value the new value of the '<em>Player Has Hand</em>' containment reference.
+	 * @see #getPlayerHasHand()
 	 * @generated
 	 */
-	void setCardsInHand(GamePlayerHand value);
+	void setPlayerHasHand(GamePlayerHand value);
 
 	/**
 	 * Returns the value of the '<em><b>Player Has Own Board</b></em>' containment reference.
@@ -282,6 +285,32 @@ public interface Player extends EObject {
 	 * @generated
 	 */
 	EList<Deck> getPlayerHasDeckSet();
+
+	/**
+	 * Returns the value of the '<em><b>Player Has Card Collection</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Player Has Card Collection</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Player Has Card Collection</em>' reference.
+	 * @see #setPlayerHasCardCollection(CardCollection)
+	 * @see hearthstone.HearthstonePackage#getPlayer_PlayerHasCardCollection()
+	 * @model
+	 * @generated
+	 */
+	CardCollection getPlayerHasCardCollection();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Player#getPlayerHasCardCollection <em>Player Has Card Collection</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Player Has Card Collection</em>' reference.
+	 * @see #getPlayerHasCardCollection()
+	 * @generated
+	 */
+	void setPlayerHasCardCollection(CardCollection value);
 
 	/**
 	 * <!-- begin-user-doc -->

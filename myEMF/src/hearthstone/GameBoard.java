@@ -66,12 +66,4 @@ public interface GameBoard extends EObject {
 	 */
 	void setBoardSN(int value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void ShowGameBoard(int pindex);
-
 } // GameBoard

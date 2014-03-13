@@ -1,9 +1,11 @@
-package hearthstone.util;
+package hearth.retired;
 
 
 import hearthstone.HearthstoneFactory;
 import hearthstone.Player;
 
+
+import hearthstone.util.Dbconn;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -12,7 +14,10 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Random;
 
-
+/*
+ * All the methods / logic were moved to Game initialization
+ * This class no longer be required
+ * */
 
 public class SetPlayers {
 

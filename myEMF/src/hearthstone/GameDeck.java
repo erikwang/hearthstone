@@ -13,6 +13,7 @@ package hearthstone;
  * <ul>
  *   <li>{@link hearthstone.GameDeck#getDeckOwner <em>Deck Owner</em>}</li>
  *   <li>{@link hearthstone.GameDeck#getGameStartDeckCards <em>Game Start Deck Cards</em>}</li>
+ *   <li>{@link hearthstone.GameDeck#getGameDeckBelongToCardLibrary <em>Game Deck Belong To Card Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -20,7 +21,7 @@ package hearthstone;
  * @model
  * @generated
  */
-public interface GameDeck extends Deck {
+public interface GameDeck extends Deck, CardLibrary {
 	/**
 	 * Returns the value of the '<em><b>Deck Owner</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -74,6 +75,32 @@ public interface GameDeck extends Deck {
 	void setGameStartDeckCards(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Game Deck Belong To Card Library</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Game Deck Belong To Card Library</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Game Deck Belong To Card Library</em>' reference.
+	 * @see #setGameDeckBelongToCardLibrary(CardLibrary)
+	 * @see hearthstone.HearthstonePackage#getGameDeck_GameDeckBelongToCardLibrary()
+	 * @model
+	 * @generated
+	 */
+	CardLibrary getGameDeckBelongToCardLibrary();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.GameDeck#getGameDeckBelongToCardLibrary <em>Game Deck Belong To Card Library</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Game Deck Belong To Card Library</em>' reference.
+	 * @see #getGameDeckBelongToCardLibrary()
+	 * @generated
+	 */
+	void setGameDeckBelongToCardLibrary(CardLibrary value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model
@@ -104,5 +131,13 @@ public interface GameDeck extends Deck {
 	 * @generated
 	 */
 	void ShowGameStartDeckCards();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void GenerateRandomGameDeck();
 
 } // GameDeck

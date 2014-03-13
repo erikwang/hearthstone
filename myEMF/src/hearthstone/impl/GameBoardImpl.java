@@ -5,7 +5,6 @@ package hearthstone.impl;
 import hearthstone.GameBoard;
 import hearthstone.HearthstonePackage;
 import hearthstone.PlayerBoard;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -117,53 +116,6 @@ public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameB
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public void ShowGameBoard(int pindex) {
-		
-		switch (pindex){
-		case 1:
-			if(this.getGameBoardHasPlayerBoard().get(0).getDeckHasCards().size() > 0){
-				System.out.println("cards on board: "+this.getGameBoardHasPlayerBoard().get(0).getDeckHasCards().size()+" cards on board");				
-				this.getGameBoardHasPlayerBoard().get(0).ShowCardsInDeck();
-			}else{
-				System.out.println("- No cards on player1's board");
-			}
-			System.out.println("-------------------------------");
-			break;
-			
-		case 2:
-			if(this.getGameBoardHasPlayerBoard().get(1).getDeckHasCards().size() > 0){
-				System.out.println("cards on board: "+this.getGameBoardHasPlayerBoard().get(1).getDeckHasCards().size()+" cards on board");				
-				this.getGameBoardHasPlayerBoard().get(1).ShowCardsInDeck();
-			}else{
-				System.out.println("- No cards on player2's board");
-			}
-			System.out.println("-------------------------------");
-			break;
-		
-		default:
-			if(this.getGameBoardHasPlayerBoard().get(0).getDeckHasCards().size() > 0){
-				System.out.println("cards on board: "+this.getGameBoardHasPlayerBoard().get(0).getDeckHasCards().size()+" cards on board");				
-				this.getGameBoardHasPlayerBoard().get(0).ShowCardsInDeck();
-			}else{
-				System.out.println("- No cards on player1's board");
-			}
-			
-			if(this.getGameBoardHasPlayerBoard().get(1).getDeckHasCards().size() > 0){
-				System.out.println("cards on board: "+this.getGameBoardHasPlayerBoard().get(1).getDeckHasCards().size()+" cards on board");				
-				this.getGameBoardHasPlayerBoard().get(1).ShowCardsInDeck();
-			}else{
-				System.out.println("- No cards on player2's board");
-			}
-			System.out.println("-------------------------------");
-			break;		
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -243,21 +195,6 @@ public class GameBoardImpl extends MinimalEObjectImpl.Container implements GameB
 				return boardSN != BOARD_SN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case HearthstonePackage.GAME_BOARD___SHOW_GAME_BOARD__INT:
-				ShowGameBoard((Integer)arguments.get(0));
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

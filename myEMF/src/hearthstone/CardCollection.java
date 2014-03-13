@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link hearthstone.CardCollection#getCollectionHasCards <em>Collection Has Cards</em>}</li>
- *   <li>{@link hearthstone.CardCollection#getCollectionID <em>Collection ID</em>}</li>
  *   <li>{@link hearthstone.CardCollection#getCollectionOwner <em>Collection Owner</em>}</li>
+ *   <li>{@link hearthstone.CardCollection#getCollectionID <em>Collection ID</em>}</li>
  * </ul>
  * </p>
  *

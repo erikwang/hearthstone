@@ -1,4 +1,4 @@
-package hearthstone.util;
+package hearth.retired;
 
 import hearthstone.GameBoard;
 import hearthstone.GameDeck;

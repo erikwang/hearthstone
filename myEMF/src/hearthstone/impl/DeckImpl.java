@@ -3,21 +3,19 @@
 package hearthstone.impl;
 
 import hearthstone.Card;
+import hearthstone.CardLibrary;
 import hearthstone.CardStates;
 import hearthstone.Deck;
 import hearthstone.HearthstonePackage;
 import hearthstone.Hero;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,12 +30,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link hearthstone.impl.DeckImpl#getDeckName <em>Deck Name</em>}</li>
  *   <li>{@link hearthstone.impl.DeckImpl#getDeckHasCards <em>Deck Has Cards</em>}</li>
  *   <li>{@link hearthstone.impl.DeckImpl#getDeckHasHero <em>Deck Has Hero</em>}</li>
+ *   <li>{@link hearthstone.impl.DeckImpl#getEReference0 <em>EReference0</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
+public class DeckImpl extends CardLibraryImpl implements Deck {
 	/**
 	 * The default value of the '{@link #getDeckID() <em>Deck ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -97,6 +96,16 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	 * @ordered
 	 */
 	protected Hero deckHasHero;
+
+	/**
+	 * The cached value of the '{@link #getEReference0() <em>EReference0</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference0()
+	 * @generated
+	 * @ordered
+	 */
+	protected CardLibrary eReference0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -212,6 +221,44 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CardLibrary getEReference0() {
+		if (eReference0 != null && eReference0.eIsProxy()) {
+			InternalEObject oldEReference0 = (InternalEObject)eReference0;
+			eReference0 = (CardLibrary)eResolveProxy(oldEReference0);
+			if (eReference0 != oldEReference0) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HearthstonePackage.DECK__EREFERENCE0, oldEReference0, eReference0));
+			}
+		}
+		return eReference0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CardLibrary basicGetEReference0() {
+		return eReference0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference0(CardLibrary newEReference0) {
+		CardLibrary oldEReference0 = eReference0;
+		eReference0 = newEReference0;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.DECK__EREFERENCE0, oldEReference0, eReference0));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * 
 	 */
 	public boolean Hello() {
@@ -308,6 +355,9 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 			case HearthstonePackage.DECK__DECK_HAS_HERO:
 				if (resolve) return getDeckHasHero();
 				return basicGetDeckHasHero();
+			case HearthstonePackage.DECK__EREFERENCE0:
+				if (resolve) return getEReference0();
+				return basicGetEReference0();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -334,6 +384,9 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 			case HearthstonePackage.DECK__DECK_HAS_HERO:
 				setDeckHasHero((Hero)newValue);
 				return;
+			case HearthstonePackage.DECK__EREFERENCE0:
+				setEReference0((CardLibrary)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -358,6 +411,9 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 			case HearthstonePackage.DECK__DECK_HAS_HERO:
 				setDeckHasHero((Hero)null);
 				return;
+			case HearthstonePackage.DECK__EREFERENCE0:
+				setEReference0((CardLibrary)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -378,6 +434,8 @@ public class DeckImpl extends MinimalEObjectImpl.Container implements Deck {
 				return deckHasCards != null && !deckHasCards.isEmpty();
 			case HearthstonePackage.DECK__DECK_HAS_HERO:
 				return deckHasHero != null;
+			case HearthstonePackage.DECK__EREFERENCE0:
+				return eReference0 != null;
 		}
 		return super.eIsSet(featureID);
 	}

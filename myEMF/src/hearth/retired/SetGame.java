@@ -1,4 +1,4 @@
-package hearthstone.util;
+package hearth.retired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,10 @@ import hearthstone.Hero;
 import hearthstone.HeroClass;
 import hearthstone.Player;
 import hearthstone.PlayerBoard;
-
+/*
+ * All the methods / logic were moved to Game initialization
+ * This class no longer be required
+ * */
 
 public class SetGame {
 	HearthstoneFactory cf = HearthstoneFactory.eINSTANCE;
@@ -131,8 +134,8 @@ public class SetGame {
 		GamePlayerHand gph2 = cf.createGamePlayerHand();
 		gph1.setHandOwner(theGame.getGameHasGameRule().getGameHasPlayers().get(0).getName());
 		gph2.setHandOwner(theGame.getGameHasGameRule().getGameHasPlayers().get(1).getName());
-		theGame.getGameHasGameRule().getGameHasPlayers().get(0).setCardsInHand(gph1);
-		theGame.getGameHasGameRule().getGameHasPlayers().get(1).setCardsInHand(gph2);
+		theGame.getGameHasGameRule().getGameHasPlayers().get(0).setPlayerHasHand(gph1);
+		theGame.getGameHasGameRule().getGameHasPlayers().get(1).setPlayerHasHand(gph2);
 		System.out.println("["+theGame.getGameID()+ "] 2 of player <hand>s to player");
 	}
 	

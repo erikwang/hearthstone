@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link hearthstone.Game#getGameStates <em>Game States</em>}</li>
  *   <li>{@link hearthstone.Game#getGameID <em>Game ID</em>}</li>
  *   <li>{@link hearthstone.Game#getGameHasGameRule <em>Game Has Game Rule</em>}</li>
+ *   <li>{@link hearthstone.Game#getGameInGamePool <em>Game In Game Pool</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,12 +133,32 @@ public interface Game extends EObject {
 	void setGameHasGameRule(GameRule value);
 
 	/**
+	 * Returns the value of the '<em><b>Game In Game Pool</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link hearthstone.GamePool#getGamePoolHasGames <em>Game Pool Has Games</em>}'.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Game In Game Pool</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model
+	 * @return the value of the '<em>Game In Game Pool</em>' container reference.
+	 * @see #setGameInGamePool(GamePool)
+	 * @see hearthstone.HearthstonePackage#getGame_GameInGamePool()
+	 * @see hearthstone.GamePool#getGamePoolHasGames
+	 * @model opposite="GamePoolHasGames" transient="false"
 	 * @generated
 	 */
-	void ShowGame(int GameSN);
+	GamePool getGameInGamePool();
+
+	/**
+	 * Sets the value of the '{@link hearthstone.Game#getGameInGamePool <em>Game In Game Pool</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Game In Game Pool</em>' container reference.
+	 * @see #getGameInGamePool()
+	 * @generated
+	 */
+	void setGameInGamePool(GamePool value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,30 +171,6 @@ public interface Game extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void HaltGame();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void ShowGameHand();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void ShowGameBoard();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Check each hero's health, if <=0, we have a winner, and game over
 	 * 
@@ -182,5 +179,61 @@ public interface Game extends EObject {
 	 * @generated
 	 */
 	boolean CheckGameStates();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void ShowPlayerGameBoard();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void InitializeGame();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void SetGameBoard();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void SetGamePlayer();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void SetPlayerHand();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void SetGameRule();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void SetPlayerDeck();
 
 } // Game

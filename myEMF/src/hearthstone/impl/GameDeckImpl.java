@@ -2,14 +2,16 @@
  */
 package hearthstone.impl;
 
+import hearthstone.Card;
+import hearthstone.CardLibrary;
 import hearthstone.GameDeck;
 import hearthstone.HearthstonePackage;
-
 import java.lang.reflect.InvocationTargetException;
-
+import java.util.Random;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -21,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link hearthstone.impl.GameDeckImpl#getDeckOwner <em>Deck Owner</em>}</li>
  *   <li>{@link hearthstone.impl.GameDeckImpl#getGameStartDeckCards <em>Game Start Deck Cards</em>}</li>
+ *   <li>{@link hearthstone.impl.GameDeckImpl#getGameDeckBelongToCardLibrary <em>Game Deck Belong To Card Library</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +69,16 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 	 * @ordered
 	 */
 	protected String gameStartDeckCards = GAME_START_DECK_CARDS_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getGameDeckBelongToCardLibrary() <em>Game Deck Belong To Card Library</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGameDeckBelongToCardLibrary()
+	 * @generated
+	 * @ordered
+	 */
+	protected CardLibrary gameDeckBelongToCardLibrary;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +146,44 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CardLibrary getGameDeckBelongToCardLibrary() {
+		if (gameDeckBelongToCardLibrary != null && gameDeckBelongToCardLibrary.eIsProxy()) {
+			InternalEObject oldGameDeckBelongToCardLibrary = (InternalEObject)gameDeckBelongToCardLibrary;
+			gameDeckBelongToCardLibrary = (CardLibrary)eResolveProxy(oldGameDeckBelongToCardLibrary);
+			if (gameDeckBelongToCardLibrary != oldGameDeckBelongToCardLibrary) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, HearthstonePackage.GAME_DECK__GAME_DECK_BELONG_TO_CARD_LIBRARY, oldGameDeckBelongToCardLibrary, gameDeckBelongToCardLibrary));
+			}
+		}
+		return gameDeckBelongToCardLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CardLibrary basicGetGameDeckBelongToCardLibrary() {
+		return gameDeckBelongToCardLibrary;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setGameDeckBelongToCardLibrary(CardLibrary newGameDeckBelongToCardLibrary) {
+		CardLibrary oldGameDeckBelongToCardLibrary = gameDeckBelongToCardLibrary;
+		gameDeckBelongToCardLibrary = newGameDeckBelongToCardLibrary;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, HearthstonePackage.GAME_DECK__GAME_DECK_BELONG_TO_CARD_LIBRARY, oldGameDeckBelongToCardLibrary, gameDeckBelongToCardLibrary));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean RemoveCard(int removeCardSN) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
@@ -179,6 +230,78 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public void GenerateRandomGameDeck() {
+		//GameDeck myRealDeck = cf.createGameDeck();
+		Random randomGenerator = new Random();
+		//AllCards allcards =
+		LoadFromDb();
+		
+		/*if(allcards.size() == 0){
+			throw new Exception("No card data in database, please check.");
+			//return null;
+		}*/
+		
+		int ccount = 0;
+		while(ccount < 30){
+			int cardsn = 1 + randomGenerator.nextInt(NUMOFCARDS);
+			Card tdcard = cf.eINSTANCE.createCard();
+			tdcard = this.allCardsPool.get(cardsn);
+			//System.out.println("--> Card sn "+cardsn+":"+tdcard.getCardSN()+"- "+ tdcard.getCardName()+" was drew");
+			Card thecard = cf.eINSTANCE.createCard();
+			
+			////Card object can't be reference as thecard = tdcard, otherwise it is the same object which will trigger unique exception
+			
+			thecard.setCardSN(tdcard.getCardSN());
+			thecard.setCardDeckSN(ccount);
+			thecard.setCardName(tdcard.getCardName());
+			thecard.setCardClass(tdcard.getCardClass());
+			thecard.setCardAbilityDesc(tdcard.getCardAbilityDesc());
+			thecard.setCardLife(tdcard.getCardLife());
+			thecard.setCardCost(tdcard.getCardCost());
+			thecard.setCardPower(tdcard.getCardPower());
+			thecard.setCardQuality(tdcard.getCardQuality());
+			thecard.setCardRace(tdcard.getCardRace());
+			//thecard.setCardStates();
+			
+			
+			if(checkDuplicate(thecard)){		
+					//System.out.println("->"+ccount+" "+thecard.getCardDeckSN());
+					//System.out.println(tdcard.getCardName() + " | "+thecard.getCardName());
+					this.getDeckHasCards().add(thecard);
+					ccount++;
+			}
+		}
+		
+		//Collections.sort(myDeck,comparator);
+		//ECollections.sort(myRealDeck.getDeckHasCards(),comparator);
+
+		//showDeck();
+		//showRealDeck(myRealDeck);
+	}
+
+	
+	
+	public boolean checkDuplicate(Card _card){
+		boolean flag = true;
+		int count = 0;
+		for(int t=0;t<this.getDeckHasCards().size();t++){
+			//System.out.println(_card.getCardSN()+"!!!!"+ myRealDeck.getDeckHasCards().get(t).getCardSN());
+			if (_card.getCardSN() == this.getDeckHasCards().get(t).getCardSN()){
+				count++;
+				if(count > 2){
+					flag = false;
+					return flag;	
+				}
+			}
+		}
+		return flag;
+	}
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -188,6 +311,9 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 				return getDeckOwner();
 			case HearthstonePackage.GAME_DECK__GAME_START_DECK_CARDS:
 				return getGameStartDeckCards();
+			case HearthstonePackage.GAME_DECK__GAME_DECK_BELONG_TO_CARD_LIBRARY:
+				if (resolve) return getGameDeckBelongToCardLibrary();
+				return basicGetGameDeckBelongToCardLibrary();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,6 +331,9 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 				return;
 			case HearthstonePackage.GAME_DECK__GAME_START_DECK_CARDS:
 				setGameStartDeckCards((String)newValue);
+				return;
+			case HearthstonePackage.GAME_DECK__GAME_DECK_BELONG_TO_CARD_LIBRARY:
+				setGameDeckBelongToCardLibrary((CardLibrary)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,6 +353,9 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 			case HearthstonePackage.GAME_DECK__GAME_START_DECK_CARDS:
 				setGameStartDeckCards(GAME_START_DECK_CARDS_EDEFAULT);
 				return;
+			case HearthstonePackage.GAME_DECK__GAME_DECK_BELONG_TO_CARD_LIBRARY:
+				setGameDeckBelongToCardLibrary((CardLibrary)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -240,6 +372,8 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 				return DECK_OWNER_EDEFAULT == null ? deckOwner != null : !DECK_OWNER_EDEFAULT.equals(deckOwner);
 			case HearthstonePackage.GAME_DECK__GAME_START_DECK_CARDS:
 				return GAME_START_DECK_CARDS_EDEFAULT == null ? gameStartDeckCards != null : !GAME_START_DECK_CARDS_EDEFAULT.equals(gameStartDeckCards);
+			case HearthstonePackage.GAME_DECK__GAME_DECK_BELONG_TO_CARD_LIBRARY:
+				return gameDeckBelongToCardLibrary != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -261,6 +395,9 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 				return null;
 			case HearthstonePackage.GAME_DECK___SHOW_GAME_START_DECK_CARDS:
 				ShowGameStartDeckCards();
+				return null;
+			case HearthstonePackage.GAME_DECK___GENERATE_RANDOM_GAME_DECK:
+				GenerateRandomGameDeck();
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
