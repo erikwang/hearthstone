@@ -268,4 +268,5 @@
     <eLiterals name="Expert" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="AllCards" instanceClassName="hearthstone.util.AllCards"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="EDataType0"/>
 </ecore:EPackage>

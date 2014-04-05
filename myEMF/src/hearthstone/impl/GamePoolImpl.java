@@ -410,6 +410,13 @@ public class GamePoolImpl extends MinimalEObjectImpl.Container implements GamePo
 					System.out.println("[Current game] you now can operate game"+theGame.toString());
 				}
 				break;
+			
+			case "fc":
+				//sc.showCardDb();
+				String strCardName = sca.nextLine();
+				this.getGamePoolHasCardLibrary().getAllCardsPool().findCard(strCardName);
+				break;
+			
 			case "sc":
 				//sc.showCardDb();
 				this.getGamePoolHasCardLibrary().ShowCardLibrary();
@@ -591,6 +598,7 @@ public class GamePoolImpl extends MinimalEObjectImpl.Container implements GamePo
 		System.out.println("sgb - show a game board");
 		System.out.println("sgh - show a player's current hand");
 		System.out.println("-----------------------------------------------------------------------------------");
+		System.out.println("fc - find a card by name (hash)");
 		System.out.println("pc - play a card from your hand to board");
 		System.out.println("dc - draw a card");
 		System.out.println("oc - operat a card on board to interact with another card on your oppenent's board");
