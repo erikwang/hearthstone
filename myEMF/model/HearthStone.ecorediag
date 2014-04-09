@@ -876,6 +876,18 @@
     <element xmi:type="ecore:EDataType" href="HearthStone.ecore#//AllCards"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z-rb0qpeEeORdOsox_pbbQ" x="-720" y="60"/>
   </children>
+  <children xmi:type="notation:Shape" xmi:id="_zfY-8MAvEeOvsYhc-l9DFw" type="Note" fontName="Segoe UI" description="Project report and manualfinished in April 9" fillColor="13369343" transparency="0" lineColor="6737151" lineWidth="1">
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_zgE7cMAvEeOvsYhc-l9DFw" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:BasicDecorationNode" xmi:id="_zgE7ccAvEeOvsYhc-l9DFw" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:TextStyle" xmi:id="_zfY-8cAvEeOvsYhc-l9DFw"/>
+    <styles xmi:type="notation:LineTypeStyle" xmi:id="_zfY-8sAvEeOvsYhc-l9DFw"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zfY-88AvEeOvsYhc-l9DFw" x="-618" y="228" width="199"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_wwPawZBQEeOyBZvOKHCRlg"/>
   <element xmi:type="ecore:EPackage" href="HearthStone.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_wwerUJBQEeOyBZvOKHCRlg" type="3002" source="_wwX9oJBQEeOyBZvOKHCRlg" target="_wwUTQJBQEeOyBZvOKHCRlg">
