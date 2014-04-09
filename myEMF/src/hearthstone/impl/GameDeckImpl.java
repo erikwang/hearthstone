@@ -245,7 +245,7 @@ public class GameDeckImpl extends DeckImpl implements GameDeck {
 		
 		int ccount = 0;
 		while(ccount < 30){
-			int cardsn = 1 + randomGenerator.nextInt(NUMOFCARDS);
+			int cardsn = randomGenerator.nextInt(NUMOFCARDS) + 1;
 			Card tdcard = cf.eINSTANCE.createCard();
 			tdcard = this.allCardsPool.get(cardsn);
 			//System.out.println("--> Card sn "+cardsn+":"+tdcard.getCardSN()+"- "+ tdcard.getCardName()+" was drew");

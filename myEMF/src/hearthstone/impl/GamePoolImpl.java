@@ -523,7 +523,9 @@ public class GamePoolImpl extends MinimalEObjectImpl.Container implements GamePo
 						}else{
 							System.out.println("[Can't find card on board] No such card in index="+cardIndex+" on the player's board");
 						}
-					}if(_input.matches("^[h]$")){
+					}
+					
+					if(_input.matches("^[h]$")){
 						oppoHero = theGame.getGameHasGameRule().getGameHasPlayers().get(Math.abs(intPlayer - 1)).getPlayerHasOwnBoard().getDeckHasHero();
 						if (yourCard != null & oppoHero != null){
 							yourCard.InteractOppoHero(oppoHero);
@@ -536,10 +538,6 @@ public class GamePoolImpl extends MinimalEObjectImpl.Container implements GamePo
 						}else{
 							System.out.println("[Error] Your opponent's hero is missing");
 						}
-
-					}
-					else{
-						System.out.println("[Input error] Input is not a number, operation terminated.");
 					}
 				}
 			if(theGame != null){
