@@ -10,12 +10,22 @@ import hearthstone.HearthstoneFactory;
 import hearthstone.HearthstonePackage;
 import hearthstone.util.AllCards;
 import hearthstone.util.Dbconn;
+
 import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
+
 import hearthstone.util.Dbconn;
+
+
+
+
 
 
 
@@ -226,8 +236,11 @@ public class CardLibraryImpl extends MinimalEObjectImpl.Container implements Car
 	 */
 	public void LoadFromDb() {
 		AllCards allcards = new AllCards();
-		AllCards allcardshash = new AllCards();
 		this.setAllCardsPool(allcards);
+		
+		//Apr-26 for demo ArrayList List<Card> as container of cards library
+		List<Card> lcard = new ArrayList<Card>();
+
 		
 		String sql1 = "SELECT * FROM hearthstone.cards";
 		Dbconn db;
@@ -279,19 +292,27 @@ public class CardLibraryImpl extends MinimalEObjectImpl.Container implements Car
 
 
 				//allCardsPool.put(sn, tempcard);
-				//Change Keys to Hash integer value April 5th
+				//Change Keys to Hash integer value / April 5th
 				allCardsPool.put(name.hashCode(), tempcard);
-		}
-		rst1.close();
-		stmt1.close();
-		//allcards.showAllcards();
-		//allcardshash.showAllcards();
+				lcard.add(tempcard);
+			}
+			rst1.close();
+			stmt1.close();
+		//	allcards.showAllcards();
+		//	allcardshash.showAllcards();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//Apr-26 for demo ArrayList List<Card> sorting by cost asc
+		Collections.sort(lcard,comparator);
+		//for(Card ttcard:lcard){
+			//System.out.println(ttcard.toString());
+		//}
 	}
 	
+
 	Comparator<Card> comparator = new Comparator<Card>() {
 	    public int compare(Card c1, Card c2) { //override 
 	    	int cost1, cost2;
@@ -300,8 +321,7 @@ public class CardLibraryImpl extends MinimalEObjectImpl.Container implements Car
 	    	}else{
 	    		cost1 = new Integer(c1.getCardCost()).intValue();
 	    	}
-	    	if(c2.getCardCost().equals("-"
-	    			+ "")){
+	    	if(c2.getCardCost().equals("-")){
 	    		cost2 = 0;
 	    	}else{
 	    		cost2 = new Integer(c2.getCardCost()).intValue();
